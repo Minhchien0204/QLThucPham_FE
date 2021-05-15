@@ -1,0 +1,32 @@
+mat-toolbar {
+    height: 45px;
+    background-color: #32a852;
+    width: 100%;
+}
+
+.button-logo {
+    height: 100%;
+    color: honeydew;
+}
+
+.left-element-menu span, .right-element-menu span{
+    vertical-align: 0px;
+    margin-left: 3px;
+}
+
+.left-element-menu mat-icon, .right-element-menu mat-icon{
+    vertical-align: -6px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar-spacer-half {
+    width: 10%;
+}
+
+.right-element-menu {
+    color: honeydew;
+    font-size: 14px;
+}

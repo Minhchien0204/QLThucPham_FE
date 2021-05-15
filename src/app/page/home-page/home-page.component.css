@@ -1,0 +1,64 @@
+.image-home {
+    width: 100%;
+    height: auto;
+}
+
+.container-fluid {
+    width: 96%;
+    max-width: 1680px;
+}
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.area-heading.style-two {
+    text-transform: capitalize;
+}
+.area-heading {
+    font-size: 30px;
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
+}
+.heading-para {
+    color: #656f73;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0 50px;
+    font-size: 10px;
+    line-height: 28px;
+}
+
+.wrapper-init {
+    display: inline-block;
+}
+.item-service{
+    display: inline-block;
+    width: 30%;
+}
+.image-service {
+    width: 30%;
+}
+
+.ser-det h2 {
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+.ser-det p {
+    font-size: 10px;
+}
+
+.sin-ser {
+    text-align: center;
+}
