@@ -71,3 +71,114 @@ app-left-toolbar {
     width: 100%;
     height: auto;
 }
+.data-table {
+    border-color: grey;
+    border-collapse: separate;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+    border: 1px solid #bdbdbd;
+    margin-top: 35px;
+}
+
+table {
+    width: 100%;
+    border-bottom-width: 2px;
+}
+.message-no-data {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.row-column {
+    border-left: 1px solid #bdbdbd;
+    text-align: center !important;
+    margin-left: 0px;
+
+}
+.content-table, .content-table-header {
+    text-align: center;
+}
+.content-table-header {
+    font-weight: bold;
+    font-size: 15px;
+}
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
+.icon-edit {
+    color: #ee8f00;
+}
+.icon-delete {
+    color: #fd0000;
+}
+.element-action {
+    margin-left: 15px;
+    margin-top: 25px;
+    height: 50px;
+    background-color: #ffffff;
+}
+.example-button-row {
+    display: table-cell;
+    width: 490px;
+    margin: 8px 8px 8px 0;
+}
+.button-create {
+    background-color: #32a852;
+    color: #ffffff;
+}
+
+.title {
+    padding-left: 15px;
+    border-left: 5px solid #32a852;
+}
+.parent-bread-crum, .parent-bread-crum-link{
+    font-weight: 450;
+    font-size: 25px;
+}
+.parent-bread-crum-link :hover {
+    text-decoration: underline;
+    text-decoration-color: #32a852;
+}
+.child-bread-crum {
+    font-size: 20px;
+    color: #757575;
+}
+.row-field {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.row-right, .row-left {
+    display: inline-block;
+    width: 50%;
+}
+.row-left {
+    text-align: right;
+}
+.row-right {
+    text-align: left;
+}
+.form-label {
+    padding-right: 50px;
+}
+.wrapper-form {
+    margin-right: 25%;
+    margin-top: 50px;
+}
+.row-field-button {
+    margin-top: 50px;
+    text-align: center;
+}
+.button-form {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+mat-form-field {
+    width: 100%;
+}
+::ng-deep .mat-form-field-underline {
+    position: static !important;
+}
