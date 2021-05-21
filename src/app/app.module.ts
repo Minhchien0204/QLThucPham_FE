@@ -18,25 +18,42 @@ import { HeadMenuBarComponent } from './common-element/head-menu-bar/head-menu-b
 // Page component
 import { HomePageComponent } from './page/home-page/home-page.component';
 import { LeftToolbarComponent } from './common-element/left-toolbar/left-toolbar.component';
+import { LoginPageComponent } from './page/login-page/login-page.component';
+import { AdminComponent } from './page/admin/admin.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './page/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadMenuBarComponent,
     HomePageComponent,
-    LeftToolbarComponent
+    LeftToolbarComponent,
+    LoginPageComponent,
+    AdminComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatTreeModule
+    MatTreeModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
