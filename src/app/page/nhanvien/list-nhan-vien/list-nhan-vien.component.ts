@@ -2,7 +2,7 @@ import {OnInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { NgxSpinnerService } from "ngx-spinner";
-import {NhanvienService} from '../../../service/nhanvien.service';
+import {NhanvienService} from '../../../services/nhanvien.service';
 
 
 // export interface NhanVien {

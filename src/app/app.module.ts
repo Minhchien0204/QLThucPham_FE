@@ -26,6 +26,9 @@ import { ProgressSpinnerComponent } from './common-element/progress-spinner/prog
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MessageAlertComponent } from './common-element/message-alert/message-alert.component';
 import { LeftToolbarComponent } from './common-element/left-toolbar/left-toolbar.component';
+import { LoginPageComponent } from './page/login-page/login-page.component';
+import { AdminComponent } from './page/admin/admin.component';
+import { ProfileComponent } from './page/profile/profile.component';
 
 // Page component
 import { HomePageComponent } from './page/home-page/home-page.component';
@@ -33,7 +36,9 @@ import { ListNhanVienComponent } from './page/nhanvien/list-nhan-vien/list-nhan-
 import { TaoNhanVienComponent } from './page/nhanvien/tao-nhan-vien/tao-nhan-vien.component';
 
 // Service
-import {IntercepterService } from './service/intercepter.service';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -44,10 +49,14 @@ import {IntercepterService } from './service/intercepter.service';
     ListNhanVienComponent,
     ProgressSpinnerComponent,
     MessageAlertComponent,
-    TaoNhanVienComponent
+    TaoNhanVienComponent,
+    LoginPageComponent,
+    AdminComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -67,11 +76,8 @@ import {IntercepterService } from './service/intercepter.service';
     MatGridListModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: IntercepterService,
-      multi: true
-    }
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
   entryComponents: [
     ProgressSpinnerComponent
