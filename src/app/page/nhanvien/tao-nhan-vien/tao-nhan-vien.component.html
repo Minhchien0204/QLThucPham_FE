@@ -1,0 +1,96 @@
+
+<div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
+            <div class="title">
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/nhanvien">Quản lí nhân viên</button> > <span class="child-bread-crum">Thêm nhân viên</span></h1>
+            </div>
+            <hr>
+            <div class="wrapper-form">
+                <form ngNativeValidate [formGroup]="createForm">
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Mã nhân viên</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="maNhanVien">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Tên nhân viên</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="name">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Địa chỉ</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="diaChi">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Điện thoại</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="dienThoai">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Ngày sinh</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="ngaySinh">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Tên bộ phận</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="tenBoPhan">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="row-field row-field-button">
+                <div class="button-form">
+                    <button class="button-create" mat-raised-button>Lưu</button>
+                </div>
+                <div class="button-form">
+                    <button class="button-cancel" color="none" routerLink="/nhanvien" mat-raised-button>Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

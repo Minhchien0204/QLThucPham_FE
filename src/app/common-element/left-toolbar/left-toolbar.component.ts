@@ -4,54 +4,24 @@ import {NestedTreeControl} from '@angular/cdk/tree';
 
 interface MenuNode {
   name: string;
+  url: string;
   children?: MenuNode[];
+  active: boolean;
 }
 
 const TREE_DATA: MenuNode[] = [
   {
-    name: 'menu1',
+    name: 'Quản lí',
     children: [
       {
-        name: 'child menu1'
-      },
-      {
-        name: 'child menu2'
-      },
-      {
-        name: 'child menu3'
-      },
-    ]
-  },
-  {
-    name: 'menu2',
-    children: [
-      {
-        name: 'child menu1'
-      },
-      {
-        name: 'child menu2'
-      },
-      {
-        name: 'child menu3'
-      },
-    ]
+        name: 'Nhân viên',
+        url: '/nhanvien',
+        active: true
+      }
+    ],
+    url: '#',
+    active: false
   }
-  ,
-  {
-    name: 'menu3',
-    children: [
-      {
-        name: 'child menu1'
-      },
-      {
-        name: 'child menu2'
-      },
-      {
-        name: 'child menu3'
-      },
-    ]
-  }
-  
 ]
 
 

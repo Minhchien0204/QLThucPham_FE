@@ -1,0 +1,10 @@
+.container {
+    text-align: center;
+  }
+.text {
+    font-weight: bold;
+    font-size: 18px;
+}
+    mat-spinner {
+    margin: 60px;
+}
