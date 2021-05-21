@@ -60,7 +60,6 @@ export class LoginPageComponent implements OnInit {
         data => {
           console.log(data);
           this.role = data.role;
-          console.log(data.role);
           if(data.role == 'Admin')
           {
             this.router.navigate(['/admin']);

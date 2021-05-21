@@ -28,8 +28,10 @@ export class ProfileComponent implements OnInit {
   loadData() {
     this.currenUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') || '{}'));
     var userId = this.currenUserSubject.value.id;
+    console.log(userId);
     this.userdetailService.showProfile(userId).subscribe(data => {
       this.user = data;
+      console.log(this.user)
     }, error => {
       console.log(error);
     })
