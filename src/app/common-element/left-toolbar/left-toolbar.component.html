@@ -1,10 +1,10 @@
 <div class="container-left">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <!-- This is the tree node template for leaf nodes -->
-        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle style="display: {{ menuMain.includes(node.id)? '':'none' }}">
             <li class="mat-tree-node">
             <!-- use a disabled button to provide padding for tree leaf -->
-            <button mat-button class="button-child-menu" routerLink="{{node.url}}">{{node.name}}</button>
+                <button mat-button class="button-child-menu" routerLink="{{node.url}}">{{node.name}}</button>
             
             </li>
         </mat-tree-node>
