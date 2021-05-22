@@ -19,6 +19,9 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule } from "@angular/material/input";
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 // Common component
 import { HeadMenuBarComponent } from './common-element/head-menu-bar/head-menu-bar.component';
@@ -73,7 +76,9 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule,
+    MatRadioModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

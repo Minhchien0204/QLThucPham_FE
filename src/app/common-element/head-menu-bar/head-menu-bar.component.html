@@ -1,5 +1,5 @@
 <mat-toolbar color="green">
-    <button mat-button class="button-logo" routerLink="/">
+    <button mat-button class="button-logo" routerLink="/home">
         <div class="left-element-menu">
             <mat-icon>school</mat-icon>
             <span>Ngoi Sao Xanh</span>
@@ -13,7 +13,7 @@
         <mat-menu #menu="matMenu">
             <button mat-menu-item>
                 <mat-icon>face</mat-icon>
-                <a class="nav-item nav-link" routerLink="/">{{currentUser.userName}}</a>
+                <a class="nav-item nav-link" routerLink="/profile">{{currentUser.userName}}</a>
             </button>
             <button mat-menu-item>
                 <mat-icon>power_settings_new</mat-icon>
