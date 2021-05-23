@@ -24,3 +24,11 @@
     background: #1E90FF !important;
     color: white !important;
 }
+
+::ng-deep .mat-form-field-underline {
+    position: static !important;
+}
+
+::ng-deep .mat-form-field-suffix {
+    margin-left: -20px;
+}

@@ -114,7 +114,7 @@ const TREE_DATA: MenuNode[] = [
 export class LeftToolbarComponent implements OnInit {
   menuGiaoVien: string[] = ['lop', 'phieu-bao-an'];
   menuNhaBep: string[] =  ['thuc-pham', 'mon-an', 'phieu-yeu-cau-thuc-pham', 'phieu-bao-an', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao'];
-  menuAdmin: string[] = ['user', 'lop', 'hoc-sinh', 'mon-an', 'thuc-pham', 'phieu-yeu-cau-thuc-pham', 'phieu-bao-an', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao'];
+  menuAdmin: string[] = ['user', 'nhan-vien','lop', 'hoc-sinh', 'mon-an', 'thuc-pham', 'phieu-yeu-cau-thuc-pham', 'phieu-bao-an', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao'];
   menuMain: string[];
   currentUser!: User
 

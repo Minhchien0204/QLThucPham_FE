@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
-
-export interface NhanVien{
-  id: number;
-  maNhanVien:string;
-  name:string;
-  diaChi:string;
-  dienThoai:string;
-  ngaySinh:string;
-  tenBoPhan:string;
-}
+import {environment } from './../../environments/environment'
+import {NhanVien} from '../models/nhan-vien'
 
 @Injectable({
   providedIn: 'root'
 })
 export class NhanvienService {
-  urlGetListNhanVien = 'http://127.0.0.1:5000/'
+  urlGetListNhanVien = environment.apiUrl + '/nhanvien'
 
   constructor(private http: HttpClient) { }
 
   public getListNhanVien():Observable<NhanVien[]> {
     return this.http.get<NhanVien[]>(this.urlGetListNhanVien);
   }
-}
+
+  public getNhanVien(id: string): Observable<NhanVien[]> {
+    return this.http.get<NhanVien[]>(this.urlGetListNhanVien + '/' + id);
+  }
+
+  public putNhanVien(id: string, body: {[index: string]:any}) {
+    return this.http.put(this.urlGetListNhanVien + '/' + id, body);
+  }
+} 

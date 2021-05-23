@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-message-alert',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageAlertComponent implements OnInit {
 
+  @Input() alerMsg: {[index: string]:any} = {
+    "showMsg": false,
+    "typeMsg": 'info',
+    "contentMsg": ''
+  }
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  closeAlert() {
+    this.alerMsg['showMsg'] = false;
   }
 
 }

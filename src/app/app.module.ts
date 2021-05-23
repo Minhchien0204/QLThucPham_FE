@@ -19,6 +19,9 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule } from "@angular/material/input";
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // Common component
 import { HeadMenuBarComponent } from './common-element/head-menu-bar/head-menu-bar.component';
@@ -33,7 +36,7 @@ import { ProfileComponent } from './page/profile/profile.component';
 // Page component
 import { HomePageComponent } from './page/home-page/home-page.component';
 import { ListNhanVienComponent } from './page/nhanvien/list-nhan-vien/list-nhan-vien.component';
-import { TaoNhanVienComponent } from './page/nhanvien/tao-nhan-vien/tao-nhan-vien.component';
+import { EditNhanVienComponent } from './page/nhanvien/edit-nhan-vien/edit-nhan-vien.component';
 
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
@@ -49,10 +52,10 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     ListNhanVienComponent,
     ProgressSpinnerComponent,
     MessageAlertComponent,
-    TaoNhanVienComponent,
+    EditNhanVienComponent,
     LoginPageComponent,
     AdminComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,11 +76,14 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   entryComponents: [
     ProgressSpinnerComponent

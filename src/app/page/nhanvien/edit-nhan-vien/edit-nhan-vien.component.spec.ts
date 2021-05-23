@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaoNhanVienComponent } from './tao-nhan-vien.component';
+import { EditNhanVienComponent } from './edit-nhan-vien.component';
 
-describe('TaoNhanVienComponent', () => {
-  let component: TaoNhanVienComponent;
-  let fixture: ComponentFixture<TaoNhanVienComponent>;
+describe('EditNhanVienComponent', () => {
+  let component: EditNhanVienComponent;
+  let fixture: ComponentFixture<EditNhanVienComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaoNhanVienComponent ]
+      declarations: [ EditNhanVienComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TaoNhanVienComponent);
+    fixture = TestBed.createComponent(EditNhanVienComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

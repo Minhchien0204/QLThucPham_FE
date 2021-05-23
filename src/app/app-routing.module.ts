@@ -11,7 +11,7 @@ import { LoginPageComponent } from './page/login-page/login-page.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { AuthGuard } from './_helpers/auth.guard';
 import { ListNhanVienComponent } from './page/nhanvien/list-nhan-vien/list-nhan-vien.component';
-import { TaoNhanVienComponent } from './page/nhanvien/tao-nhan-vien/tao-nhan-vien.component';
+import { EditNhanVienComponent } from './page/nhanvien/edit-nhan-vien/edit-nhan-vien.component';
 
 
 const routes: Routes = [
@@ -20,8 +20,8 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginPageComponent},
-  {path: 'nhanvien', component: ListNhanVienComponent},
-  {path: 'nhanvien/tao-nhan-vien', component: TaoNhanVienComponent},
+  {path: 'nhan-vien', component: ListNhanVienComponent},
+  {path: 'nhan-vien/edit/:id', component: EditNhanVienComponent},
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];

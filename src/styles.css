@@ -13,7 +13,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     position: relative;
     display: flex;
 }
-
+a {
+    color: #32a852;
+    text-decoration: None;
+}
+a:hover {
+    text-decoration-color: #32a852 !important; 
+    text-decoration: underline;
+}
 .wrapper {
     position: fixed;
     width: 100%;
@@ -25,7 +32,7 @@ app-left-toolbar {
 
 .container-left {
     background-color:#fff;
-    height: auto;
+    height: 100%;
     width: 100%;
     overflow: auto;
     overflow-x: hidden;
@@ -35,13 +42,13 @@ app-left-toolbar {
 .left-toolbar {
     margin-top: 10px;
     display: flex;
-    height: 50%;
+    height: 100%;
     width: 18%;
     position: fixed;
     background-color: inherit;
     padding-left: 15px;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 .right-content {
@@ -51,6 +58,10 @@ app-left-toolbar {
     height: 100%;
     padding: 10px 15px 10px 10px;
     overflow: auto;
+}
+.disableButton {
+    color: white !important;
+    background-color: #7ec9a6 !important;
 }
 
 .spacer {
@@ -181,4 +192,7 @@ mat-form-field {
 }
 ::ng-deep .mat-form-field-underline {
     position: static !important;
+}
+.errorValidator {
+    color: red;
 }

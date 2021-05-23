@@ -1,23 +1,8 @@
 import {OnInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import { NgxSpinnerService } from "ngx-spinner";
 import {NhanvienService} from '../../../services/nhanvien.service';
-
-
-// export interface NhanVien {
-//   id: number,
-//   maNhanVien: string,
-//   name: string,
-//   diaChi: string,
-//   dienThoai: string,
-//   ngaySinh: string,
-//   tenBoPhan: string,
-// }
-
-type json_list = {
-  [key: string]: string
-}
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-nhan-vien',
@@ -26,20 +11,29 @@ type json_list = {
 })
 export class ListNhanVienComponent implements OnInit  {
 
-  displayedColumns: string[] = ['maNhanVien', 'name', 'diaChi', 'dienThoai', 'ngaySinh', 'tenBoPhan', 'chucNang'];
+  displayedColumns: string[] = ['maNhanVien', 'name', 'tenBoPhan'];
   columnName: {[index: string]:any} = {
-    "maNhanVien": "Mã nhân viên",
-    "name": "Tên nhân viên", 
-    "diaChi": "Địa chỉ", 
-    "dienThoai": "Điện thoại", 
-    "ngaySinh": "Ngày sinh", 
-    "tenBoPhan": "Tên bộ phận"
+    'maNhanVien': 'Mã nhân viên',
+    'name': 'Tên nhân viên', 
+    'tenBoPhan': 'Bộ phận'
   }
   dataSource!: MatTableDataSource<object>;
   data: any[]= [];
+  alerMsg: {[index: string]:any} = {
+    "showMsg": false,
+    "typeMsg": 'info',
+    "contentMsg": ''
+  }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor( private nhanVienService: NhanvienService ) { } 
+  constructor( private nhanVienService: NhanvienService,
+    private router: Router ) { 
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        this.alerMsg['showMsg'] = true;
+        this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;
+        this.alerMsg['contentMsg'] = this.router.getCurrentNavigation()?.extras.state?.contentMsg;
+      }
+    } 
 
   ngOnInit() {
     this.getListNhanVien();
@@ -48,14 +42,12 @@ export class ListNhanVienComponent implements OnInit  {
     const dataGet: any[] = [];
     const getNhanVien = this.nhanVienService.getListNhanVien().toPromise().then(
       async (dataResponse) => {
-        console.log('get dc')
         dataResponse.map((nhanvien) => {
           dataGet.push(nhanvien)
         })
       },
       (error)=>{
         // do notthing
-        console.log(error)
       }
     );
     await Promise.all([getNhanVien]);
