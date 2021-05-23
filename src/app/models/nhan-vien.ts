@@ -10,10 +10,5 @@ export class NhanVien {
 
 export const bodyNhanVien: {[index: string]:any} = {
     "id": "",
-    "maNhanVien": "",
-    "name": "",
-    "dienThoai": "",
-    "diaChi": "",
-    "ngaySinh": "",
     "tenBoPhan": ""
 }

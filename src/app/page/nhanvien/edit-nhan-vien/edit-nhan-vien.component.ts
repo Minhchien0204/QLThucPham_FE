@@ -3,7 +3,6 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import {bodyNhanVien} from '../../../models/nhan-vien';
 import {NhanvienService} from '../../../services/nhanvien.service';
-import { Role } from '../../../models/role';
 
 @Component({
   selector: 'app-edit-nhan-vien',
@@ -48,15 +47,10 @@ export class EditNhanVienComponent implements OnInit {
     const getNV = this.nhanVienService.getNhanVien(id).toPromise().then((nhanvien: {[index: string]:any}) => {
       // set data for model nhan vien
       this.nhanVien.id = nhanvien['id'];
-      this.nhanVien.maNhanVien = nhanvien['maNhanVien'];
-      this.nhanVien.name = nhanvien['name'];
-      this.nhanVien.dienThoai = nhanvien['dienThoai'];
-      this.nhanVien.diaChi = nhanvien['diaChi'];
-      this.nhanVien.ngaySinh = nhanvien['ngaySinh'];
       this.nhanVien.tenBoPhan = nhanvien['tenBoPhan'];
 
-      this.createForm.get('maNhanVien')?.setValue(this.nhanVien.maNhanVien);
-      this.createForm.get('name')?.setValue(this.nhanVien.name);
+      this.createForm.get('maNhanVien')?.setValue(nhanvien['maNhanVien']);
+      this.createForm.get('name')?.setValue(nhanvien['name']);
       this.createForm.get('tenBoPhan')?.setValue(this.nhanVien.tenBoPhan);
     }, ()=> {
       this.alerMsg['showMsg'] = true;
