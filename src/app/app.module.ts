@@ -37,6 +37,10 @@ import { ProfileComponent } from './page/profile/profile.component';
 import { HomePageComponent } from './page/home-page/home-page.component';
 import { ListNhanVienComponent } from './page/nhanvien/list-nhan-vien/list-nhan-vien.component';
 import { EditNhanVienComponent } from './page/nhanvien/edit-nhan-vien/edit-nhan-vien.component';
+import { ListLopComponent } from './page/lop/list-lop/list-lop.component';
+import { TaoLopComponent } from './page/lop/tao-lop/tao-lop.component';
+import { EditLopComponent } from './page/lop/edit-lop/edit-lop.component';
+import { ListHocSinhComponent } from './page/lop/list-hoc-sinh/list-hoc-sinh.component';
 
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
@@ -56,6 +60,10 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     LoginPageComponent,
     AdminComponent,
     ProfileComponent,
+    ListLopComponent,
+    TaoLopComponent,
+    EditLopComponent,
+    ListHocSinhComponent,
   ],
   imports: [
     BrowserModule,

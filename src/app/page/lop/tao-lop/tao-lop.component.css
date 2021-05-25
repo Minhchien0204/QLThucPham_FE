@@ -1,0 +1,34 @@
+::ng-deep .mat-form-field-infix {
+    border-top-width: 0px !important;
+    padding-bottom: 8px !important;
+    padding-top: 13px !important;
+    min-width: 100% !important;
+}
+::ng-deep .mat-form-field-flex .mat-form-field-outline {
+    height: 34px !important;
+}
+
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0px !important;
+}
+
+::ng-deep .mat-select-trigger .mat-select-value, ::ng-deep .mat-option-text {
+    text-align: left !important;
+}
+
+::ng-deep .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex, ::ng-deep .mat-option, ::ng-deep .mat-select-trigger {
+    cursor: context-menu !important;
+}
+
+::ng-deep .mat-option:hover:not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled) {
+    background: #1E90FF !important;
+    color: white !important;
+}
+
+::ng-deep .mat-form-field-underline {
+    position: static !important;
+}
+
+::ng-deep .mat-form-field-suffix {
+    margin-left: -20px;
+}

@@ -74,6 +74,7 @@ export class EditNhanVienComponent implements OnInit {
         this.alerMsg['typeMsg'] = 'danger';
         this.alerMsg['contentMsg'] = 'Failed update!';
       });
+      await Promise.all([putNhanVien]);
     }
     
   }

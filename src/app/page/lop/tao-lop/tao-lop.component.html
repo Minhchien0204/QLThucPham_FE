@@ -1,0 +1,126 @@
+
+<div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
+            <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
+            <div class="title">
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/lop">Lớp</button> > <span class="child-bread-crum">Thêm lớp</span></h1>
+            </div>
+            <hr>
+            <div class="wrapper-form">
+                <form ngNativeValidate [formGroup]="createForm">
+
+                    <!-- Mã nhân viên -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Mã lớp</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="maLop">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="createForm.controls['maLop'].invalid && (createForm.controls['maLop'].dirty || 
+                                                    createForm.controls['maLop'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'maLop')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    
+                    <!-- Tên nhân viên -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Tên lớp</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="tenLop">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="createForm.controls['tenLop'].invalid && (createForm.controls['tenLop'].dirty || 
+                                                    createForm.controls['tenLop'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'tenLop')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>                    
+
+                    <!-- Giáo vi -->
+                    <!-- <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Giáo viên phụ trách</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="giaoVien">
+                                  <mat-option *ngFor="let gV of listGiaoVien" [value]="gV['maGV']">{{gV['name']}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                    </div> -->
+
+                    <!-- Số lượng max -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Sĩ số tối đa</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="soLuong">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="createForm.controls['soLuong'].invalid && (createForm.controls['soLuong'].dirty || 
+                    createForm.controls['soLuong'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'soLuong')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                </form>
+                
+            </div>
+            <div class="row-field row-field-button">
+                <div class="button-form">
+                    <button class="button-create" 
+                        mat-raised-button
+                        [disabled]="createForm.invalid"
+                        (click)="addLop()"
+                        [ngClass]="{disableButton:createForm.invalid}"
+                        >Lưu</button>
+                </div>
+                <div class="button-form">
+                    <button class="button-cancel" color="none" routerLink="/lop" mat-raised-button>Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
