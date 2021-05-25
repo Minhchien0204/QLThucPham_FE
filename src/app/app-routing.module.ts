@@ -20,8 +20,8 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginPageComponent},
-  {path: 'nhanvien', component: ListNhanVienComponent},
-  {path: 'nhanvien/tao-nhan-vien', component: TaoNhanVienComponent},
+  {path: 'nhan-vien', component: ListNhanVienComponent},
+  {path: 'nhan-vien/tao-nhan-vien', component: TaoNhanVienComponent},
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];

@@ -41,6 +41,7 @@ import { TaoNhanVienComponent } from './page/nhanvien/tao-nhan-vien/tao-nhan-vie
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ListUsersComponent } from './page/users/list-users/list-users.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     TaoNhanVienComponent,
     LoginPageComponent,
     AdminComponent,
-    ProfileComponent
+    ProfileComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,
