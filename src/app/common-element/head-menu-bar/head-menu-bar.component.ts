@@ -10,10 +10,12 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class HeadMenuBarComponent implements OnInit {
   user!: User;
   currentUser!: User
+  roleUser!: string;
 
   constructor( private authenticationService: AuthenticationService) { 
     //this.authenticationService.user.subscribe(x => this.user = x);
     this.currentUser = this.authenticationService.userValue;
+    this.roleUser = this.currentUser.role;
     console.log(this.currentUser.userName);
   }
 

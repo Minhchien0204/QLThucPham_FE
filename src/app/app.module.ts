@@ -22,6 +22,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 // Common component
 import { HeadMenuBarComponent } from './common-element/head-menu-bar/head-menu-bar.component';
@@ -45,6 +48,7 @@ import { ListHocSinhComponent } from './page/lop/list-hoc-sinh/list-hoc-sinh.com
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ListUsersComponent } from './page/users/list-users/list-users.component';
 
 
 @NgModule({
@@ -64,6 +68,7 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     TaoLopComponent,
     EditLopComponent,
     ListHocSinhComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +93,8 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
+    MatRadioModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

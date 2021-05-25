@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'lop', component: ListLopComponent},
   {path: 'lop/create', component: TaoLopComponent},
   {path: 'lop/edit/:id', component: EditLopComponent},
-  {path: 'lop/:id/hoc-sinh', component: ListHocSinhComponent},
+  {path: 'lop/:id/hoc-sinh', component: ListHocSinhComponent}
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
+import { first } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserDetailService } from 'src/app/services/user-detail.service';
 
 @Component({
@@ -11,27 +13,31 @@ import { UserDetailService } from 'src/app/services/user-detail.service';
 })
 export class ProfileComponent implements OnInit {
   user!: User;
+  userAPI!: User
   submitted = false;
-  private currenUserSubject!: BehaviorSubject<User>;
+  loading = false;
 
   constructor( 
     private userdetailService: UserDetailService,
-    private formBuider: FormBuilder
-  ) { }
+    private formBuider: FormBuilder,
+    private authService: AuthenticationService
+  ) {
+      this.user = this.authService.userValue;
+   }
 
   ngOnInit(): void {
-    this.user = new User();
-    this.loadData();
+      this.loadData();
   }
 
-
-  loadData() {
-    this.currenUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') || '{}'));
-    var userId = this.currenUserSubject.value.id;
-    this.userdetailService.showProfile(userId).subscribe(data => {
-      this.user = data;
+  loadData(){
+    this.loading = true;
+    this.userdetailService.showProfile(this.user.id).pipe(first()).subscribe( data => {
+      this.loading = false;
+      this.userAPI = data;
+      console.log(data)
     }, error => {
       console.log(error);
+      
     })
   }
 }
