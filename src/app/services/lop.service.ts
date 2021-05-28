@@ -32,6 +32,6 @@ export class LopService {
   }
 
   public getHocSinhFromLop(id: string):Observable<HocSinh[]> {
-    return this.http.get<HocSinh[]>(this.apiUrlLop + '/' + id + '/students');
+    return this.http.get<HocSinh[]>(this.apiUrlLop + '/' + id + '/student');
   }
 }
