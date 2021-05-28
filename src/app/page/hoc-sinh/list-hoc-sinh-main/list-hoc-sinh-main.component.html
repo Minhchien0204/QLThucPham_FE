@@ -1,3 +1,4 @@
+
 <div class="wrapper">
     <app-head-menu-bar></app-head-menu-bar>
     <div class="container">
@@ -8,48 +9,47 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><span mat-button class="parent-bread-crum" routerLink="/lop">Lớp học</span></h1>
+                <h1><span mat-button class="parent-bread-crum" routerLink="/hoc-sinh">Học sinh</span></h1>
             </div>
             <hr>
             <div class="data-table">
                 <table mat-table [dataSource]="dataSource">
                     <!--- Note that these columns can be defined in any order.
                         The actual rendered columns are set as a property on the row definition" -->
-
+                
                     <!-- Position Column -->
-                    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as i">
-                        <th class="row-column" mat-header-cell *matHeaderCellDef>
+                    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as i" >
+                        <th class="row-column" mat-header-cell *matHeaderCellDef> 
                             <div>
                                 <span class="content-table-header">{{ columnName[column]}}</span>
                             </div>
                         </th>
-                        <td class="row-column" mat-cell *matCellDef="let element">
+                        <td class="row-column" mat-cell *matCellDef="let element"> 
                             <div *ngIf="column!=='chucNang'">
-                                <div *ngIf="column!=='tenLop'"><span class="content-table">{{element[column]}}</span></div>
-                                <div *ngIf="column==='tenLop'">
-                                    <div class="content-table eexample-flex-container">
-                                        <a routerLink="/lop/edit/{{element.maLop}}">{{element[column]}}</a>
+                                <div *ngIf="column!=='gioiTinh'">
+                                    <div *ngIf="column!=='hoTen'"><span class="content-table">{{element[column]}}</span></div>
+                                    <div *ngIf="column==='hoTen'">
+                                        <div class="content-table eexample-flex-container">
+                                            <a routerLink="/hoc-sinh/edit/{{element.idhs}}">{{element[column]}}</a>
+                                        </div>
                                     </div>
                                 </div>
+                                <span *ngIf="column==='gioiTinh'" class="content-table">{{ element[column]?'Nữ': 'Nam' }}</span>
                             </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <button class="icon-list" title="Danh sách học sinh" routerLink="/lop/{{element.maLop}}/hoc-sinh" mat-icon-button aria-label="List HS">
-                                        <mat-icon>list_alt</mat-icon>
-                                    </button>
-
-                                    <!-- <button class="icon-edit" title="Edit lớp" routerLink="/lop/edit/{{element.maLop}}" mat-icon-button aria-label="Edit">
-                                        <mat-icon>edit</mat-icon>
-                                    </button> -->
-
-                                    <button class="icon-delete" title="Xóa lớp" mat-icon-button aria-label="Delete" (click)="deleteLop(element.maLop)">
+                                    <button class="icon-delete" 
+                                        title="Xóa học sinh" 
+                                        mat-icon-button aria-label="Delete" 
+                                        (click)="deleteHocSinh(element.idhs)"
+                                        >
                                         <mat-icon>delete</mat-icon>
                                     </button>
                                 </div>
                             </div>
                         </td>
                     </ng-container>
-
+                
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
@@ -61,10 +61,12 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/lop/create" mat-raised-button>Thêm lớp học</button>
+                    <button class="button-create" routerLink="/hoc-sinh/create" mat-raised-button>Thêm học sinh</button>
                 </div>
             </div>
         </div>
     </div>
     <app-footer></app-footer>
 </div>
+
+

@@ -60,8 +60,6 @@ export class TaoLopComponent implements OnInit {
       });
       await Promise.all([postLop]);
     }
-    
-    
   }
 
   // async getListGiaoVien() {

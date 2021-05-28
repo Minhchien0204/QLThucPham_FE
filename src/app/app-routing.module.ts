@@ -17,6 +17,9 @@ import { TaoLopComponent } from './page/lop/tao-lop/tao-lop.component';
 import { EditLopComponent } from './page/lop/edit-lop/edit-lop.component';
 import { ListHocSinhComponent } from './page/lop/list-hoc-sinh/list-hoc-sinh.component';
 import { ListUsersComponent } from './page/users/list-users/list-users.component';
+import { ListHocSinhMainComponent } from './page/hoc-sinh/list-hoc-sinh-main/list-hoc-sinh-main.component';
+import { TaoHocSinhComponent } from './page/hoc-sinh/tao-hoc-sinh/tao-hoc-sinh.component';
+import { EditHocSinhComponent } from './page/hoc-sinh/edit-hoc-sinh/edit-hoc-sinh.component';
 
 
 const routes: Routes = [
@@ -30,8 +33,11 @@ const routes: Routes = [
   {path: 'lop', component: ListLopComponent},
   {path: 'lop/create', component: TaoLopComponent},
   {path: 'lop/edit/:id', component: EditLopComponent},
-  {path: 'lop/:id/hoc-sinh', component: ListHocSinhComponent },
-  {path: 'users', component: ListUsersComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}}
+  {path: 'users', component: ListUsersComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}},
+  {path: 'lop/:id/hoc-sinh', component: ListHocSinhComponent},
+  {path: 'hoc-sinh', component: ListHocSinhMainComponent},
+  {path: 'hoc-sinh/create', component: TaoHocSinhComponent},
+  {path: 'hoc-sinh/edit/:id', component: EditHocSinhComponent},
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];
