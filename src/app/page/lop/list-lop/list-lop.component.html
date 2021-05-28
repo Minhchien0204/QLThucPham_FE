@@ -25,16 +25,23 @@
                             </div>
                         </th>
                         <td class="row-column" mat-cell *matCellDef="let element"> 
-                            <div *ngIf="column!=='chucNang'"><span class="content-table">{{element[column]}}</span></div>
+                            <div *ngIf="column!=='chucNang'">
+                                <div *ngIf="column!=='tenLop'"><span class="content-table">{{element[column]}}</span></div>
+                                <div *ngIf="column==='tenLop'">
+                                    <div class="content-table eexample-flex-container">
+                                        <a routerLink="/lop/edit/{{element.maLop}}">{{element[column]}}</a>
+                                    </div>
+                                </div>
+                            </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
                                     <button class="icon-list" title="Danh sách học sinh" routerLink="/lop/{{element.maLop}}/hoc-sinh" mat-icon-button aria-label="List HS" >
                                         <mat-icon>list_alt</mat-icon>
                                     </button>
 
-                                    <button class="icon-edit" title="Edit lớp" routerLink="/lop/edit/{{element.maLop}}" mat-icon-button aria-label="Edit">
+                                    <!-- <button class="icon-edit" title="Edit lớp" routerLink="/lop/edit/{{element.maLop}}" mat-icon-button aria-label="Edit">
                                         <mat-icon>edit</mat-icon>
-                                    </button>
+                                    </button> -->
 
                                     <button class="icon-delete" 
                                         title="Xóa lớp" 
@@ -64,6 +71,7 @@
             </div>
         </div>
     </div>
+    <app-footer></app-footer>
 </div>
 
 

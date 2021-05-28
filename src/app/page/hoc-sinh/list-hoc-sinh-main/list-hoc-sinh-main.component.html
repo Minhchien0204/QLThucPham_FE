@@ -9,7 +9,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><span mat-button class="parent-bread-crum" routerLink="/nhanvien">Nhân viên</span></h1>
+                <h1><span mat-button class="parent-bread-crum" routerLink="/hoc-sinh">Học sinh</span></h1>
             </div>
             <hr>
             <div class="data-table">
@@ -20,18 +20,31 @@
                     <!-- Position Column -->
                     <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as i" >
                         <th class="row-column" mat-header-cell *matHeaderCellDef> 
-                            <div *ngIf="column!=='tenBoPhan'">
+                            <div>
                                 <span class="content-table-header">{{ columnName[column]}}</span>
-                            </div>
-                            <div *ngIf="column==='tenBoPhan'">
-                                <span class="content-table-header">Tên bộ phận</span>
                             </div>
                         </th>
                         <td class="row-column" mat-cell *matCellDef="let element"> 
-                            <div *ngIf="column!=='tenBoPhan'"><span class="content-table">{{element[column]}}</span></div>
-                            <div *ngIf="column==='tenBoPhan'">
+                            <div *ngIf="column!=='chucNang'">
+                                <div *ngIf="column!=='gioiTinh'">
+                                    <div *ngIf="column!=='hoTen'"><span class="content-table">{{element[column]}}</span></div>
+                                    <div *ngIf="column==='hoTen'">
+                                        <div class="content-table eexample-flex-container">
+                                            <a routerLink="/hoc-sinh/edit/{{element.idhs}}">{{element[column]}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span *ngIf="column==='gioiTinh'" class="content-table">{{ element[column]?'Nữ': 'Nam' }}</span>
+                            </div>
+                            <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <a routerLink="/nhan-vien/edit/{{element['id']}}">{{element[column]}}</a>
+                                    <button class="icon-delete" 
+                                        title="Xóa học sinh" 
+                                        mat-icon-button aria-label="Delete" 
+                                        (click)="deleteHocSinh(element.idhs)"
+                                        >
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
                                 </div>
                             </div>
                         </td>
@@ -46,11 +59,11 @@
                 </div>
                 <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
             </div>
-            <!-- <div class="element-action">
+            <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/nhanvien/tao-nhan-vien" mat-raised-button>Thêm nhân viên</button>
+                    <button class="button-create" routerLink="/hoc-sinh/create" mat-raised-button>Thêm học sinh</button>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
     <app-footer></app-footer>

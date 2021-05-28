@@ -35,6 +35,7 @@ import { LeftToolbarComponent } from './common-element/left-toolbar/left-toolbar
 import { LoginPageComponent } from './page/login-page/login-page.component';
 import { AdminComponent } from './page/admin/admin.component';
 import { ProfileComponent } from './page/profile/profile.component';
+import { FooterComponent } from './common-element/footer/footer.component';
 
 // Page component
 import { HomePageComponent } from './page/home-page/home-page.component';
@@ -44,6 +45,10 @@ import { ListLopComponent } from './page/lop/list-lop/list-lop.component';
 import { TaoLopComponent } from './page/lop/tao-lop/tao-lop.component';
 import { EditLopComponent } from './page/lop/edit-lop/edit-lop.component';
 import { ListHocSinhComponent } from './page/lop/list-hoc-sinh/list-hoc-sinh.component';
+import { ListHocSinhMainComponent } from './page/hoc-sinh/list-hoc-sinh-main/list-hoc-sinh-main.component';
+import { TaoHocSinhComponent } from './page/hoc-sinh/tao-hoc-sinh/tao-hoc-sinh.component';
+import { EditHocSinhComponent } from './page/hoc-sinh/edit-hoc-sinh/edit-hoc-sinh.component';
+
 
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
@@ -68,7 +73,11 @@ import { ListUsersComponent } from './page/users/list-users/list-users.component
     TaoLopComponent,
     EditLopComponent,
     ListHocSinhComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    ListHocSinhMainComponent,
+    TaoHocSinhComponent,
+    FooterComponent,
+    EditHocSinhComponent
   ],
   imports: [
     BrowserModule,
