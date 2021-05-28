@@ -19,6 +19,10 @@ import { ListHocSinhComponent } from './page/lop/list-hoc-sinh/list-hoc-sinh.com
 import { ListHocSinhMainComponent } from './page/hoc-sinh/list-hoc-sinh-main/list-hoc-sinh-main.component';
 import { TaoHocSinhComponent } from './page/hoc-sinh/tao-hoc-sinh/tao-hoc-sinh.component';
 import { EditHocSinhComponent } from './page/hoc-sinh/edit-hoc-sinh/edit-hoc-sinh.component';
+import { ListMonAnComponent } from './page/mon-an/list-mon-an/list-mon-an.component';
+import { TaoMonAnComponent } from './page/mon-an/tao-mon-an/tao-mon-an.component';
+import { EditMonAnComponent } from './page/mon-an/edit-mon-an/edit-mon-an.component';
+import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luong.component';
 
 
 const routes: Routes = [
@@ -36,6 +40,10 @@ const routes: Routes = [
   {path: 'hoc-sinh', component: ListHocSinhMainComponent},
   {path: 'hoc-sinh/create', component: TaoHocSinhComponent},
   {path: 'hoc-sinh/edit/:id', component: EditHocSinhComponent},
+  {path: 'mon-an', component: ListMonAnComponent},
+  {path: 'mon-an/create', component: TaoMonAnComponent},
+  {path: 'mon-an/edit/:id', component: EditMonAnComponent},
+  {path: 'mon-an/create-dinh-luong', component: TaoDinhLuongComponent},
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];

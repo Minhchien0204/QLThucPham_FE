@@ -54,6 +54,10 @@ import { EditHocSinhComponent } from './page/hoc-sinh/edit-hoc-sinh/edit-hoc-sin
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ListUsersComponent } from './page/users/list-users/list-users.component';
+import { ListMonAnComponent } from './page/mon-an/list-mon-an/list-mon-an.component';
+import { TaoMonAnComponent } from './page/mon-an/tao-mon-an/tao-mon-an.component';
+import { EditMonAnComponent } from './page/mon-an/edit-mon-an/edit-mon-an.component';
+import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luong.component';
 
 
 @NgModule({
@@ -77,7 +81,11 @@ import { ListUsersComponent } from './page/users/list-users/list-users.component
     ListHocSinhMainComponent,
     TaoHocSinhComponent,
     FooterComponent,
-    EditHocSinhComponent
+    EditHocSinhComponent,
+    ListMonAnComponent,
+    TaoMonAnComponent,
+    EditMonAnComponent,
+    TaoDinhLuongComponent
   ],
   imports: [
     BrowserModule,
