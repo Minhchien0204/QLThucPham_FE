@@ -21,7 +21,7 @@ const TREE_DATA: MenuNode[] = [
       {
         id: 'user',
         name: 'User',
-        url: '/user',
+        url: '/users',
         active: false
       },
       {

@@ -1,1 +1,55 @@
-<p>list-users works!</p>
+<div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
+            <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
+            <div class="title">
+                <h1><span mat-button class="parent-bread-crum" routerLink="/users"> Người Dùng </span></h1>
+            </div>
+            <hr>
+            <div class="data-table">
+                <table mat-table [dataSource]="dataSource">
+                    <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
+
+                    <!-- Position Column -->
+                    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as i">
+                        <th class="row-column" mat-header-cell *matHeaderCellDef>
+                            <div>
+                                <span class="content-table-header">{{ columnName[column]}}</span>
+                            </div>
+                        </th>
+                        <td class="row-column" mat-cell *matCellDef="let element">
+                            <div *ngIf="column!=='chucNang'">
+                                <div><span *ngIf="column!=='gioiTinh'" class="content-table">{{element[column]}}</span></div>
+                                <div><span *ngIf="column==='gioiTinh'" class="content-table">{{ element[column]?'Nữ': 'Nam' }}</span></div>
+                            </div>
+                            <div *ngIf="column==='chucNang'">
+                                <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+                                    <mat-icon>plus_one</mat-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <!-- Message if no data -->
+                <div class="message-no-data" *ngIf="data.length === 0 ">
+                    Không có data.
+                </div>
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+            <div class="element-action">
+                <div class="example-button-row">
+                    <button class="button-create" routerLink="/users/create" mat-raised-button>Thêm User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

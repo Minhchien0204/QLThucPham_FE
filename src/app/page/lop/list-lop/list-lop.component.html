@@ -1,4 +1,3 @@
-
 <div class="wrapper">
     <app-head-menu-bar></app-head-menu-bar>
     <div class="container">
@@ -16,19 +15,19 @@
                 <table mat-table [dataSource]="dataSource">
                     <!--- Note that these columns can be defined in any order.
                         The actual rendered columns are set as a property on the row definition" -->
-                
+
                     <!-- Position Column -->
-                    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as i" >
-                        <th class="row-column" mat-header-cell *matHeaderCellDef> 
+                    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as i">
+                        <th class="row-column" mat-header-cell *matHeaderCellDef>
                             <div>
                                 <span class="content-table-header">{{ columnName[column]}}</span>
                             </div>
                         </th>
-                        <td class="row-column" mat-cell *matCellDef="let element"> 
+                        <td class="row-column" mat-cell *matCellDef="let element">
                             <div *ngIf="column!=='chucNang'"><span class="content-table">{{element[column]}}</span></div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <button class="icon-list" title="Danh sách học sinh" routerLink="/lop/{{element.maLop}}/hoc-sinh" mat-icon-button aria-label="List HS" >
+                                    <button class="icon-list" title="Danh sách học sinh" routerLink="/lop/{{element.maLop}}/hoc-sinh" mat-icon-button aria-label="List HS">
                                         <mat-icon>list_alt</mat-icon>
                                     </button>
 
@@ -36,18 +35,14 @@
                                         <mat-icon>edit</mat-icon>
                                     </button>
 
-                                    <button class="icon-delete" 
-                                        title="Xóa lớp" 
-                                        mat-icon-button aria-label="Delete" 
-                                        (click)="deleteLop(element.maLop)"
-                                        >
+                                    <button class="icon-delete" title="Xóa lớp" mat-icon-button aria-label="Delete" (click)="deleteLop(element.maLop)">
                                         <mat-icon>delete</mat-icon>
                                     </button>
                                 </div>
                             </div>
                         </td>
                     </ng-container>
-                
+
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
@@ -65,5 +60,3 @@
         </div>
     </div>
 </div>
-
-

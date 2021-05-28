@@ -16,6 +16,7 @@ import { ListLopComponent } from './page/lop/list-lop/list-lop.component';
 import { TaoLopComponent } from './page/lop/tao-lop/tao-lop.component';
 import { EditLopComponent } from './page/lop/edit-lop/edit-lop.component';
 import { ListHocSinhComponent } from './page/lop/list-hoc-sinh/list-hoc-sinh.component';
+import { ListUsersComponent } from './page/users/list-users/list-users.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'lop', component: ListLopComponent},
   {path: 'lop/create', component: TaoLopComponent},
   {path: 'lop/edit/:id', component: EditLopComponent},
-  {path: 'lop/:id/hoc-sinh', component: ListHocSinhComponent}
+  {path: 'lop/:id/hoc-sinh', component: ListHocSinhComponent },
+  {path: 'users', component: ListUsersComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}}
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];
