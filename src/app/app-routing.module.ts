@@ -23,6 +23,7 @@ import { EditHocSinhComponent } from './page/hoc-sinh/edit-hoc-sinh/edit-hoc-sin
 import { ListMonAnComponent } from './page/mon-an/list-mon-an/list-mon-an.component';
 import { TaoMonAnComponent } from './page/mon-an/tao-mon-an/tao-mon-an.component';
 import { EditMonAnComponent } from './page/mon-an/edit-mon-an/edit-mon-an.component';
+import { DinhLuongComponent } from './page/mon-an/dinh-luong/dinh-luong.component';
 import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luong.component';
 
 
@@ -45,7 +46,8 @@ const routes: Routes = [
   {path: 'mon-an', component: ListMonAnComponent},
   {path: 'mon-an/create', component: TaoMonAnComponent},
   {path: 'mon-an/edit/:id', component: EditMonAnComponent},
-  {path: 'mon-an/create-dinh-luong', component: TaoDinhLuongComponent},
+  {path: 'mon-an/dinh-luong/:id', component: DinhLuongComponent},
+  {path: 'mon-an/dinh-luong/create', component: TaoDinhLuongComponent},
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];

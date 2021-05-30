@@ -2,6 +2,8 @@
 
 html,
 body {
+    margin:0;
+    padding:0;
     height: 100%;
 }
 
@@ -15,11 +17,9 @@ body {
 }
 
 .container {
-    margin-top: 45px;
-    background-color: #eee;
-    min-height: 94%;
-    position: relative;
-    display: flex;
+    /* margin-top: 45px; */
+    /* background-color: #eee; */
+    padding-bottom:50px;
 }
 a {
     color: #32a852;
@@ -30,9 +30,11 @@ a:hover {
     text-decoration: underline;
 }
 .wrapper {
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
-    height: 100% !important;
+    /* height: 100% !important; */
+    min-height:100%;
+    position:relative;
 }
 
 app-left-toolbar {
@@ -50,20 +52,20 @@ app-left-toolbar {
 
 .left-toolbar {
     margin-top: 10px;
-    display: flex;
+    /* display: flex; */
     height: 94%;
     width: 18%;
-    position: fixed;
+    /* position: fixed; */
     background-color: inherit;
     padding-left: 15px;
     overflow-y: auto;
     overflow-x: auto;
+    float: left;
 }
 
 .right-content {
     margin-top: 10px;
     background-color: #fff;
-    flex: 1;
     /* height: 100%; */
     padding: 10px 15px 10px 10px;
     overflow: auto;
@@ -74,8 +76,8 @@ app-left-toolbar {
 }
 
 .spacer {
-    height: 100%;
-    flex: 0.26 1 auto;
+    /* height: 100%;
+    flex: 0.26 1 auto; */
 }
 
 .app-head-menu-bar {
@@ -231,9 +233,6 @@ mat-form-field {
 .errorValidator {
     color: red;
 }
-::ng-deep .app-footer {
-    width: 100% !important;
-    height: 100px !important;
-    position: fixed !important;
-    bottom: -45px !important;
+::ng-deep .footer {
+    position: relative !important;
 }

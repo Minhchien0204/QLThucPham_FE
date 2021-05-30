@@ -48,16 +48,17 @@ import { ListHocSinhComponent } from './page/lop/list-hoc-sinh/list-hoc-sinh.com
 import { ListHocSinhMainComponent } from './page/hoc-sinh/list-hoc-sinh-main/list-hoc-sinh-main.component';
 import { TaoHocSinhComponent } from './page/hoc-sinh/tao-hoc-sinh/tao-hoc-sinh.component';
 import { EditHocSinhComponent } from './page/hoc-sinh/edit-hoc-sinh/edit-hoc-sinh.component';
+import { ListMonAnComponent } from './page/mon-an/list-mon-an/list-mon-an.component';
+import { TaoMonAnComponent } from './page/mon-an/tao-mon-an/tao-mon-an.component';
+import { EditMonAnComponent } from './page/mon-an/edit-mon-an/edit-mon-an.component';
+import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luong.component';
+import { ListUsersComponent } from './page/users/list-users/list-users.component';
+import { DinhLuongComponent } from './page/mon-an/dinh-luong/dinh-luong.component';
 
 
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
-import { ListUsersComponent } from './page/users/list-users/list-users.component';
-import { ListMonAnComponent } from './page/mon-an/list-mon-an/list-mon-an.component';
-import { TaoMonAnComponent } from './page/mon-an/tao-mon-an/tao-mon-an.component';
-import { EditMonAnComponent } from './page/mon-an/edit-mon-an/edit-mon-an.component';
-import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luong.component';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luo
     ListMonAnComponent,
     TaoMonAnComponent,
     EditMonAnComponent,
-    TaoDinhLuongComponent
+    TaoDinhLuongComponent,
+    DinhLuongComponent
   ],
   imports: [
     BrowserModule,

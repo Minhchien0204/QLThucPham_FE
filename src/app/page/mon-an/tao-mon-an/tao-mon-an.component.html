@@ -1,1 +1,119 @@
-<p>tao-mon-an works!</p>
+
+<div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
+            <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
+            <div class="title">
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/mon-an">Món ăn</button> > <span class="child-bread-crum">Thêm món ăn</span></h1>
+            </div>
+            <hr>
+            <div class="wrapper-form">
+                <form ngNativeValidate [formGroup]="createForm">
+
+                    <!-- Tên món ăn -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Tên món ăn</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="TenMonAn">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="createForm.controls['TenMonAn'].invalid && (createForm.controls['TenMonAn'].dirty || 
+                                                    createForm.controls['TenMonAn'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'TenMonAn')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    
+                    <!-- Tên nhân viên -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Nhân viên</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <mat-select formControlName="MaNhanVien">
+                                    <mat-option *ngFor="let nv of listNhanVien" value="nv['maNhanVien']">{{nv['name']}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="createForm.controls['MaNhanVien'].invalid && (createForm.controls['MaNhanVien'].dirty || 
+                                                    createForm.controls['MaNhanVien'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'MaNhanVien')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>              
+                    
+                    <!--  Bũa ăn -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Bữa ăn</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <mat-select formControlName="BuaAn">
+                                    <mat-option value="Bữa sáng">Bữa sáng</mat-option>
+                                    <mat-option value="Bữa trưa">Bữa trưa</mat-option>
+                                    <mat-option value="Bữa chiều">Bữa chiều</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="createForm.controls['BuaAn'].invalid && (createForm.controls['BuaAn'].dirty || 
+                                                    createForm.controls['BuaAn'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'BuaAn')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                </form>
+                
+            </div>
+            <div class="row-field row-field-button">
+                <div class="button-form">
+                    <button class="button-create" 
+                        mat-raised-button
+                        [disabled]="createForm.invalid"
+                        (click)="addMonAn()"
+                        [ngClass]="{disableButton:createForm.invalid}"
+                        >Lưu</button>
+                </div>
+                <div class="button-form">
+                    <button class="button-cancel" color="none" routerLink="/mon-an" mat-raised-button>Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
