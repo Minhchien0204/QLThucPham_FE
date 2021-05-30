@@ -8,5 +8,16 @@ export class UserDetail {
     dienThoai!: string;
     diaChi!: string;
     role!: string;
+}
+
+export const bodyUser: {[index: string]:any} = {
+    "userName": "",
+    "password": "",
+    "name": "",
+    "gioiTinh": "",
+    "ngaySinh": "",
+    "dienThoai": "",
+    "diaChi": "",
+    "role": ""
 
 }

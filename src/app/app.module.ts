@@ -54,7 +54,16 @@ import { EditMonAnComponent } from './page/mon-an/edit-mon-an/edit-mon-an.compon
 import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luong.component';
 import { ListUsersComponent } from './page/users/list-users/list-users.component';
 import { DinhLuongComponent } from './page/mon-an/dinh-luong/dinh-luong.component';
-
+import { EditUserComponent } from './page/users/edit-user/edit-user.component';
+import { AddUserComponent } from './page/users/add-user/add-user.component';
+import { ListBophanComponent } from './page/bophan/list-bophan/list-bophan.component';
+import { AddBoPhanComponent } from './page/bophan/add-bo-phan/add-bo-phan.component';
+import { EditBoPhanComponent } from './page/bophan/edit-bo-phan/edit-bo-phan.component';
+import { ListNhaCungCapComponent } from './page/nha-cung-cap/list-nha-cung-cap/list-nha-cung-cap.component';
+import { AddNhaCungCapComponent } from './page/nha-cung-cap/add-nha-cung-cap/add-nha-cung-cap.component';
+import { EditNhaCungCapComponent } from './page/nha-cung-cap/edit-nha-cung-cap/edit-nha-cung-cap.component';
+// import { GiaoVienComponent } from './page/giao-vien/giao-vien/giao-vien.component';
+import { ListGiaoVienComponent } from './page/giao-vien/list-giao-vien/list-giao-vien.component';
 
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
@@ -87,7 +96,17 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     TaoMonAnComponent,
     EditMonAnComponent,
     TaoDinhLuongComponent,
-    DinhLuongComponent
+    DinhLuongComponent,
+    EditUserComponent,
+    AddUserComponent,
+    ListBophanComponent,
+    AddBoPhanComponent,
+    EditBoPhanComponent,
+    ListNhaCungCapComponent,
+    AddNhaCungCapComponent,
+    EditNhaCungCapComponent,
+    // GiaoVienComponent,
+    ListGiaoVienComponent
   ],
   imports: [
     BrowserModule,

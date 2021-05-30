@@ -22,19 +22,19 @@ export class UserService {
     return this.http.get<UserDetail[]>(this.api);
   }
 
-  public getUserDetail(id : number):Observable<UserDetail> {
+  public getUserDetail(id : string):Observable<UserDetail> {
     return this.http.get<UserDetail>(this.api + '/' + id);
   }
 
-  public deleteUser(id: number) {
+  public deleteUser(id: string) {
     return this.http.delete(this.api + '/' + id);
   }
 
   public addUser( body: {[index: string]:any} ){
-    return this.http.post(this.api, body );
+    return this.http.post(this.api + '/register' , body );
   }
 
-  public updateUser(id:number,  body: {[index: string]:any}) {
+  public updateUser(id: string,  body:{[index: string]:any}) {
     return this.http.put(this.api + '/' + id , body);
   }
 }
