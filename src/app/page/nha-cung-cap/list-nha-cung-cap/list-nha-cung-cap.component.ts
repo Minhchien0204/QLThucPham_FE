@@ -2,36 +2,36 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { NhaCungCapService } from 'src/app/services/nha-cung-cap.service';
 
 @Component({
-  selector: 'app-list-users',
-  templateUrl: './list-users.component.html',
-  styleUrls: ['./list-users.component.css']
+  selector: 'app-list-nha-cung-cap',
+  templateUrl: './list-nha-cung-cap.component.html',
+  styleUrls: ['./list-nha-cung-cap.component.css']
 })
-export class ListUsersComponent implements OnInit {
-  displayedColumns: string[] = ['userName', 'name', 'ngaySinh', 'gioiTinh', 'diaChi', 'dienThoai', 'role', 'chucNang']
-  columnName: {[index: string]:any} = {
-    'userName': 'UserName', 
-    'name': 'Tên',
-    'ngaySinh': 'Ngày Sinh',
-    'gioiTinh': 'Giới Tính',
-    'diaChi':'Địa Chỉ',
-    'dienThoai':'Điện Thoai',
-    'role' : 'Người Dùng',
+export class ListNhaCungCapComponent implements OnInit {
+  displayedColumns: string[] = ['maNhaCungCap', 'tenNhaCungCap', 'dienThoai', 'diaChi', 'chucNang']
+  columnName: {[index: string]: any} = {
+    'maNhaCungCap': 'Mã Nhà Cung Cấp',
+    'tenNhaCungCap': 'Tên Nhà Cung Cấp',
+    'dienThoai': 'Điện Thoại',
+    'diaChi': 'Địa Chỉ',
     'chucNang': 'Chức Năng'
-
   }
+
+
   dataSource!: MatTableDataSource<object>;
-  data: any[]= [];
+  data:any[] = [];
   alerMsg: {[index: string]:any} = {
     "showMsg": false,
     "typeMsg": 'info',
     "contentMsg": ''
   }
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor(private userService: UserService,
-    private router: Router) {
+  @ViewChild(MatPaginator) paginator!:MatPaginator;
+  constructor(
+    private nhaCungCapService: NhaCungCapService,
+    private router: Router
+  ) { 
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;
@@ -40,29 +40,30 @@ export class ListUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getListUser();
+    this.getListNhaCungCap();
   }
-  async getListUser() {
+
+  async getListNhaCungCap() {
     const dataGet: any[] = [];
-    const getUser = this.userService.getusers().toPromise().then(
+    const getNhaCungCap = this.nhaCungCapService.getListNhaCungCap().toPromise().then(
       async (dataSource) => {
-        dataSource.map((user) => {
-          dataGet.push(user)
+        dataSource.map((nhacungcap) => {
+          dataGet.push(nhacungcap);
         })
       },
       (error) => {
         //do notthing
       }
     )
-    await Promise.all([getUser]);
+    await Promise.all([getNhaCungCap]);
     this.data = dataGet;
     this.dataSource = new MatTableDataSource(this.data);
     this.dataSource.paginator = this.paginator;
   }
 
-  async deleteUser(id: string) {
+  async deleteNhaCungCap(id: string){
     if(confirm("Bạn có chắc muốn delete ?")) {
-      const deleteUser = this.userService.deleteUser(id).toPromise().then(
+      const deleteUser = this.nhaCungCapService.deleteNhaCungCap(id).toPromise().then(
         () => {
           this.alerMsg['showMsg'] = true;
           this.alerMsg['typeMsg'] = 'success';
@@ -78,7 +79,6 @@ export class ListUsersComponent implements OnInit {
       await Promise.all([deleteUser]);
       this.ngOnInit();
     }
-    
   }
 
 }

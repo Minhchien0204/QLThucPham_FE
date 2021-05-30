@@ -9,7 +9,6 @@ export class HocSinh {
 }
 
 export const bodyHocSinh: {[index: string]:any} = {
-    "idhs": "",
     "hoTen": "",
     "diaChi": "",
     "ngaySinh": "",

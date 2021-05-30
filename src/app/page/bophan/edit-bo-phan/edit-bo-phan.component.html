@@ -1,0 +1,81 @@
+<div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
+            <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
+            <div class="title">
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/bo-phan">Bộ Phận</button> > <span class="child-bread-crum">Edit Bộ Phận</span></h1>
+            </div>
+            <hr>
+            <div class="wrapper-form">
+                <form ngNativeValidate [formGroup]="editForm">
+
+                    <!-- Mã Bộ Phận -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Mã lớp</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="maBoPhan">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- validate Mã Bộ Phận -->
+                    <div class="row-field" *ngIf="editForm.controls['maBoPhan'].invalid && (editForm.controls['maBoPhan'].dirty || 
+                                             editForm.controls['maBoPhan'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'maBoPhan')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Tên nhân viên -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Tên Bộ Phận</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="tenBoPhan">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate Tên Bộ Phận -->
+                    <div class="row-field" *ngIf="editForm.controls['tenBoPhan'].invalid && (editForm.controls['tenBoPhan'].dirty || 
+                                                editForm.controls['tenBoPhan'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'tenBoPhan')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="row-field row-field-button">
+                <div class="button-form">
+                    <button class="button-create" mat-raised-button [disabled]="editForm.invalid" (click)="editboPhan()" [ngClass]="{disableButton:editForm.invalid}">Lưu</button>
+                </div>
+                <div class="button-form">
+                    <button class="button-cancel" color="none" routerLink="/bo-phan" mat-raised-button>Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

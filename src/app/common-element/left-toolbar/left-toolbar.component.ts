@@ -21,7 +21,7 @@ const TREE_DATA: MenuNode[] = [
       {
         id: 'user',
         name: 'User',
-        url: '/users',
+        url: '/user',
         active: false
       },
       {
@@ -34,6 +34,12 @@ const TREE_DATA: MenuNode[] = [
         id: 'nhan-vien',
         name: 'Nhân viên',
         url: '/nhan-vien',
+        active: false
+      },
+      {
+        id: 'giao-vien',
+        name: 'Giáo Viên',
+        url: '/giao-vien',
         active: false
       },
       {
@@ -126,7 +132,7 @@ const TREE_DATA: MenuNode[] = [
 export class LeftToolbarComponent implements OnInit {
   menuGiaoVien: string[] = ['lop', 'phieu-bao-an'];
   menuNhaBep: string[] =  ['thuc-pham', 'mon-an', 'phieu-yeu-cau-thuc-pham', 'phieu-bao-an', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao', 'nha-cung-cap'];
-  menuAdmin: string[] = ['user', 'nhan-vien','lop', 'hoc-sinh', 'mon-an', 'thuc-pham', 'phieu-yeu-cau-thuc-pham', 'phieu-bao-an', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao','bo-phan', 'nha-cung-cap'];
+  menuAdmin: string[] = ['user', 'nhan-vien','giao-vien','lop', 'hoc-sinh', 'mon-an', 'thuc-pham', 'phieu-yeu-cau-thuc-pham', 'phieu-bao-an', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao','bo-phan', 'nha-cung-cap'];
   menuMain: string[];
   currentUser!: User
 

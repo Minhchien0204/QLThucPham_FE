@@ -20,6 +20,14 @@ import { ListUsersComponent } from './page/users/list-users/list-users.component
 import { ListHocSinhMainComponent } from './page/hoc-sinh/list-hoc-sinh-main/list-hoc-sinh-main.component';
 import { TaoHocSinhComponent } from './page/hoc-sinh/tao-hoc-sinh/tao-hoc-sinh.component';
 import { EditHocSinhComponent } from './page/hoc-sinh/edit-hoc-sinh/edit-hoc-sinh.component';
+import { EditUserComponent } from './page/users/edit-user/edit-user.component';
+import { AddUserComponent } from './page/users/add-user/add-user.component';
+import { ListBophanComponent } from './page/bophan/list-bophan/list-bophan.component';
+import { AddBoPhanComponent } from './page/bophan/add-bo-phan/add-bo-phan.component';
+import { EditBoPhanComponent } from './page/bophan/edit-bo-phan/edit-bo-phan.component';
+import { ListNhaCungCapComponent } from './page/nha-cung-cap/list-nha-cung-cap/list-nha-cung-cap.component';
+import { AddNhaCungCapComponent } from './page/nha-cung-cap/add-nha-cung-cap/add-nha-cung-cap.component';
+import { EditNhaCungCapComponent } from './page/nha-cung-cap/edit-nha-cung-cap/edit-nha-cung-cap.component';
 
 
 const routes: Routes = [
@@ -33,11 +41,20 @@ const routes: Routes = [
   {path: 'lop', component: ListLopComponent},
   {path: 'lop/create', component: TaoLopComponent},
   {path: 'lop/edit/:id', component: EditLopComponent},
-  {path: 'users', component: ListUsersComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}},
+  {path: 'user', component: ListUsersComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}},
+  {path: 'user/edit/:id', component: EditUserComponent},
+  {path: 'user/add', component: AddUserComponent},
   {path: 'lop/:id/hoc-sinh', component: ListHocSinhComponent},
   {path: 'hoc-sinh', component: ListHocSinhMainComponent},
   {path: 'hoc-sinh/create', component: TaoHocSinhComponent},
   {path: 'hoc-sinh/edit/:id', component: EditHocSinhComponent},
+  {path: 'bo-phan', component: ListBophanComponent},
+  {path: 'bo-phan/add', component: AddBoPhanComponent},
+  {path:  'bo-phan/edit/:id', component: EditBoPhanComponent},
+  {path: 'nha-cung-cap', component: ListNhaCungCapComponent},
+  {path: 'nha-cung-cap/add', component: AddNhaCungCapComponent},
+  {path:  'nha-cung-cap/edit/:id', component: EditNhaCungCapComponent}
+
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];

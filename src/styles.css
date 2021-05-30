@@ -21,14 +21,17 @@ body {
     position: relative;
     display: flex;
 }
+
 a {
     color: #32a852;
     text-decoration: None;
 }
+
 a:hover {
-    text-decoration-color: #32a852 !important; 
+    text-decoration-color: #32a852 !important;
     text-decoration: underline;
 }
+
 .wrapper {
     position: fixed;
     width: 100%;
@@ -40,7 +43,7 @@ app-left-toolbar {
 }
 
 .container-left {
-    background-color:#fff;
+    background-color: #fff;
     height: 100%;
     width: 100%;
     overflow: auto;
@@ -68,6 +71,7 @@ app-left-toolbar {
     padding: 10px 15px 10px 10px;
     overflow: auto;
 }
+
 .disableButton {
     color: white !important;
     background-color: #7ec9a6 !important;
@@ -228,9 +232,11 @@ mat-form-field {
 ::ng-deep .mat-form-field-underline {
     position: static !important;
 }
+
 .errorValidator {
     color: red;
 }
+
 ::ng-deep .app-footer {
     width: 100% !important;
     height: 100px !important;
