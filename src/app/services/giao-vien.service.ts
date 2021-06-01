@@ -11,7 +11,16 @@ export class GiaoVienService {
   apiUrlGiaoVien = environment.apiUrl + '/giaovien'
   constructor(private http: HttpClient) { }
 
-  getListGiaoVien():Observable<GiaoVien[]> {
+  public getListGiaoVien():Observable<GiaoVien[]> {
     return this.http.get<GiaoVien[]>(this.apiUrlGiaoVien);
   }
+
+  public getByIdGiaoVien(id: string):Observable<GiaoVien>{
+    return this.http.get<GiaoVien>(this.apiUrlGiaoVien + '/' + id);
+  }
+
+  public updateGiaoVien(id: string, body: {[index: string]: any}){
+    return this.http.put(this.apiUrlGiaoVien + '/' + id, body);
+  }
+
 }

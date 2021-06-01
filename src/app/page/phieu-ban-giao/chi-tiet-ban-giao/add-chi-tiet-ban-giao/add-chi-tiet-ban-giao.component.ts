@@ -1,0 +1,88 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { bodyChiTietBanGiao, ChiTietBanGiao } from 'src/app/models/chi-tiet-ban-giao';
+import { ChiTietBanGiaoService } from 'src/app/services/chi-tiet-ban-giao.service';
+import { ThucPhamService } from 'src/app/services/thuc-pham.service';
+
+@Component({
+  selector: 'app-add-chi-tiet-ban-giao',
+  templateUrl: './add-chi-tiet-ban-giao.component.html',
+  styleUrls: ['./add-chi-tiet-ban-giao.component.css']
+})
+export class AddChiTietBanGiaoComponent implements OnInit {
+  createForm: FormGroup;
+  alerMsg: {[index: string]:any} = {
+    "showMsg": false,
+    "typeMsg": 'info',
+    "contentMsg": ''
+  }
+  listThucPham: {[index: string]: any}[]=[];
+  chiTietBanGiao = Object.assign({}, bodyChiTietBanGiao);
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private thucPhamService: ThucPhamService,
+    private chiTietBanGiaoService: ChiTietBanGiaoService,
+    private activeRoute: ActivatedRoute
+  ) { 
+    this.createForm = this.fb.group(
+      {
+        soPhieuBanGiao: [{value: '', disabled: true}, [Validators.required]],
+        maThucPham: [{value: '', disabled: false}, [Validators.required]],
+        soLuong: [{value: '', disabled: false}, [Validators.required] ],
+      }
+    );
+    this.getListThucPham();
+  }
+
+  async ngOnInit(): Promise<void> {
+    console.log('init')
+    await Promise.all([this.getData()]);
+    console.log('xong init')
+  }
+
+  async getData(){
+    this.activeRoute.params.subscribe((param) => {
+      this.chiTietBanGiao.soPhieuBanGiao = param['id'];
+    });
+    await Promise.all([this.createForm.get('soPhieuBanGiao')?.setValue(this.chiTietBanGiao.soPhieuBanGiao)]);
+  }
+
+  async getListThucPham() {
+    const dataGet: any[] = [];
+    const getThucPham = this.thucPhamService.getListThucPham().toPromise().then(
+      async (dataResponse) => {
+        dataResponse.map((thucpham) => {
+          dataGet.push(thucpham)
+        })
+      },
+      (error)=>{
+        // do notthing
+      }
+    );
+    await Promise.all([getThucPham]);
+    this.listThucPham = dataGet;
+  }
+
+  async addChiTietBanGiao() {
+    this.chiTietBanGiao.soPhieuBanGiao = this.createForm.get("soPhieuBanGiao")!.value;
+    this.chiTietBanGiao.maThucPham = this.createForm.get("maThucPham")!.value;
+    this.chiTietBanGiao.soLuong = this.createForm.get("soLuong")!.value;
+    if (this.createForm.valid) {
+      const postChiTietBanGiao = this.chiTietBanGiaoService.addChiTietBanGiao(this.chiTietBanGiao).toPromise().then((data) => {
+        this.router.navigateByUrl(
+          '/phieu/ban-giao',
+          {state: {typeMsg: 'success', contentMsg: "Success"}})
+      },
+      (error) => {
+        this.alerMsg['showMsg'] = true;
+        this.alerMsg['typeMsg'] = 'danger';
+        this.alerMsg['contentMsg'] = 'Failed create!';
+      });
+      await Promise.all([postChiTietBanGiao]);
+    }
+  }
+
+
+}

@@ -1,0 +1,67 @@
+<div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
+            <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
+            <div class="title">
+                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu/ban-giao">Phiếu Kiểm Kê</span></h1>
+            </div>
+            <hr>
+            <div class="data-table">
+                <table mat-table [dataSource]="dataSource">
+                    <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
+
+                    <!-- Position Column -->
+                    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as i">
+                        <th class="row-column" mat-header-cell *matHeaderCellDef>
+                            <div>
+                                <span class="content-table-header">{{ columnName[column]}}</span>
+                            </div>
+                        </th>
+                        <td class="row-column" mat-cell *matCellDef="let element">
+                            <div *ngIf="column!=='chucNang'">
+                                <div *ngIf="column!=='soPhieuKiemKe'"><span class="content-table">{{element[column]}}</span></div>
+                                <div *ngIf="column==='soPhieuKiemKe'">
+                                    <div class="content-table eexample-flex-container">
+                                        <a routerLink="/phieu/ban-giao/edit/{{element.soPhieuKiemKe}}">{{element[column]}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="column==='chucNang'">
+                                <div class="content-table eexample-flex-container">
+                                    <button class="icon-add" title="Them Chi Tiet Kiểm Kê " routerLink="/phieu/kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke/create" mat-icon-button aria-label="Add CTBG">
+                                        <mat-icon>playlist_add</mat-icon>
+                                    </button>
+                                    <button class="icon-list" title="Danh sách Chi Tiet Kiem Ke " routerLink="/phieu/kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke" mat-icon-button aria-label="List CTBG">
+                                        <mat-icon>list_alt</mat-icon>
+                                    </button>
+                                    <button class="icon-delete" title="Xóa Phieu Kiem Ke" mat-icon-button aria-label="Delete" (click)="deletePhieuKiemKe(element.soPhieuKiemKe)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <!-- Message if no data -->
+                <div class="message-no-data" *ngIf="data.length === 0 ">
+                    Không có data.
+                </div>
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+            <div class="element-action">
+                <div class="example-button-row">
+                    <button class="button-create" routerLink="/phieu/kiem-ke/create" mat-raised-button>Thêm Phiếu Kiểm Kê</button>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>

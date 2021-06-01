@@ -1,0 +1,117 @@
+<div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
+            <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
+            <div class="title">
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/phieu/ban-giao">Phiếu Bàn Giao</button> > <span class="child-bread-crum">Thêm Phiếu Bàn Giao</span></h1>
+            </div>
+            <hr>
+            <div class="wrapper-form">
+                <form ngNativeValidate [formGroup]="createForm">
+
+
+                    <!-- Nhân Viên -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Nhân Viên</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="maNhanVien">
+                                    <mat-option value="null">--- Chọn Nhân viên ---</mat-option>
+                                    <mat-option *ngFor="let nhanvien of listNhanVien" [value]="nhanvien['maNhanVien']">{{nhanvien['name']}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- Ngày Lập -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Ngày Lập</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <!-- <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="ngaySinh">
+                            </mat-form-field> -->
+                            <mat-form-field appearance="outline">
+                                <input matInput formControlName="ngayLap" [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate Ngày Lập -->
+                    <div class="row-field" *ngIf="createForm.controls['ngayLap'].invalid && (createForm.controls['ngayLap'].dirty || 
+                    createForm.controls['ngayLap'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'ngayLap')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Số Phiếu Yêu Cầu -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Số Phiếu Yêu Cầu</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="soPhieuYeuCau">
+                                    <mat-option value="null">--- Chọn Phiếu Yêu Cầu ---</mat-option>
+                                    <mat-option *ngFor="let phieuyeucau of listPhieuYeuCau" [value]="phieuyeucau['soPhieuYeuCau']">{{phieuyeucau['soPhieuYeuCau']}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- Ghi Chú-->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Ghi Chú</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="ghiChu">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="createForm.controls['ghiChu'].invalid && (createForm.controls['ghiChu'].dirty || 
+                    createForm.controls['ghiChu'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'ghiChu')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="row-field row-field-button">
+                <div class="button-form">
+                    <button class="button-create" mat-raised-button [disabled]="createForm.invalid" (click)="addPhieuBanGiao()" [ngClass]="{disableButton:createForm.invalid}">Lưu</button>
+                </div>
+                <div class="button-form">
+                    <button class="button-cancel" color="none" routerLink="/phieu/ban-giao" mat-raised-button>Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

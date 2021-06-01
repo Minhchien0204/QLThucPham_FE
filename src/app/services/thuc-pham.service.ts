@@ -4,12 +4,14 @@ import {Observable} from 'rxjs';
 import {environment } from './../../environments/environment'
 import { ThucPham } from '../models/thuc-pham'
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ThucPhamService {
   urlTP = environment.apiUrl + '/thucpham'
   constructor(private http: HttpClient) { }
+
   public getListThucPham():Observable<ThucPham[]> {
     return this.http.get<ThucPham[]>(this.urlTP);
   }
@@ -28,5 +30,9 @@ export class ThucPhamService {
 
   public deleteThucPham(id: string) {
     return this.http.delete(this.urlTP + '/' + id);
+  }
+
+  public getByIdThucPham(id: string):Observable<ThucPham> {
+    return this.http.get<ThucPham>(this.urlTP + '/' + id);
   }
 }
