@@ -68,6 +68,36 @@ import { ListGiaoVienComponent } from './page/giao-vien/list-giao-vien/list-giao
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { EditGiaoVienComponent } from './page/giao-vien/edit-giao-vien/edit-giao-vien.component';
+import { ListPhieuAnComponent } from './page/phieu-an/list-phieu-an/list-phieu-an.component';
+import { AddPhieuAnComponent } from './page/phieu-an/add-phieu-an/add-phieu-an.component';
+import { EditPhieuAnComponent } from './page/phieu-an/edit-phieu-an/edit-phieu-an.component';
+import { ListPhieuYeuCauComponent } from './page/phieu-yeu-cau/list-phieu-yeu-cau/list-phieu-yeu-cau.component';
+import { AddPhieuYeuCauComponent } from './page/phieu-yeu-cau/add-phieu-yeu-cau/add-phieu-yeu-cau.component';
+import { EditPhieuYeuCauComponent } from './page/phieu-yeu-cau/edit-phieu-yeu-cau/edit-phieu-yeu-cau.component';
+import { ListChiTietYeuCauComponent } from './page/phieu-yeu-cau/chi-tiet-phieu-yeu-cau/list-chi-tiet-yeu-cau/list-chi-tiet-yeu-cau.component';
+import { AddChiTietYeuCauComponent } from './page/phieu-yeu-cau/chi-tiet-phieu-yeu-cau/add-chi-tiet-yeu-cau/add-chi-tiet-yeu-cau.component';
+import { ListChiTietYeuCauOfComponent } from './page/phieu-yeu-cau/list-chi-tiet-yeu-cau-of/list-chi-tiet-yeu-cau-of.component';
+import { ListPhieuCungCapComponent } from './page/phieu-cung-cap/list-phieu-cung-cap/list-phieu-cung-cap.component';
+import { AddPhieuCungCapComponent } from './page/phieu-cung-cap/add-phieu-cung-cap/add-phieu-cung-cap.component';
+import { EditPhieuCungCapComponent } from './page/phieu-cung-cap/edit-phieu-cung-cap/edit-phieu-cung-cap.component';
+import { AddChiTietCungCapComponent } from './page/phieu-cung-cap/chi-tiet-cung-cap/add-chi-tiet-cung-cap/add-chi-tiet-cung-cap.component';
+import { ListChiTietCungCapOfComponent } from './page/phieu-cung-cap/list-chi-tiet-cung-cap-of/list-chi-tiet-cung-cap-of.component';
+import { ListPhieuBanGiaoComponent } from './page/phieu-ban-giao/list-phieu-ban-giao/list-phieu-ban-giao.component';
+import { AddPhieuBanGiaoComponent } from './page/phieu-ban-giao/add-phieu-ban-giao/add-phieu-ban-giao.component';
+import { EditPhieuBanGiaoComponent } from './page/phieu-ban-giao/edit-phieu-ban-giao/edit-phieu-ban-giao.component';
+import { AddChiTietBanGiaoComponent } from './page/phieu-ban-giao/chi-tiet-ban-giao/add-chi-tiet-ban-giao/add-chi-tiet-ban-giao.component';
+import { ListChiTietBanGiaoOfComponent } from './page/phieu-ban-giao/list-chi-tiet-ban-giao-of/list-chi-tiet-ban-giao-of.component';
+import { ListPhieuKiemKeComponent } from './page/phieu-kiem-ke/list-phieu-kiem-ke/list-phieu-kiem-ke.component';
+import { AddPhieuKiemKeComponent } from './page/phieu-kiem-ke/add-phieu-kiem-ke/add-phieu-kiem-ke.component';
+import { EditPhieuKiemKeComponent } from './page/phieu-kiem-ke/edit-phieu-kiem-ke/edit-phieu-kiem-ke.component';
+import { ChiTietKiemKeComponent } from './page/phieu-kiem-ke/chi-tiet-kiem-ke/chi-tiet-kiem-ke/chi-tiet-kiem-ke.component';
+import { ListChiTietKiemKeOfComponent } from './page/phieu-kiem-ke/list-chi-tiet-kiem-ke-of/list-chi-tiet-kiem-ke-of.component';
+import { ListPhieuGiaoComponent } from './page/phieu-giao/list-phieu-giao/list-phieu-giao.component';
+import { AddPhieuGiaoComponent } from './page/phieu-giao/add-phieu-giao/add-phieu-giao.component';
+import { EditPhieuGiaoComponent } from './page/phieu-giao/edit-phieu-giao/edit-phieu-giao.component';
+import { AddChiTietGiaoComponent } from './page/phieu-giao/chi-tiet-giao/add-chi-tiet-giao/add-chi-tiet-giao.component';
+import { ListChiTietGiaoOfComponent } from './page/phieu-giao/list-chi-tiet-giao-of/list-chi-tiet-giao-of.component';
 
 
 @NgModule({
@@ -106,7 +136,37 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     AddNhaCungCapComponent,
     EditNhaCungCapComponent,
     // GiaoVienComponent,
-    ListGiaoVienComponent
+    ListGiaoVienComponent,
+    EditGiaoVienComponent,
+    ListPhieuAnComponent,
+    AddPhieuAnComponent,
+    EditPhieuAnComponent,
+    ListPhieuYeuCauComponent,
+    AddPhieuYeuCauComponent,
+    EditPhieuYeuCauComponent,
+    ListChiTietYeuCauComponent,
+    AddChiTietYeuCauComponent,
+    ListChiTietYeuCauOfComponent,
+    ListPhieuCungCapComponent,
+    AddPhieuCungCapComponent,
+    EditPhieuCungCapComponent,
+    AddChiTietCungCapComponent,
+    ListChiTietCungCapOfComponent,
+    ListPhieuBanGiaoComponent,
+    AddPhieuBanGiaoComponent,
+    EditPhieuBanGiaoComponent,
+    AddChiTietBanGiaoComponent,
+    ListChiTietBanGiaoOfComponent,
+    ListPhieuKiemKeComponent,
+    AddPhieuKiemKeComponent,
+    EditPhieuKiemKeComponent,
+    ChiTietKiemKeComponent,
+    ListChiTietKiemKeOfComponent,
+    ListPhieuGiaoComponent,
+    AddPhieuGiaoComponent,
+    EditPhieuGiaoComponent,
+    AddChiTietGiaoComponent,
+    ListChiTietGiaoOfComponent
   ],
   imports: [
     BrowserModule,

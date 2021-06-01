@@ -1,0 +1,97 @@
+<div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
+            <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
+            <div class="title">
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/phieu/yeu-cau-thuc-pham">Phiếu Yêu Cầu Thực Phẩm</button> > <span class="child-bread-crum">Thêm Chi Tiết Yêu Cầu</span></h1>
+            </div>
+            <hr>
+            <div class="wrapper-form">
+                <form ngNativeValidate [formGroup]="createForm">
+
+                    <!-- Số Phiếu Yêu Cầu -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Số Phiếu Yêu Cầu</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="soPhieuYeuCau">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- validate Số Phiếu Yêu Cầu -->
+                    <div class="row-field" *ngIf="createForm.controls['soPhieuYeuCau'].invalid && (createForm.controls['soPhieuYeuCau'].dirty || 
+                    createForm.controls['soPhieuYeuCau'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'soPhieuYeuCau')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Thực Phẩm -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Thực Phẩm</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="maThucPham">
+                                    <mat-option value="null">--- Chọn Thực Phẩm ---</mat-option>
+                                    <mat-option *ngFor="let thucpham of listThucPham" [value]="thucpham['maThucPham']">{{thucpham['tenThucPham']}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- Số Lượng -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Số Lượng</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="soLuong">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- validate Số Lượng -->
+                    <div class="row-field" *ngIf="createForm.controls['soLuong'].invalid && (createForm.controls['soLuong'].dirty || 
+                    createForm.controls['soLuong'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'soLuong')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="row-field row-field-button">
+                <div class="button-form">
+                    <button class="button-create" mat-raised-button [disabled]="createForm.invalid" (click)="addChiTietYeuCau()" [ngClass]="{disableButton:createForm.invalid}">Lưu</button>
+                </div>
+                <div class="button-form">
+                    <button class="button-cancel" color="none" routerLink="/phieu/yeu-cau-thuc-pham" mat-raised-button>Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

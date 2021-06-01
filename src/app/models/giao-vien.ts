@@ -1,5 +1,4 @@
 export class GiaoVien {
-    idgv!: number;
     maGV!: string;
     trinhDo!: string;
     ngayVao!: string;
@@ -15,7 +14,5 @@ export const bodyGiaoVien: {[index: string]:any} = {
     "trinhDo": "",
     "ngayVao": "",
     "name": "",
-    "diaChi": "",
-    "dienThoai": "",
-    "ngaySinh": ""
+    "maLop": ""
 }
