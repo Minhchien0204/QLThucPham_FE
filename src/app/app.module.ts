@@ -62,8 +62,11 @@ import { EditBoPhanComponent } from './page/bophan/edit-bo-phan/edit-bo-phan.com
 import { ListNhaCungCapComponent } from './page/nha-cung-cap/list-nha-cung-cap/list-nha-cung-cap.component';
 import { AddNhaCungCapComponent } from './page/nha-cung-cap/add-nha-cung-cap/add-nha-cung-cap.component';
 import { EditNhaCungCapComponent } from './page/nha-cung-cap/edit-nha-cung-cap/edit-nha-cung-cap.component';
-// import { GiaoVienComponent } from './page/giao-vien/giao-vien/giao-vien.component';
 import { ListGiaoVienComponent } from './page/giao-vien/list-giao-vien/list-giao-vien.component';
+import { ListThucPhamComponent } from './page/thuc-pham/list-thuc-pham/list-thuc-pham.component';
+import { TaoThucPhamComponent } from './page/thuc-pham/tao-thuc-pham/tao-thuc-pham.component';
+import { EditThucPhamComponent } from './page/thuc-pham/edit-thuc-pham/edit-thuc-pham.component';
+import { EditDinhLuongComponent } from './page/mon-an/edit-dinh-luong/edit-dinh-luong.component';
 
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
@@ -106,7 +109,11 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     AddNhaCungCapComponent,
     EditNhaCungCapComponent,
     // GiaoVienComponent,
-    ListGiaoVienComponent
+    ListGiaoVienComponent,
+    ListThucPhamComponent,
+    TaoThucPhamComponent,
+    EditThucPhamComponent,
+    EditDinhLuongComponent
   ],
   imports: [
     BrowserModule,

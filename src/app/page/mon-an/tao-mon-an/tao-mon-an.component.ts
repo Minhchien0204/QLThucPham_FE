@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import {bodyMonAn} from '../../../models/mon-an';
-// import {bodyGiaoVien} from '../../../models/giao-vien';
 import {MonAnService} from '../../../services/mon-an-service.service';
 import {NhanvienService} from '../../../services/nhanvien.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-tao-mon-an',
@@ -24,12 +24,12 @@ export class TaoMonAnComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private monAnService: MonAnService,
-    private nhanVienService: NhanvienService) {
+    private nhanVienService: NhanvienService,
+    private authenticationService: AuthenticationService) {
       this.createForm = this.fb.group(
         {
-          TenMonAn: [{ value: '', disabled: false }, [Validators.required]],
-          MaNhanVien: [{ value: '', disabled: false }, [Validators.required]],
-          BuaAn: [{ value: '', disabled: false }, [Validators.required]],
+          tenMonAn: [{ value: '', disabled: false }, [Validators.required]],
+          buaAn: [{ value: '', disabled: false }, [Validators.required]],
         }
       );
      }
@@ -42,9 +42,10 @@ export class TaoMonAnComponent implements OnInit {
     const monAn = Object.assign({}, bodyMonAn);
 
     // Get data from form.
-    monAn.TenMonAn = this.createForm.get("TenMonAn")!.value;
-    monAn.MaNhanVien = this.createForm.get("MaNhanVien")!.value;
-    monAn.BuaAn = this.createForm.get("BuaAn")!.value;
+    monAn.tenMonAn = this.createForm.get("tenMonAn")!.value;
+    // monAn.maNhanVien = this.authenticationService.user;
+    monAn.maNhanVien = 'NB1';  // TODO
+    monAn.buaAn = this.createForm.get("buaAn")!.value;
 
     if (this.createForm.valid) {
       const postMonAn = this.monAnService.addMonAn(monAn).toPromise().then((data) => {

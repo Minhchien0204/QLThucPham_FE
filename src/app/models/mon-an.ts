@@ -1,19 +1,13 @@
 export class MonAn {
-    MaMonAn!: string;
-    TenMonAn!: string;
-    MaNhanVien!: string;
-    BuaAn!: string;
+    maMonAn!: string;
+    tenMonAn!: string;
+    maNhanVien!: string;
+    buaAn!: string;
 }
 
 export const bodyMonAn: {[index: string]:any} = {
-    "MaMonAn": "",
-    "TenMonAn": "",
-    "MaNhanVien": "",
-    "BuaAn": ""
+    "maMonAn": "",
+    "tenMonAn": "",
+    "maNhanVien": "",
+    "buaAn": ""
 }
-
-
-// "MaMonAn": "MA01",
-// "TenMonAn": "Thịt Heo Xào sả", 
-// "MaNhanVien": "NV001",
-// "BuaAn": "Bữa Trưa"

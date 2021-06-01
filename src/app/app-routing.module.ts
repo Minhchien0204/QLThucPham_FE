@@ -25,6 +25,7 @@ import { TaoMonAnComponent } from './page/mon-an/tao-mon-an/tao-mon-an.component
 import { EditMonAnComponent } from './page/mon-an/edit-mon-an/edit-mon-an.component';
 import { DinhLuongComponent } from './page/mon-an/dinh-luong/dinh-luong.component';
 import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luong.component';
+import { EditDinhLuongComponent } from './page/mon-an/edit-dinh-luong/edit-dinh-luong.component';
 import { EditUserComponent } from './page/users/edit-user/edit-user.component';
 import { AddUserComponent } from './page/users/add-user/add-user.component';
 import { ListBophanComponent } from './page/bophan/list-bophan/list-bophan.component';
@@ -33,6 +34,9 @@ import { EditBoPhanComponent } from './page/bophan/edit-bo-phan/edit-bo-phan.com
 import { ListNhaCungCapComponent } from './page/nha-cung-cap/list-nha-cung-cap/list-nha-cung-cap.component';
 import { AddNhaCungCapComponent } from './page/nha-cung-cap/add-nha-cung-cap/add-nha-cung-cap.component';
 import { EditNhaCungCapComponent } from './page/nha-cung-cap/edit-nha-cung-cap/edit-nha-cung-cap.component';
+import { ListThucPhamComponent } from './page/thuc-pham/list-thuc-pham/list-thuc-pham.component';
+import { TaoThucPhamComponent } from './page/thuc-pham/tao-thuc-pham/tao-thuc-pham.component';
+import { EditThucPhamComponent } from './page/thuc-pham/edit-thuc-pham/edit-thuc-pham.component';
 
 
 const routes: Routes = [
@@ -56,8 +60,12 @@ const routes: Routes = [
   {path: 'mon-an', component: ListMonAnComponent},
   {path: 'mon-an/create', component: TaoMonAnComponent},
   {path: 'mon-an/edit/:id', component: EditMonAnComponent},
-  {path: 'mon-an/dinh-luong/:id', component: DinhLuongComponent},
-  {path: 'mon-an/dinh-luong/create', component: TaoDinhLuongComponent},
+  {path: 'mon-an/:id/dinh-luong', component: DinhLuongComponent},
+  {path: 'mon-an/:id/dinh-luong/create', component: TaoDinhLuongComponent},
+  {path: 'mon-an/:id/dinh-luong/edit/:idThucPham', component: EditDinhLuongComponent},
+  {path: 'thuc-pham', component: ListThucPhamComponent},
+  {path: 'thuc-pham/create', component: TaoThucPhamComponent},
+  {path: 'thuc-pham/edit/:id', component: EditThucPhamComponent},
   {path: 'bo-phan', component: ListBophanComponent},
   {path: 'bo-phan/add', component: AddBoPhanComponent},
   {path: 'bo-phan/edit/:id', component: EditBoPhanComponent},

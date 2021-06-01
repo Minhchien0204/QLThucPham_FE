@@ -1,20 +1,19 @@
 import {OnInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {MonAnService} from '../../../services/mon-an-service.service';
+import {ThucPhamService} from '../../../services/thuc-pham.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-list-mon-an',
-  templateUrl: './list-mon-an.component.html',
-  styleUrls: ['./list-mon-an.component.css']
+  selector: 'app-list-thuc-pham',
+  templateUrl: './list-thuc-pham.component.html',
+  styleUrls: ['./list-thuc-pham.component.css']
 })
-export class ListMonAnComponent implements OnInit {
-  displayedColumns: string[] = ['maMonAn','tenMonAn', 'buaAn', 'chucNang'];
+export class ListThucPhamComponent implements OnInit {
+  displayedColumns: string[] = ['maThucPham','tenThucPham', 'chucNang'];
   columnName: {[index: string]:any} = {
-    'maMonAn': 'Mã món ăn',
-    'tenMonAn': 'Tên món ăn', 
-    'buaAn': 'Bữa ăn',
+    'maThucPham': 'Mã thực phẩm',
+    'tenThucPham': 'Tên thực phẩm', 
     'chucNang': 'Chức năng'
   }
   dataSource!: MatTableDataSource<object>;
@@ -25,7 +24,7 @@ export class ListMonAnComponent implements OnInit {
     "contentMsg": ''
   }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor(private monAnService: MonAnService,
+  constructor(private thucPhamService: ThucPhamService,
     private router: Router) {
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
@@ -35,30 +34,30 @@ export class ListMonAnComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getListMonAn()
+    this.getListTP()
   }
 
-  async getListMonAn() {
+  async getListTP() {
     const dataGet: any[] = [];
-    const getMonAn = this.monAnService.getListMonAn().toPromise().then(
+    const getTP = this.thucPhamService.getListThucPham().toPromise().then(
       async (dataResponse) => {
-        dataResponse.map((monAn) => {
-          dataGet.push(monAn)
+        dataResponse.map((tp) => {
+          dataGet.push(tp)
         })
       },
       (error)=>{
         // do notthing
       }
     );
-    await Promise.all([getMonAn]);
+    await Promise.all([getTP]);
     this.data = dataGet;
     this.dataSource = new MatTableDataSource(this.data);
     this.dataSource.paginator = this.paginator;
   }
 
-  async deleteMonAn(id: string) {
+  async deleteTP(id: string) {
     if(confirm("Bạn có chắc muốn delete ?")) {
-      const deleteMonAn = this.monAnService.deleteMonAn(id).toPromise().then(
+      const deleteTP = this.thucPhamService.deleteThucPham(id).toPromise().then(
         () => {
           this.alerMsg['showMsg'] = true;
           this.alerMsg['typeMsg'] = 'success';
@@ -71,9 +70,10 @@ export class ListMonAnComponent implements OnInit {
         }
       );
   
-      await Promise.all([deleteMonAn]);
+      await Promise.all([deleteTP]);
       this.ngOnInit();
     }
     
   }
+
 }

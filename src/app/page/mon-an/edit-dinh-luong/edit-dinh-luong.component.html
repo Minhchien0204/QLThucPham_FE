@@ -9,11 +9,11 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/mon-an">Món ăn</button> > <span class="child-bread-crum">Thêm món ăn</span></h1>
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/mon-an">Món ăn</button> > <span class="child-bread-crum">Thêm định lượng</span></h1>
             </div>
             <hr>
             <div class="wrapper-form">
-                <form ngNativeValidate [formGroup]="createForm">
+                <form ngNativeValidate [formGroup]="editForm">
                     
                     <!-- Tên thực phẩm -->
                     <div class="row-field">
@@ -23,19 +23,19 @@
                         <div class="row-right">
                             <mat-form-field class="form-input" appearance="outline">
                                 <mat-select formControlName="tenThucPham">
-                                    <mat-option *ngFor="let tp of listThucPham" value="{{tp['maThucPham']}}">{{tp['tenThucPham']}}</mat-option>
+                                    <mat-option *ngFor="let tp of listThucPham" [value]="tp['maThucPham']">{{tp['tenThucPham']}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
                     </div>
                     <!-- validate ten nhan vien -->
-                    <div class="row-field" *ngIf="createForm.controls['tenThucPham'].invalid && (createForm.controls['tenThucPham'].dirty || 
-                                                    createForm.controls['tenThucPham'].touched)">
+                    <div class="row-field" *ngIf="editForm.controls['tenThucPham'].invalid && (editForm.controls['tenThucPham'].dirty || 
+                                                    editForm.controls['tenThucPham'].touched)">
                         <div class="row-left">
                         </div>
                         <div class="row-right">
                             <ng-container>
-                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'tenThucPham')">
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'tenThucPham')">
                                     Data is required!
                                 </div>
                             </ng-container>
@@ -55,13 +55,13 @@
                     </div>
 
                     <!-- validate ten nhan vien -->
-                    <div class="row-field" *ngIf="createForm.controls['soLuong'].invalid && (createForm.controls['soLuong'].dirty || 
-                                                    createForm.controls['soLuong'].touched)">
+                    <div class="row-field" *ngIf="editForm.controls['soLuong'].invalid && (editForm.controls['soLuong'].dirty || 
+                                                    editForm.controls['soLuong'].touched)">
                         <div class="row-left">
                         </div>
                         <div class="row-right">
                             <ng-container>
-                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'soLuong')">
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'soLuong')">
                                     Data is required!
                                 </div>
                             </ng-container>
@@ -75,9 +75,9 @@
                 <div class="button-form">
                     <button class="button-create" 
                         mat-raised-button
-                        [disabled]="createForm.invalid"
-                        (click)="addDinhLuongMA()"
-                        [ngClass]="{disableButton:createForm.invalid}"
+                        [disabled]="editForm.invalid"
+                        (click)="editDinhLuong()"
+                        [ngClass]="{disableButton:editForm.invalid}"
                         >Lưu</button>
                 </div>
                 <div class="button-form">

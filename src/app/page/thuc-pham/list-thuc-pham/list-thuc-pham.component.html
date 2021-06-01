@@ -8,13 +8,14 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/mon-an">Món ăn</button> > 
-                    <span class="child-bread-crum" [innerHTML]="monAnObject['tenMonAn']"></span> > <span class="child-bread-crum">Định lượng</span>
-                </h1>
+                <h1><span mat-button class="parent-bread-crum" routerLink="/thuc-pham">Thực phẩm</span></h1>
             </div>
             <hr>
             <div class="data-table">
                 <table mat-table [dataSource]="dataSource">
+                    <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
+                
                     <!-- Position Column -->
                     <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;index as i" >
                         <th class="row-column" mat-header-cell *matHeaderCellDef> 
@@ -27,16 +28,23 @@
                                     <div *ngIf="column!=='tenThucPham'"><span class="content-table">{{element[column]}}</span></div>
                                     <div *ngIf="column==='tenThucPham'">
                                         <div class="content-table eexample-flex-container">
-                                            <a routerLink="/mon-an/{{monAnObject.maMonAn}}/dinh-luong/edit/{{element.maThucPham}}">{{element[column]}}</a>
+                                            <a routerLink="/thuc-pham/edit/{{element.maThucPham}}">{{element[column]}}</a>
                                         </div>
                                     </div>
                             </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
+                                    <!-- <button class="icon-list" 
+                                        title="Định lượng món ăn" 
+                                        mat-icon-button aria-label="Định lượng" 
+                                        routerLink="/mon-an/dinh-luong/{{element.maMonAn}}"
+                                        >
+                                        <mat-icon>assignment</mat-icon>
+                                    </button> -->
                                     <button class="icon-delete" 
-                                        title="Xóa định lượng" 
+                                        title="Xóa thực phẩm" 
                                         mat-icon-button aria-label="Delete" 
-                                        (click)="deleteDL(element.maThucPham)"
+                                        (click)="deleteTP(element.maThucPham)"
                                         >
                                         <mat-icon>delete</mat-icon>
                                     </button>
@@ -56,7 +64,7 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/mon-an/{{monAnObject.maMonAn}}/dinh-luong/create" mat-raised-button>Thêm định lượng</button>
+                    <button class="button-create" routerLink="/thuc-pham/create" mat-raised-button>Thêm thực phẩm</button>
                 </div>
             </div>
         </div>

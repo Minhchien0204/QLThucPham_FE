@@ -9,7 +9,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><span mat-button class="parent-bread-crum" routerLink="/hoc-sinh">Món ăn</span></h1>
+                <h1><span mat-button class="parent-bread-crum" routerLink="/mon-an">Món ăn</span></h1>
             </div>
             <hr>
             <div class="data-table">
@@ -26,10 +26,10 @@
                         </th>
                         <td class="row-column" mat-cell *matCellDef="let element"> 
                             <div *ngIf="column!=='chucNang'">
-                                    <div *ngIf="column!=='TenMonAn'"><span class="content-table">{{element[column]}}</span></div>
-                                    <div *ngIf="column==='TenMonAn'">
+                                    <div *ngIf="column!=='tenMonAn'"><span class="content-table">{{element[column]}}</span></div>
+                                    <div *ngIf="column==='tenMonAn'">
                                         <div class="content-table eexample-flex-container">
-                                            <a routerLink="/mon-an/edit/{{element.MaMonAn}}">{{element[column]}}</a>
+                                            <a routerLink="/mon-an/edit/{{element.maMonAn}}">{{element[column]}}</a>
                                         </div>
                                     </div>
                             </div>
@@ -38,14 +38,14 @@
                                     <button class="icon-list" 
                                         title="Định lượng món ăn" 
                                         mat-icon-button aria-label="Định lượng" 
-                                        routerLink="/mon-an/dinh-luong/{{element.MaMonAn}}"
+                                        routerLink="/mon-an/{{element.maMonAn}}/dinh-luong"
                                         >
                                         <mat-icon>assignment</mat-icon>
                                     </button>
                                     <button class="icon-delete" 
                                         title="Xóa học sinh" 
                                         mat-icon-button aria-label="Delete" 
-                                        (click)="deleteMonAn(element.MaMonAn)"
+                                        (click)="deleteMonAn(element.maMonAn)"
                                         >
                                         <mat-icon>delete</mat-icon>
                                     </button>
