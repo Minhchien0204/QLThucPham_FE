@@ -8,16 +8,16 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/mon-an">Món ăn</button> > <span class="child-bread-crum">Thêm món ăn</span></h1>
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/mon-an">Phiếu Bàn Giao</button> > <span class="child-bread-crum">Thêm Món Ăn</span></h1>
             </div>
             <hr>
             <div class="wrapper-form">
                 <form ngNativeValidate [formGroup]="createForm">
 
-                    <!-- Tên món ăn -->
+                    <!-- Tên Món Ăn-->
                     <div class="row-field">
                         <div class="row-left">
-                            <mat-label class="form-label">Tên món ăn</mat-label>
+                            <mat-label class="form-label">Tên Món Ăn</mat-label>
                         </div>
                         <div class="row-right">
                             <mat-form-field class="form-input" appearance="outline">
@@ -25,10 +25,9 @@
                             </mat-form-field>
                         </div>
                     </div>
-
-                    <!-- validate ten mon an -->
+                    <!-- validate ten món ăn -->
                     <div class="row-field" *ngIf="createForm.controls['tenMonAn'].invalid && (createForm.controls['tenMonAn'].dirty || 
-                                                    createForm.controls['tenMonAn'].touched)">
+                    createForm.controls['tenMonAn'].touched)">
                         <div class="row-left">
                         </div>
                         <div class="row-right">
@@ -40,49 +39,40 @@
                         </div>
                     </div>
 
-                    <!-- Mã Nhân Viên -->
+
+                    <!-- Nhân Viên -->
                     <div class="row-field">
                         <div class="row-left">
                             <mat-label class="form-label">Nhân Viên</mat-label>
                         </div>
                         <div class="row-right">
-                            <mat-form-field class="form-input" appearance="outline">
+                            <mat-form-field appearance="outline">
                                 <mat-select formControlName="maNhanVien">
-                                    <mat-option value="null">-----Chọn Nhân Viên-------</mat-option>
+                                    <mat-option value="null">--- Chọn Nhân viên ---</mat-option>
                                     <mat-option *ngFor="let nhanvien of listNhanVien" [value]="nhanvien['maNhanVien']">{{nhanvien['name']}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
                     </div>
 
-                    <!--  Bũa ăn -->
+
+                    <!-- Bua An -->
                     <div class="row-field">
                         <div class="row-left">
-                            <mat-label class="form-label">Bữa ăn</mat-label>
+                            <mat-label class="form-label">Bữa Ăn</mat-label>
                         </div>
                         <div class="row-right">
-                            <mat-form-field class="form-input" appearance="outline">
+                            <mat-form-field appearance="outline">
                                 <mat-select formControlName="buaAn">
-                                    <mat-option value="Bữa sáng">Bữa sáng</mat-option>
-                                    <mat-option value="Bữa trưa">Bữa trưa</mat-option>
-                                    <mat-option value="Bữa chiều">Bữa chiều</mat-option>
+                                    <mat-option value="null">--- Chọn Bữa Ăn ---</mat-option>
+                                    <mat-option value="Bữa Sáng">Bữa Sáng</mat-option>
+                                    <mat-option value="Bữa Trưa">Bữa Trưa</mat-option>
+                                    <mat-option value="Bữa Chiều">Bữa Chiều</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
                     </div>
-                    <!-- validate Bữa Ăn -->
-                    <div class="row-field" *ngIf="createForm.controls['buaAn'].invalid && (createForm.controls['buaAn'].dirty || 
-                                                    createForm.controls['buaAn'].touched)">
-                        <div class="row-left">
-                        </div>
-                        <div class="row-right">
-                            <ng-container>
-                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'buaAn')">
-                                    Data is required!
-                                </div>
-                            </ng-container>
-                        </div>
-                    </div>
+
 
                 </form>
 

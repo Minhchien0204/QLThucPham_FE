@@ -9,8 +9,6 @@ export class DinhLuong {
 
 export const bodyDinhLuong: {[index: string]:any} = {
     "maMonAn": "",
-    "tenMonAn": "",
     "maThucPham": "",
-    "tenThucPham": "",
     "soLuong": "",
 }

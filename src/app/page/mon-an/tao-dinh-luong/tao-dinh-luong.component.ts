@@ -20,6 +20,7 @@ export class TaoDinhLuongComponent implements OnInit {
   }
   listThucPham: {[index: string]:any}[] = [];
   monAnObject = Object.assign({}, bodyMonAn);
+  dinhLuong = Object.assign({}, bodyDinhLuong)
   constructor(private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router,
@@ -27,65 +28,60 @@ export class TaoDinhLuongComponent implements OnInit {
     private thucPhamService: ThucPhamService) {
       this.createForm = this.fb.group(
         {
-          tenThucPham: [{ value: '', disabled: false }, [Validators.required]],
+          maMonAn: [{ value: '', disabled: true }, [Validators.required]],
+          maThucPham: [{ value: '', disabled: false }, [Validators.required]],
           soLuong: [{ value: '', disabled: false }, [Validators.required]],
         }
       );
+      this.getListThucPham();
      }
 
-  ngOnInit(): void {
-    this.activeRoute.params.subscribe(async (param)=> {
-      this.monAnObject.maMonAn = param['id'];
-      const getDL = this.monAnService.getMonAnDetail(this.monAnObject.maMonAn).toPromise().then(
-        (data) => {
-          this.monAnObject.tenMonAn = data['tenMonAn'];
+    async ngOnInit(): Promise<void> {
+      console.log('init')
+      await Promise.all([this.getData()]);
+      console.log('xong init')
+    }
+    async getData(){
+      this.activeRoute.params.subscribe((param) => {
+        this.dinhLuong.maMonAn = param['id'];
+      });
+      await Promise.all([this.createForm.get('maMonAn')?.setValue(this.dinhLuong.maMonAn)]);
+    }
+
+
+    async getListThucPham() {
+      const dataGet: any[] = [];
+      const getThucPham = this.thucPhamService.getListThucPham().toPromise().then(
+        async (dataResponse) => {
+          dataResponse.map((thucpham) => {
+            dataGet.push(thucpham)
+          })
+        },
+        (error)=>{
+          // do notthing
         }
       );
-      await Promise.all([getDL]);
-    });
-    this.getListThucPham()
-  }
+      await Promise.all([getThucPham]);
+      this.listThucPham = dataGet;
+    }
+  
 
   async addDinhLuongMA() {
-    if (this.createForm.valid) {
-      const dinhLuong = Object.assign({}, bodyDinhLuong);
-      dinhLuong.maMonAn = this.monAnObject.maMonAn
-      dinhLuong.tenMonAn = this.monAnObject.tenMonAn
-      // Get data from form.
-      dinhLuong.maThucPham = this.createForm.get("tenThucPham")!.value;
-      console.log('denp', dinhLuong.maThucPham)
-      this.listThucPham.map(
-        (tp) => {
-          if (dinhLuong.maThucPham == tp['maThucPham']) {
-            dinhLuong.tenThucPham = tp['tenThucPham'];
-          }
-        }
-      );
-      dinhLuong.soLuong = this.createForm.get("soLuong")!.value;
-
-      const postDinhLuong = this.monAnService.addDinhLuong(this.monAnObject.maMonAn,  dinhLuong).toPromise().then((data) => {
-        this.router.navigateByUrl(
-          '/mon-an/' + this.monAnObject.maMonAn + '/dinh-luong',
-          {state: {typeMsg: 'success', contentMsg: "Success"}})
-      },
-      (error) => {
-        this.alerMsg['showMsg'] = true;
-        this.alerMsg['typeMsg'] = 'danger';
-        this.alerMsg['contentMsg'] = 'Failed update!';
-      });
-      await Promise.all([postDinhLuong]);
-    }
-  }
-
-  async getListThucPham() {
-    const getListTP = this.thucPhamService.getListThucPham().toPromise().then(
-      async (dataResponse) => {
-        this.listThucPham = dataResponse
-      },
-      (error)=>{
-        // do notthing
-      }
-    );
-    await Promise.all([getListTP]);
+   this.dinhLuong.maMonAn = this.createForm.get("maMonAn")!.value;
+   this.dinhLuong.maThucPham = this.createForm.get("maThucPham")!.value;
+   this.dinhLuong.soLuong = this.createForm.get("soLuong")!.value;
+   if(this.createForm.valid){
+     const postDinhLuong = this.monAnService.addDinhLuong(this.dinhLuong).toPromise().then((data) => {
+       this.router.navigateByUrl(
+         '/mon-an',
+         {state: {typeMsg: 'success', contentMsg: "Success"}})
+        },
+        (error) => {
+          this.alerMsg['showMsg'] = true;
+          this.alerMsg['typeMsg'] = 'danger';
+          this.alerMsg['contentMsg'] = 'Failed create!';
+        });
+        await Promise.all([postDinhLuong]);
+     }
   }
 }

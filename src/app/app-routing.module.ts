@@ -23,9 +23,7 @@ import { EditHocSinhComponent } from './page/hoc-sinh/edit-hoc-sinh/edit-hoc-sin
 import { ListMonAnComponent } from './page/mon-an/list-mon-an/list-mon-an.component';
 import { TaoMonAnComponent } from './page/mon-an/tao-mon-an/tao-mon-an.component';
 import { EditMonAnComponent } from './page/mon-an/edit-mon-an/edit-mon-an.component';
-import { DinhLuongComponent } from './page/mon-an/dinh-luong/dinh-luong.component';
 import { TaoDinhLuongComponent } from './page/mon-an/tao-dinh-luong/tao-dinh-luong.component';
-import { EditDinhLuongComponent } from './page/mon-an/edit-dinh-luong/edit-dinh-luong.component';
 import { EditUserComponent } from './page/users/edit-user/edit-user.component';
 import { AddUserComponent } from './page/users/add-user/add-user.component';
 import { ListBophanComponent } from './page/bophan/list-bophan/list-bophan.component';
@@ -69,6 +67,11 @@ import { AddPhieuGiaoComponent } from './page/phieu-giao/add-phieu-giao/add-phie
 import { EditPhieuGiaoComponent } from './page/phieu-giao/edit-phieu-giao/edit-phieu-giao.component';
 import { AddChiTietGiaoComponent } from './page/phieu-giao/chi-tiet-giao/add-chi-tiet-giao/add-chi-tiet-giao.component';
 import { ListChiTietGiaoOfComponent } from './page/phieu-giao/list-chi-tiet-giao-of/list-chi-tiet-giao-of.component';
+import { ListMonAn1Component } from './page/mon-an1/list-mon-an1/list-mon-an1.component';
+import { AddMonAn1Component } from './page/mon-an1/add-mon-an1/add-mon-an1.component';
+import { EditMonAn1Component } from './page/mon-an1/edit-mon-an1/edit-mon-an1.component';
+import { AddDinhLuong1Component } from './page/mon-an1/add-dinh-luong1/add-dinh-luong1.component';
+import { ListDinhLuong1Component } from './page/mon-an1/list-dinh-luong1/list-dinh-luong1.component';
 
 
 
@@ -90,12 +93,10 @@ const routes: Routes = [
   {path: 'hoc-sinh', component: ListHocSinhMainComponent},
   {path: 'hoc-sinh/create', component: TaoHocSinhComponent},
   {path: 'hoc-sinh/edit/:id', component: EditHocSinhComponent},
-  {path: 'mon-an', component: ListMonAnComponent},
-  {path: 'mon-an/create', component: TaoMonAnComponent},
-  {path: 'mon-an/edit/:id', component: EditMonAnComponent},
-  {path: 'mon-an/:id/dinh-luong', component: DinhLuongComponent},
-  {path: 'mon-an/:id/dinh-luong/create', component: TaoDinhLuongComponent},
-  {path: 'mon-an/:id/dinh-luong/edit/:idThucPham', component: EditDinhLuongComponent},
+  // {path: 'mon-an', component: ListMonAnComponent},
+  // {path: 'mon-an/create', component: TaoMonAnComponent},
+  // {path: 'mon-an/edit/:id', component: EditMonAnComponent},
+  // {path: 'mon-an/:id/dinh-luong/create', component: TaoDinhLuongComponent},
   {path: 'thuc-pham', component: ListThucPhamComponent},
   {path: 'thuc-pham/create', component: TaoThucPhamComponent},
   {path: 'thuc-pham/edit/:id', component: EditThucPhamComponent},
@@ -136,6 +137,11 @@ const routes: Routes = [
   {path: 'phieu/giao/edit/:id', component: EditPhieuGiaoComponent},
   {path: 'phieu/giao/:id/chi-tiet-giao/create', component: AddChiTietGiaoComponent},
   {path: 'phieu/giao/:id/chi-tiet-giao', component: ListChiTietGiaoOfComponent},
+  {path: 'mon-an',  component: ListMonAn1Component},
+  {path: 'mon-an/create',  component: AddMonAn1Component},
+  {path: 'mon-an/edit/:id',  component: EditMonAn1Component},
+  {path: 'mon-an/:id/dinh-luong/create', component: AddDinhLuong1Component},
+  {path: 'mon-an/:id/dinh-luong', component: ListDinhLuong1Component}
 
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }

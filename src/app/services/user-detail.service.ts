@@ -16,4 +16,5 @@ export class UserDetailService {
   showProfile(id: number) : Observable<User> {
     return this.http.get<User>(api + id);
   }
+
 }

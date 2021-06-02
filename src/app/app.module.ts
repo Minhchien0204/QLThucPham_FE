@@ -101,6 +101,11 @@ import { ListChiTietGiaoOfComponent } from './page/phieu-giao/list-chi-tiet-giao
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ListMonAn1Component } from './page/mon-an1/list-mon-an1/list-mon-an1.component';
+import { AddMonAn1Component } from './page/mon-an1/add-mon-an1/add-mon-an1.component';
+import { EditMonAn1Component } from './page/mon-an1/edit-mon-an1/edit-mon-an1.component';
+import { AddDinhLuong1Component } from './page/mon-an1/add-dinh-luong1/add-dinh-luong1.component';
+import { ListDinhLuong1Component } from './page/mon-an1/list-dinh-luong1/list-dinh-luong1.component';
 
 
 @NgModule({
@@ -173,7 +178,12 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     AddPhieuGiaoComponent,
     EditPhieuGiaoComponent,
     AddChiTietGiaoComponent,
-    ListChiTietGiaoOfComponent
+    ListChiTietGiaoOfComponent,
+    ListMonAn1Component,
+    AddMonAn1Component,
+    EditMonAn1Component,
+    AddDinhLuong1Component,
+    ListDinhLuong1Component
   ],
   imports: [
     BrowserModule,

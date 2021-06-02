@@ -6,9 +6,245 @@
         </div>
         <div class="spacer"></div>
         <div class="right-content">
+            <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
+            <div class="title">
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/profile"> Thông Tin </button> <span class="child-bread-crum"></span></h1>
+            </div>
+            <hr>
+            <div class="wrapper-form">
+                <form ngNativeValidate [formGroup]="editForm">
+
+                    <!-- UserName -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">UserName</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="userName">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- validate UserName -->
+                    <div class="row-field" *ngIf="editForm.controls['userName'].invalid && (editForm.controls['userName'].dirty || 
+                                                    editForm.controls['userName'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'userName')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Password</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input type="password" matInput formControlName="password">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- Họ và tên -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Họ và tên</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="name">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- validate ten -->
+                    <div class="row-field" *ngIf="editForm.controls['name'].invalid && (editForm.controls['name'].dirty || 
+                                                    editForm.controls['name'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'name')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Giới tính -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Giới tính</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="gioiTinh">
+                                    <mat-option value="true">Nữ</mat-option>
+                                    <mat-option value="false">Nam</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate Giới Tính -->
+                    <div class="row-field" *ngIf="editForm.controls['gioiTinh'].invalid && (editForm.controls['gioiTinh'].dirty || 
+                    editForm.controls['gioiTinh'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'gioiTinh')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Ngày sinh -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Ngày sinh</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <!-- <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="ngaySinh">
+                            </mat-form-field> -->
+                            <mat-form-field appearance="outline">
+                                <input matInput formControlName="ngaySinh" [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="editForm.controls['ngaySinh'].invalid && (editForm.controls['ngaySinh'].dirty || 
+                    editForm.controls['ngaySinh'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'ngaySinh')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Điện thoại -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Điện thoại</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="dienThoai">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate ten nhan vien -->
+                    <div class="row-field" *ngIf="editForm.controls['dienThoai'].invalid && (editForm.controls['dienThoai'].dirty || 
+                    editForm.controls['dienThoai'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'dienThoai')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Địa chỉ -->
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Địa chỉ</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field class="form-input" appearance="outline">
+                                <input matInput formControlName="diaChi">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate dia chi -->
+                    <div class="row-field" *ngIf="editForm.controls['diaChi'].invalid && (editForm.controls['diaChi'].dirty || 
+                                                    editForm.controls['diaChi'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'diaChi')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="row-field">
+                        <div class="row-left">
+                            <mat-label class="form-label">Giới tính</mat-label>
+                        </div>
+                        <div class="row-right">
+                            <mat-form-field appearance="outline">
+                                <mat-select formControlName="role">
+                                    <mat-option value="null">--- Chọn Loại Người Dùng ---</mat-option>
+                                    <mat-option value="Admin">Admin</mat-option>
+                                    <mat-option value="GiaoVien">GiaoVien</mat-option>
+                                    <mat-option value="ThucPham">ThucPham</mat-option>
+                                    <mat-option value="NhaBep">NhaBep</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- validate Role -->
+                    <div class="row-field" *ngIf="editForm.controls['role'].invalid && (editForm.controls['role'].dirty || 
+                    editForm.controls['role'].touched)">
+                        <div class="row-left">
+                        </div>
+                        <div class="row-right">
+                            <ng-container>
+                                <div class="errorValidator" *ngIf="editForm.hasError('required', 'role')">
+                                    Data is required!
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="row-field row-field-button">
+                <div class="button-form">
+                    <button class="button-create" mat-raised-button (click)="editUser()" [disabled]="editForm.invalid" [ngClass]="{disableButton:editForm.invalid}">Lưu</button>
+                </div>
+                <!-- <div class="button-form">
+                    <button class="button-cancel" color="none" routerLink="/profile" mat-raised-button>Hủy</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+<!-- <div class="wrapper">
+    <app-head-menu-bar></app-head-menu-bar>
+    <div class="container">
+        <div class="left-toolbar">
+            <app-left-toolbar></app-left-toolbar>
+        </div>
+        <div class="spacer"></div>
+        <div class="right-content">
             <mat-card class="profile">
                 <mat-card-header>
-                    <mat-card-title>Thong Tin</mat-card-title>
+                    <mat-card-title>Thông Tin</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
                     <div *ngIf="userAPI">
@@ -51,15 +287,4 @@
         </div>
     </div>
     <app-footer></app-footer>
-</div>
-<!-- <div class="card mt-4">
-    <h4 class="card-header">Home</h4>
-    <div class="card-body">
-        <p>This page can be accessed by <u>all authenticated users</u>.</p>
-        <p class="mb-1">Current user from secure api end point:</p>
-        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-        <ul *ngIf="userAPI">
-            <li>{{userAPI.userName}}</li>
-        </ul>
-    </div>
 </div> -->

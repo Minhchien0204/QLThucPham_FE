@@ -72,25 +72,23 @@ export class DinhLuongComponent implements OnInit {
 
   async deleteDL(id: string) {
     console.log(this.monAnObject.maMonAn)
-    if(confirm("Bạn có chắc muốn delete ?")) {
-      const deletedl = this.monAnService.deleteDinhLuong(this.monAnObject.maMonAn, id).toPromise().then(
-        () => {
-          this.alerMsg['showMsg'] = true;
-          this.alerMsg['typeMsg'] = 'success';
-          this.alerMsg['contentMsg'] = 'Delete success';
-        },
-        () => {
-          this.alerMsg['showMsg'] = true;
-          this.alerMsg['typeMsg'] = 'danger';
-          this.alerMsg['contentMsg'] = 'Delete failed!';
-        }
-      );
+    // if(confirm("Bạn có chắc muốn delete ?")) {
+    //   const deletedl = this.monAnService.deleteDinhLuong(this.monAnObject.maMonAn, id).toPromise().then(
+    //     () => {
+    //       this.alerMsg['showMsg'] = true;
+    //       this.alerMsg['typeMsg'] = 'success';
+    //       this.alerMsg['contentMsg'] = 'Delete success';
+    //     },
+    //     () => {
+    //       this.alerMsg['showMsg'] = true;
+    //       this.alerMsg['typeMsg'] = 'danger';
+    //       this.alerMsg['contentMsg'] = 'Delete failed!';
+    //     }
+    //   );
   
-      await Promise.all([deletedl]);
-      this.ngOnInit();
+    //   await Promise.all([deletedl]);
+    //   this.ngOnInit();
     }
     
-  }
-
 
 }
