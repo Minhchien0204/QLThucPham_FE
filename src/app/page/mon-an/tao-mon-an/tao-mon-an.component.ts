@@ -29,6 +29,7 @@ export class TaoMonAnComponent implements OnInit {
       this.createForm = this.fb.group(
         {
           tenMonAn: [{ value: '', disabled: false }, [Validators.required]],
+          maNhanVien: [{ value: '', disabled: false }, [Validators.required]],
           buaAn: [{ value: '', disabled: false }, [Validators.required]],
         }
       );
@@ -43,8 +44,7 @@ export class TaoMonAnComponent implements OnInit {
 
     // Get data from form.
     monAn.tenMonAn = this.createForm.get("tenMonAn")!.value;
-    // monAn.maNhanVien = this.authenticationService.user;
-    monAn.maNhanVien = 'NB1';  // TODO
+    monAn.maNhanVien = this.createForm.get("maNhanVien")!.value;
     monAn.buaAn = this.createForm.get("buaAn")!.value;
 
     if (this.createForm.valid) {
@@ -56,7 +56,7 @@ export class TaoMonAnComponent implements OnInit {
       (error) => {
         this.alerMsg['showMsg'] = true;
         this.alerMsg['typeMsg'] = 'danger';
-        this.alerMsg['contentMsg'] = 'Failed update!';
+        this.alerMsg['contentMsg'] = 'Failed crate!';
       });
       await Promise.all([postMonAn]);
     }
@@ -66,6 +66,7 @@ export class TaoMonAnComponent implements OnInit {
     const getNhanVien = this.nhanVienService.getListNhanVien().toPromise().then(
       async (dataResponse) => {
         this.listNhanVien = dataResponse
+        console.log(this.listNhanVien);
       },
       (error)=>{
         // do notthing

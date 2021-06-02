@@ -10,7 +10,10 @@ import { DinhLuong } from '../models/dinh-luong';
 })
 export class MonAnService {
   urlMonAn = environment.apiUrl + '/monan'
+  urlDinhLuong = environment.apiUrl + '/dinhluongma'
   constructor(private http: HttpClient) { }
+
+  
   public getListMonAn():Observable<MonAn[]> {
     return this.http.get<MonAn[]>(this.urlMonAn);
   }
@@ -43,11 +46,15 @@ export class MonAnService {
     return this.http.put(this.urlMonAn + '/' + id + '/dinhluong' + '/' + idTP, body);
   }
 
-  public deleteDinhLuong(idMonAn: string, idDinhLuong: string) {
-    return this.http.delete(this.urlMonAn + '/' + idMonAn + '/dinhluong' + '/' + idDinhLuong);
+  public deleteDinhLuong(id: string) {
+    return this.http.delete(this.urlDinhLuong + '/' + id);
   }
 
-  public addDinhLuong(id: string, body:{[index: string]:any}) {
-    return this.http.post(this.urlMonAn + '/' + id + '/dinhluong', body);
+  public addDinhLuong(body:{[index: string]:any}) {
+    return this.http.post(this.urlDinhLuong, body);
+  }
+
+  public getDinhLuongFromMonAn(id: string):Observable<DinhLuong[]>{
+    return this.http.get<DinhLuong[]>(this.urlMonAn + '/' + id + '/dinhluong');
   }
 }

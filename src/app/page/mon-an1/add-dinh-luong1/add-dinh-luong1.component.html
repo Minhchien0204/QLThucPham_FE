@@ -4,20 +4,20 @@
         <div class="left-toolbar">
             <app-left-toolbar></app-left-toolbar>
         </div>
+        <div class="spacer"></div>
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/mon-an">Món ăn</button> > <span class="child-bread-crum">Thêm Định Lượng</span></h1>
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/mon-an">Món Ăn</button> > <span class="child-bread-crum">Thêm Định Lượng</span></h1>
             </div>
             <hr>
             <div class="wrapper-form">
                 <form ngNativeValidate [formGroup]="createForm">
 
-
-                    <!-- Món ăn -->
+                    <!-- Mã Món Ăn -->
                     <div class="row-field">
                         <div class="row-left">
-                            <mat-label class="form-label">Món Ăn</mat-label>
+                            <mat-label class="form-label">Mã Món Ăn</mat-label>
                         </div>
                         <div class="row-right">
                             <mat-form-field class="form-input" appearance="outline">
@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    <!-- validate Số Phiếu Ban Giao -->
+                    <!-- validate Mã Món Ăn -->
                     <div class="row-field" *ngIf="createForm.controls['maMonAn'].invalid && (createForm.controls['maMonAn'].dirty || 
                     createForm.controls['maMonAn'].touched)">
                         <div class="row-left">
@@ -40,38 +40,25 @@
                         </div>
                     </div>
 
-
-                    <!-- Tên thực phẩm -->
+                    <!-- Thực Phẩm -->
                     <div class="row-field">
                         <div class="row-left">
-                            <mat-label class="form-label">Tên thực phẩm</mat-label>
+                            <mat-label class="form-label">Thực Phẩm</mat-label>
                         </div>
                         <div class="row-right">
-                            <mat-form-field class="form-input" appearance="outline">
+                            <mat-form-field appearance="outline">
                                 <mat-select formControlName="maThucPham">
-                                    <mat-option *ngFor="let tp of listThucPham" value="{{tp['maThucPham']}}">{{tp['tenThucPham']}}</mat-option>
+                                    <mat-option value="null">--- Chọn Thực Phẩm ---</mat-option>
+                                    <mat-option *ngFor="let thucpham of listThucPham" [value]="thucpham['maThucPham']">{{thucpham['tenThucPham']}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
                     </div>
-                    <!-- validate ten thuc pham -->
-                    <div class="row-field" *ngIf="createForm.controls['maThucPham'].invalid && (createForm.controls['maThucPham'].dirty || 
-                                                    createForm.controls['maThucPham'].touched)">
-                        <div class="row-left">
-                        </div>
-                        <div class="row-right">
-                            <ng-container>
-                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'maThucPham')">
-                                    Data is required!
-                                </div>
-                            </ng-container>
-                        </div>
-                    </div>
 
-                    <!-- Tên số lượng -->
+                    <!-- Số Lượng -->
                     <div class="row-field">
                         <div class="row-left">
-                            <mat-label class="form-label">Số lượng</mat-label>
+                            <mat-label class="form-label">Số Lượng</mat-label>
                         </div>
                         <div class="row-right">
                             <mat-form-field class="form-input" appearance="outline">
@@ -80,9 +67,9 @@
                         </div>
                     </div>
 
-                    <!-- validate ten nhan vien -->
+                    <!-- validate Số Lượng -->
                     <div class="row-field" *ngIf="createForm.controls['soLuong'].invalid && (createForm.controls['soLuong'].dirty || 
-                                                    createForm.controls['soLuong'].touched)">
+                    createForm.controls['soLuong'].touched)">
                         <div class="row-left">
                         </div>
                         <div class="row-right">
@@ -93,20 +80,18 @@
                             </ng-container>
                         </div>
                     </div>
-
                 </form>
 
             </div>
             <div class="row-field row-field-button">
                 <div class="button-form">
-                    <button class="button-create" mat-raised-button [disabled]="createForm.invalid" (click)="addDinhLuongMA()" [ngClass]="{disableButton:createForm.invalid}">Lưu</button>
+                    <button class="button-create" mat-raised-button [disabled]="createForm.invalid" (click)="addDinhLuong()" [ngClass]="{disableButton:createForm.invalid}">Lưu</button>
                 </div>
                 <div class="button-form">
                     <button class="button-cancel" color="none" routerLink="/mon-an" mat-raised-button>Hủy</button>
                 </div>
             </div>
         </div>
-        <div class="clear"></div>
     </div>
     <app-footer></app-footer>
 </div>
