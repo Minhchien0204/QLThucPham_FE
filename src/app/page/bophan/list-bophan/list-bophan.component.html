@@ -4,13 +4,19 @@
         <div class="left-toolbar">
             <app-left-toolbar></app-left-toolbar>
         </div>
-        <div class="spacer"></div>
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
                 <h1><span mat-button class="parent-bread-crum" routerLink="/bo-phan"> Bộ Phận </span></h1>
             </div>
             <hr>
+            <div class="search-container">
+                <label>Tìm kiếm</label>
+                <mat-form-field class="input-tim-kiem">
+                    <input matInput (keyup)="applyFilter($event)" #input >
+                </mat-form-field>
+            </div>
+            <div class="clear"></div>
             <div class="data-table">
                 <table mat-table [dataSource]="dataSource">
                     <!--- Note that these columns can be defined in any order.
@@ -60,5 +66,6 @@
                 </div>
             </div>
         </div>
+        <div class="clear"></div>
     </div>
 </div>

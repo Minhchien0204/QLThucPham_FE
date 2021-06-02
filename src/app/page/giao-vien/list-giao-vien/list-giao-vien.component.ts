@@ -43,6 +43,10 @@ export class ListGiaoVienComponent implements OnInit {
     this.getListGiaoVien();
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   async getListGiaoVien(){
     const dataGet: any[] = [];

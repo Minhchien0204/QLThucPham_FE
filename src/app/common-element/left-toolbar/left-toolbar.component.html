@@ -1,4 +1,9 @@
 <div class="container-left">
+    <div class="menu-chuc-nang">
+        <div class="menu-text">
+            <span>Chức năng</span>
+        </div>
+    </div>
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <!-- This is the tree node template for leaf nodes -->
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle style="display: {{ menuMain.includes(node.id)? '':'none' }}">

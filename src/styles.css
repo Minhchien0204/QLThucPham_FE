@@ -20,6 +20,8 @@ body {
     /* margin-top: 45px; */
     /* background-color: #eee; */
     padding-bottom:50px;
+    min-height: calc( 100vh - 50px );
+    
 }
 
 a {
@@ -43,35 +45,34 @@ a:hover {
 app-left-toolbar {
     width: 100%;
 }
-
+.menu-chuc-nang {
+    height: 50px;
+}
 .container-left {
     background-color: #fff;
     height: 100%;
     width: 100%;
-    overflow: auto;
-    overflow-x: hidden;
     border-radius: 5px;
 }
 
 .left-toolbar {
-    margin-top: 10px;
-    /* display: flex; */
-    height: 94%;
-    width: 18%;
-    /* position: fixed; */
+    padding-top: 10px;
+    /* min-height: calc( 100vh - 70px); */
+    width: 22%;
     background-color: inherit;
-    padding-left: 15px;
     overflow-y: auto;
     overflow-x: auto;
     float: left;
 }
 
 .right-content {
-    margin-top: 10px;
     background-color: #fff;
-    /* height: 100%; */
-    padding: 10px 15px 10px 10px;
+    min-height: calc( 100vh - 70px);
+    padding: 10px 15px 10px 15px;
     overflow: auto;
+    border-left: 1px solid #eeeeee;
+    float: left;
+    width: 72%;
 }
 
 .disableButton {
@@ -104,7 +105,6 @@ app-left-toolbar {
     box-sizing: border-box;
     box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
     border: 1px solid #bdbdbd;
-    margin-top: 35px;
 }
 
 table {
@@ -174,7 +174,7 @@ table {
 .parent-bread-crum,
 .parent-bread-crum-link {
     font-weight: 450;
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .parent-bread-crum-link :hover {
@@ -237,4 +237,17 @@ mat-form-field {
 
 .errorValidator {
     color: red;
+}
+
+.clear {
+    clear: both !important;
+}
+.input-tim-kiem {
+    width: 70%;
+    margin-left: 10px;
+}
+
+.search-container {
+    margin-top: 10px;
+    float: right;
 }
