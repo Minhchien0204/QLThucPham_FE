@@ -1,34 +1,73 @@
-/* mat-toolbar {
-    width: 100% !important;
-    height: 50px !important;
-    position: absolute !important;
-    bottom: 0px !important;
-    background-color: #32a852;
-} */
+.container-footer {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 15px;
+}
 
 .footer {
     position:absolute;
     bottom: 0;
     width:100%;
-    height:50px;   /* Height of the footer */
-    background:#32a852;
+    /* height:50px;   Height of the footer */
+    background:#464646;
+}
+.container-header{
+    height: 50px;
+    text-align: center;
+    margin-top: 10px;
+    color: #fff;
+}
+.left-footer {
+    float: left;
+}
+.center-footer {
+    width: 40%;
+    float: left;
+}
+.right-footer {
+    float: left;
+    text-align: right;
 }
 
-.container .header h1 {
-    font-family: "Copperplate" fantasy;
+.left-footer, .right-footer {
+    width: 30%;
+}
+
+.left-footer, .center-footer , .right-footer {
+    height: 100%;
+    color: #fff;
+}
+h2, h1 {
+    margin-bottom: 0px;
+}
+.content-footer{
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.gioi-thieu {
+    text-align: center;
+    font-size: 20px;
+}
+.content-gioi-thieu {
     text-align: center;
 }
-
-.left-content p.Dai-Chi {
-    color: antiquewhite;
+.phone mat-icon {
+    transform: scale(0.8);
+    bottom: 0;
+    position: absolute;
+}
+.phone {
+    position: relative;
+    margin-right: 20px;
+}
+.main-text-footer {
+    margin-top: 15px;
 }
 
-.thong-tin .span {
-    vertical-align: middle;
+.main-text-footer-left span, .main-text-footer-left .thong-tin{
+    float: left;
 }
-
-div.right-content {
-    float: right;
-    width: 350px;
-    padding: 10px;
+.main-text-footer-left .thong-tin {
+    margin-left: 10px;
 }

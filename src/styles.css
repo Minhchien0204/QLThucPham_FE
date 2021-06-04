@@ -19,8 +19,8 @@ body {
 .container {
     /* margin-top: 45px; */
     /* background-color: #eee; */
-    padding-bottom:50px;
-    min-height: calc( 100vh - 50px );
+    padding-bottom:300px;
+    /* min-height: calc( 100vh - 50px ); */
     
 }
 
@@ -47,6 +47,7 @@ app-left-toolbar {
 }
 .menu-chuc-nang {
     height: 50px;
+
 }
 .container-left {
     background-color: #fff;
@@ -60,14 +61,12 @@ app-left-toolbar {
     /* min-height: calc( 100vh - 70px); */
     width: 22%;
     background-color: inherit;
-    overflow-y: auto;
-    overflow-x: auto;
     float: left;
 }
 
 .right-content {
     background-color: #fff;
-    min-height: calc( 100vh - 70px);
+    height: 68vh;
     padding: 10px 15px 10px 15px;
     overflow: auto;
     border-left: 1px solid #eeeeee;
