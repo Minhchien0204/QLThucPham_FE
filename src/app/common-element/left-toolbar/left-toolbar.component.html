@@ -9,17 +9,17 @@
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle style="display: {{ menuMain.includes(node.id)? '':'none' }}">
             <li class="mat-tree-node">
             <!-- use a disabled button to provide padding for tree leaf -->
-                <button mat-button class="button-child-menu" routerLink="{{node.url}}">{{node.name}}</button>
+                <button mat-button class="button-child-menu {{activeNodeChild(node) ?'active-menu':''}}" routerLink="{{node.url}}">{{node.name}}</button>
             
             </li>
         </mat-tree-node>
         <!-- This is the tree node template for expandable nodes -->
         <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
             <li>
-                <div class="mat-tree-node {{node.active?'active-menu':''}}">
+                <div class="mat-tree-node">
                     <button mat-button matTreeNodeToggle
                             [attr.aria-label]="'Toggle ' + node.name"
-                            class="button-parent-menu">
+                            class="button-parent-menu {{activeNodeParent(node) ?'active-menu':''}}">
                     {{node.name}}
                     <mat-icon class="mat-icon-rtl-mirror">
                         {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}

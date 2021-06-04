@@ -89,8 +89,8 @@ app-left-toolbar {
 }
 
 .active-menu {
-    background-color: #32a852;
-    color: #f0ffeb;
+    color: #32a852;
+    background-color: #e5ffe8b8;
 }
 
 .container-right {

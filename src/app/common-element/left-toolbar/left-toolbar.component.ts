@@ -3,6 +3,7 @@ import {MatTreeNestedDataSource} from '@angular/material/tree';
 import {NestedTreeControl} from '@angular/cdk/tree';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 interface MenuNode {
   id: string;
@@ -138,7 +139,8 @@ export class LeftToolbarComponent implements OnInit {
 
   treeControl = new NestedTreeControl<MenuNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<MenuNode>();
-  constructor(private authenticationService: AuthenticationService) { 
+  constructor(private authenticationService: AuthenticationService,
+    private router: Router) { 
     this.dataSource.data = TREE_DATA;
 
     // get role
@@ -161,5 +163,24 @@ export class LeftToolbarComponent implements OnInit {
     } else {
       return this.menuAdmin;
     }
+  }
+
+  activeNodeParent(node: MenuNode) {
+    let is_active: Boolean = false
+    node.children?.map((x)=> {
+      if (this.router.url.includes(x.id)) {
+        this.treeControl.expand(node);
+        is_active = true
+      } else {
+
+      }
+    })
+    return is_active
+  }
+  activeNodeChild(node: MenuNode) {
+    if (this.router.url.includes(node.id)) {
+      return true
+    }
+    return false
   }
 }
