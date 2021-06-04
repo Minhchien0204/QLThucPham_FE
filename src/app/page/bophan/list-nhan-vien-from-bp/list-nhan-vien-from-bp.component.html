@@ -7,7 +7,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><span mat-button class="parent-bread-crum" routerLink="/user"> Người Dùng </span></h1>
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/bo-phan">Bộ Phận</button> > <span class="child-bread-crum">Danh sách Nhân Viên</span></h1>
             </div>
             <hr>
             <div class="search-container">
@@ -30,22 +30,8 @@
                             </div>
                         </th>
                         <td class="row-column" mat-cell *matCellDef="let element">
-                            <div *ngIf="column!=='chucNang'">
-                                <div *ngIf="column!=='gioiTinh'">
-                                    <div *ngIf="column!=='name'"><span class="content-table">{{element[column]}}</span></div>
-                                    <div *ngIf="column==='name'">
-                                        <div class="content-table eexample-flex-container">
-                                            <a routerLink="/user/edit/{{element.id}}">{{element[column]}}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span *ngIf="column==='gioiTinh'" class="content-table">{{ element[column]?'Nữ': 'Nam' }}</span>
-                            </div>
-                            <div *ngIf="column==='chucNang'">
-                                <button class="icon-delete" title="Xóa User" mat-icon-button aria-label="Delete" (click)="deleteUser(element.id)">
-                                    <mat-icon>delete</mat-icon>
-                                </button>
-                            </div>
+                            <div><span *ngIf="column!=='gioiTinh'" class="content-table">{{element[column]}}</span></div>
+                            <div><span *ngIf="column==='gioiTinh'" class="content-table">{{ element[column]?'Nữ': 'Nam' }}</span></div>
                         </td>
                     </ng-container>
 
@@ -60,7 +46,7 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/user/add" mat-raised-button>Thêm User</button>
+                    <button class="button-cancel" routerLink="/bo-phan" mat-raised-button>Trở về</button>
                 </div>
             </div>
         </div>
