@@ -68,37 +68,37 @@ export class HomePageComponent implements OnInit {
     "phieu": [
       {
         "id": "phieu-yeu-cau-thuc-pham",
-        "url": "/phieu-yeu-cau-thuc-pham",
+        "url": "/phieu/yeu-cau-thuc-pham",
         "icon": "exposure",
         "name": "Phiếu yêu cầu thực phẩm"
       },
       {
         "id": "phieu-bao-an",
-        "url": "/phieu-bao-an",
+        "url": "/phieu/bao-an",
         "icon": "local_dining",
         "name": "Phiếu báo ăn"
       },
       {
         "id": "phieu-cung-cap",
-        "url": "/phieu-cung-cap",
+        "url": "/phieu/cung-cap",
         "icon": "local_shipping",
         "name": "Phiếu cung cấp"
       },
       {
         "id": "phieu-ban-giao",
-        "url": "/phieu-ban-giao",
+        "url": "/phieu/ban-giao",
         "icon": "filter_frames",
         "name": "Phiếu bàn giao"
       },
       {
         "id": "phieu-kiem-ke",
-        "url": "/phieu-kiem-ke",
+        "url": "/phieu/kiem-ke",
         "icon": "poll",
         "name": "Phiếu kiểm kê"
       },
       {
         "id": "phieu-giao",
-        "url": "/phieu-giao",
+        "url": "/phieu/giao",
         "icon": "check_box",
         "name": "Phiếu giao"
       }
