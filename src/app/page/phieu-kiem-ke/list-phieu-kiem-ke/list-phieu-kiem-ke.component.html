@@ -7,7 +7,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu/ban-giao">Phiếu Kiểm Kê</span></h1>
+                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu-ban-giao">Phiếu Kiểm Kê</span></h1>
             </div>
             <hr>
             <div class="search-container">
@@ -34,16 +34,16 @@
                                 <div *ngIf="column!=='soPhieuKiemKe'"><span class="content-table">{{element[column]}}</span></div>
                                 <div *ngIf="column==='soPhieuKiemKe'">
                                     <div class="content-table eexample-flex-container">
-                                        <a routerLink="/phieu/ban-giao/edit/{{element.soPhieuKiemKe}}">{{element[column]}}</a>
+                                        <a routerLink="/phieu-ban-giao/edit/{{element.soPhieuKiemKe}}">{{element[column]}}</a>
                                     </div>
                                 </div>
                             </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <button class="icon-add" title="Them Chi Tiet Kiểm Kê " routerLink="/phieu/kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke/create" mat-icon-button aria-label="Add CTBG">
+                                    <button class="icon-add" title="Them Chi Tiet Kiểm Kê " routerLink="/phieu-kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke/create" mat-icon-button aria-label="Add CTBG">
                                         <mat-icon>playlist_add</mat-icon>
                                     </button>
-                                    <button class="icon-list" title="Danh sách Chi Tiet Kiem Ke " routerLink="/phieu/kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke" mat-icon-button aria-label="List CTBG">
+                                    <button class="icon-list" title="Danh sách Chi Tiet Kiem Ke " routerLink="/phieu-kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke" mat-icon-button aria-label="List CTBG">
                                         <mat-icon>list_alt</mat-icon>
                                     </button>
                                     <button class="icon-delete" title="Xóa Phieu Kiem Ke" mat-icon-button aria-label="Delete" (click)="deletePhieuKiemKe(element.soPhieuKiemKe)">
@@ -65,7 +65,7 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/phieu/kiem-ke/create" mat-raised-button>Thêm Phiếu Kiểm Kê</button>
+                    <button class="button-create" routerLink="/phieu-kiem-ke/create" mat-raised-button>Thêm Phiếu Kiểm Kê</button>
                 </div>
             </div>
         </div>

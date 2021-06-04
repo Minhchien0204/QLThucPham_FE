@@ -69,7 +69,7 @@ export class AddPhieuAnComponent implements OnInit {
     if (this.createForm.valid) {
       const postPhieuAn = this.phieuAnService.addPhieuAn(phieuAn).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/bao-an',
+          '/phieu-bao-an',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

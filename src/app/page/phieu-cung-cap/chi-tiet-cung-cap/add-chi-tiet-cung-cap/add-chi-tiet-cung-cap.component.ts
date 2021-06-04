@@ -97,7 +97,7 @@ export class AddChiTietCungCapComponent implements OnInit {
     if (this.createForm.valid) {
       const postChiTietCungCap = this.chiTietCungCapService.addChiTietCungCap(this.chiTietCungCap).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/cung-cap',
+          '/phieu-cung-cap',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

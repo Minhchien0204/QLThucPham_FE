@@ -7,7 +7,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu/bao-an">Phiếu Báo Ăn</span></h1>
+                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu-bao-an">Phiếu Báo Ăn</span></h1>
             </div>
             <hr>
             <div class="search-container">
@@ -35,7 +35,7 @@
                                     <div *ngIf="column!=='sophieuAn'"><span class="content-table">{{element[column]}}</span></div>
                                     <div *ngIf="column==='sophieuAn'">
                                         <div class="content-table eexample-flex-container">
-                                            <a routerLink="/phieu/bao-an/edit/{{element.sophieuAn}}">{{element[column]}}</a>
+                                            <a routerLink="/phieu-bao-an/edit/{{element.sophieuAn}}">{{element[column]}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/phieu/bao-an/create" mat-raised-button>Thêm Phiếu Ăn</button>
+                    <button class="button-create" routerLink="/phieu-bao-an/create" mat-raised-button>Thêm Phiếu Ăn</button>
                 </div>
             </div>
         </div>

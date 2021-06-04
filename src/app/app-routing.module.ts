@@ -74,8 +74,7 @@ import { AddDinhLuong1Component } from './page/mon-an1/add-dinh-luong1/add-dinh-
 import { ListDinhLuong1Component } from './page/mon-an1/list-dinh-luong1/list-dinh-luong1.component';
 import { ListNhanVienFromBpComponent } from './page/bophan/list-nhan-vien-from-bp/list-nhan-vien-from-bp.component';
 import { FooterComponent } from './common-element/footer/footer.component';
-
-
+import { NotFoundUrlPageComponent } from './page/not-found-url-page/not-found-url-page.component';
 
 
 const routes: Routes = [
@@ -111,44 +110,44 @@ const routes: Routes = [
   {path: 'nha-cung-cap/edit/:id', component: EditNhaCungCapComponent},
   {path: 'giao-vien', component: ListGiaoVienComponent},
   {path: 'giao-vien/edit/:id', component: EditGiaoVienComponent},
-  {path: 'phieu/bao-an', component: ListPhieuAnComponent},
-  {path: 'phieu/bao-an/create', component: AddPhieuAnComponent},
-  {path: 'phieu/bao-an/edit/:id', component:EditPhieuAnComponent},
-  {path: 'phieu/yeu-cau-thuc-pham', component: ListPhieuYeuCauComponent},
-  {path: 'phieu/yeu-cau-thuc-pham/create', component: AddPhieuYeuCauComponent},
-  {path: 'phieu/yeu-cau-thuc-pham/edit/:id', component: EditPhieuYeuCauComponent},
+  {path: 'phieu-bao-an', component: ListPhieuAnComponent},
+  {path: 'phieu-bao-an/create', component: AddPhieuAnComponent},
+  {path: 'phieu-bao-an/edit/:id', component:EditPhieuAnComponent},
+  {path: 'phieu-yeu-cau-thuc-pham', component: ListPhieuYeuCauComponent},
+  {path: 'phieu-yeu-cau-thuc-pham/create', component: AddPhieuYeuCauComponent},
+  {path: 'phieu-yeu-cau-thuc-pham/edit/:id', component: EditPhieuYeuCauComponent},
   {path: 'chi-tiet-yeu-cau', component: ListChiTietYeuCauComponent},
-  {path: 'phieu/yeu-cau-thuc-pham/:id/chi-tiet-yeu-cau/create', component: AddChiTietYeuCauComponent},
-  {path: 'phieu/yeu-cau-thuc-pham/:id/chi-tiet-yeu-cau', component: ListChiTietYeuCauOfComponent},
-  {path: 'phieu/cung-cap', component: ListPhieuCungCapComponent},
-  {path: 'phieu/cung-cap/create', component: AddPhieuCungCapComponent},
-  {path: 'phieu/cung-cap/edit/:id', component: EditPhieuCungCapComponent},
-  {path: 'phieu/cung-cap/:id/chi-tiet-cung-cap/create', component: AddChiTietCungCapComponent},
-  {path: 'phieu/cung-cap/:id/chi-tiet-cung-cap', component: ListChiTietCungCapOfComponent},
-  {path: 'phieu/ban-giao', component: ListPhieuBanGiaoComponent},
-  {path: 'phieu/ban-giao/create', component: AddPhieuBanGiaoComponent},
-  {path: 'phieu/ban-giao/edit/:id', component: EditPhieuBanGiaoComponent},
-  {path: 'phieu/ban-giao/:id/chi-tiet-ban-giao/create', component: AddChiTietBanGiaoComponent},
-  {path: 'phieu/ban-giao/:id/chi-tiet-ban-giao', component: ListChiTietBanGiaoOfComponent},
-  {path: 'phieu/kiem-ke', component: ListPhieuKiemKeComponent},
-  {path: 'phieu/kiem-ke/create', component: AddPhieuKiemKeComponent},
-  {path: 'phieu/kiem-ke/edit/:id', component: EditPhieuKiemKeComponent},
-  {path: 'phieu/kiem-ke/:id/chi-tiet-kiem-ke/create', component: ChiTietKiemKeComponent},
-  {path: 'phieu/kiem-ke/:id/chi-tiet-kiem-ke', component: ListChiTietKiemKeOfComponent},
-  {path: 'phieu/giao', component: ListPhieuGiaoComponent},
-  {path: 'phieu/giao/create', component: AddPhieuGiaoComponent},
-  {path: 'phieu/giao/edit/:id', component: EditPhieuGiaoComponent},
-  {path: 'phieu/giao/:id/chi-tiet-giao/create', component: AddChiTietGiaoComponent},
-  {path: 'phieu/giao/:id/chi-tiet-giao', component: ListChiTietGiaoOfComponent},
+  {path: 'phieu-yeu-cau-thuc-pham/:id/chi-tiet-yeu-cau/create', component: AddChiTietYeuCauComponent},
+  {path: 'phieu-yeu-cau-thuc-pham/:id/chi-tiet-yeu-cau', component: ListChiTietYeuCauOfComponent},
+  {path: 'phieu-cung-cap', component: ListPhieuCungCapComponent},
+  {path: 'phieu-cung-cap/create', component: AddPhieuCungCapComponent},
+  {path: 'phieu-cung-cap/edit/:id', component: EditPhieuCungCapComponent},
+  {path: 'phieu-cung-cap/:id/chi-tiet-cung-cap/create', component: AddChiTietCungCapComponent},
+  {path: 'phieu-cung-cap/:id/chi-tiet-cung-cap', component: ListChiTietCungCapOfComponent},
+  {path: 'phieu-ban-giao', component: ListPhieuBanGiaoComponent},
+  {path: 'phieu-ban-giao/create', component: AddPhieuBanGiaoComponent},
+  {path: 'phieu-ban-giao/edit/:id', component: EditPhieuBanGiaoComponent},
+  {path: 'phieu-ban-giao/:id/chi-tiet-ban-giao/create', component: AddChiTietBanGiaoComponent},
+  {path: 'phieu-ban-giao/:id/chi-tiet-ban-giao', component: ListChiTietBanGiaoOfComponent},
+  {path: 'phieu-kiem-ke', component: ListPhieuKiemKeComponent},
+  {path: 'phieu-kiem-ke/create', component: AddPhieuKiemKeComponent},
+  {path: 'phieu-kiem-ke/edit/:id', component: EditPhieuKiemKeComponent},
+  {path: 'phieu-kiem-ke/:id/chi-tiet-kiem-ke/create', component: ChiTietKiemKeComponent},
+  {path: 'phieu-kiem-ke/:id/chi-tiet-kiem-ke', component: ListChiTietKiemKeOfComponent},
+  {path: 'phieu-giao', component: ListPhieuGiaoComponent},
+  {path: 'phieu-giao/create', component: AddPhieuGiaoComponent},
+  {path: 'phieu-giao/edit/:id', component: EditPhieuGiaoComponent},
+  {path: 'phieu-giao/:id/chi-tiet-giao/create', component: AddChiTietGiaoComponent},
+  {path: 'phieu-giao/:id/chi-tiet-giao', component: ListChiTietGiaoOfComponent},
   {path: 'mon-an',  component: ListMonAn1Component},
   {path: 'mon-an/create',  component: AddMonAn1Component},
   {path: 'mon-an/edit/:id',  component: EditMonAn1Component},
   {path: 'mon-an/:id/dinh-luong/create', component: AddDinhLuong1Component},
   {path: 'mon-an/:id/dinh-luong', component: ListDinhLuong1Component},
   {path: 'bo-phan/:id/nhan-vien', component: ListNhanVienFromBpComponent},
-  {path: 'footer', component: FooterComponent},
+  // {path: 'footer', component: FooterComponent},
     // otherwise redirect to home
-    //{ path: '**', redirectTo: '' }
+  { path: '**', component: NotFoundUrlPageComponent }
 ];
 
 @NgModule({

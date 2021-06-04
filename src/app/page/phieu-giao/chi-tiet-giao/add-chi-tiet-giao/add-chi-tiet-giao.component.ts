@@ -96,7 +96,7 @@ export class AddChiTietGiaoComponent implements OnInit {
     if (this.createForm.valid) {
       const postChiTietGiao = this.chiTietGiaoService.addChiTietGiao(this.chiTietGiao).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/giao',
+          '/phieu-giao',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

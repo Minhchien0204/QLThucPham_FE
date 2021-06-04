@@ -103,7 +103,7 @@ export class EditPhieuCungCapComponent implements OnInit {
     if (this.editForm.valid) {
       const putPhieuCungCap = this.phieuCungCapService.updatePhieuCungCap(this.phieuCungCap.soPhieuCugCap, this.phieuCungCap).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/cung-cap',
+          '/phieu-cung-cap',
           {state: {typeMsg: 'success', contentMsg: "Edit success !"}})
       },
       (error) => {

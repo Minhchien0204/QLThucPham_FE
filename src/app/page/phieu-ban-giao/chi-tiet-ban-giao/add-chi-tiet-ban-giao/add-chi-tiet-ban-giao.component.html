@@ -7,7 +7,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/phieu/ban-giao">Phiếu Bàn Giao</button> > <span class="child-bread-crum">Thêm Chi Tiết Bàn Giao</span></h1>
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/phieu-ban-giao">Phiếu Bàn Giao</button> > <span class="child-bread-crum">Thêm Chi Tiết Bàn Giao</span></h1>
             </div>
             <hr>
             <div class="wrapper-form">
@@ -87,7 +87,7 @@
                     <button class="button-create" mat-raised-button [disabled]="createForm.invalid" (click)="addChiTietBanGiao()" [ngClass]="{disableButton:createForm.invalid}">Lưu</button>
                 </div>
                 <div class="button-form">
-                    <button class="button-cancel" color="none" routerLink="/phieu/ban-giao" mat-raised-button>Hủy</button>
+                    <button class="button-cancel" color="none" routerLink="/phieu-ban-giao" mat-raised-button>Hủy</button>
                 </div>
             </div>
         </div>

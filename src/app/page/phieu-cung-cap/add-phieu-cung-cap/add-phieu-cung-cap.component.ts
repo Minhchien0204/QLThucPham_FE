@@ -66,7 +66,7 @@ export class AddPhieuCungCapComponent implements OnInit {
     if (this.createForm.valid) {
       const postPhieuCungCap = this.phieuCungCapService.addPhieuCungCap(phieuCungCap).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/cung-cap',
+          '/phieu-cung-cap',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

@@ -75,7 +75,7 @@ export class AddChiTietYeuCauComponent implements OnInit {
     if (this.createForm.valid) {
       const postChiTietYeuCau = this.chiTietYeuCauService.addChiTietYeuCau(this.chiTietYeuCau).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/yeu-cau-thuc-pham',
+          '/phieu-yeu-cau-thuc-pham',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

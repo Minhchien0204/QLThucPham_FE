@@ -249,4 +249,5 @@ mat-form-field {
 .search-container {
     margin-top: 10px;
     float: right;
+    width: 40%;
 }

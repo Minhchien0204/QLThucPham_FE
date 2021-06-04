@@ -85,37 +85,37 @@ const TREE_DATA: MenuNode[] = [
       {
         id: 'phieu-yeu-cau-thuc-pham',
         name: 'Phiếu yêu cầu thực phẩm',
-        url: '/phieu/yeu-cau-thuc-pham',
+        url: '/phieu-yeu-cau-thuc-pham',
         active: false
       },
       {
         id: 'phieu-bao-an',
         name: 'Phiếu báo ăn',
-        url: '/phieu/bao-an',
+        url: '/phieu-bao-an',
         active: false
       },
       {
         id: 'phieu-cung-cap',
         name: 'Phiếu cung cấp',
-        url: '/phieu/cung-cap',
+        url: '/phieu-cung-cap',
         active: false
       },
       {
         id: 'phieu-ban-giao',
         name: 'Phiếu bàn giao',
-        url: '/phieu/ban-giao',
+        url: '/phieu-ban-giao',
         active: false
       },
       {
         id: 'phieu-kiem-ke',
         name: 'Phiếu kiểm kê',
-        url: '/phieu/kiem-ke',
+        url: '/phieu-kiem-ke',
         active: false
       },
       {
         id: 'phieu-giao',
         name: 'Phiếu giao',
-        url: '/phieu/giao',
+        url: '/phieu-giao',
         active: false
       },
     ],
@@ -169,17 +169,29 @@ export class LeftToolbarComponent implements OnInit {
     let is_active: Boolean = false
     node.children?.map((x)=> {
       if (this.router.url.includes(x.id)) {
-        this.treeControl.expand(node);
-        is_active = true
-      } else {
-
-      }
+        if (this.router.url === '/phieu-yeu-cau-thuc-pham' && x.id !== 'thuc-pham') {
+          this.treeControl.expand(node);
+          is_active = true;
+        } else if (this.router.url === '/thuc-pham' && x.id === 'thuc-pham') {
+          this.treeControl.expand(node);
+          is_active = true;
+        } else if (this.router.url !== '/thuc-pham' && x.id !== 'thuc-pham') {
+          this.treeControl.expand(node);
+          is_active = true;
+        }
+      } 
     })
     return is_active
   }
   activeNodeChild(node: MenuNode) {
     if (this.router.url.includes(node.id)) {
-      return true
+      if (this.router.url === '/phieu-yeu-cau-thuc-pham' && node.id !== 'thuc-pham') {
+        return true
+      } else if (this.router.url === '/thuc-pham' && node.id === 'thuc-pham') {
+        return true
+      }else if (this.router.url !== '/thuc-pham' && node.id !== 'thuc-pham') {
+        return true
+      }
     }
     return false
   }

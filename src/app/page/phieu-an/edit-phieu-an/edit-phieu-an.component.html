@@ -7,7 +7,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/phieu/bao-an">Phiếu Ăn</button> > <span class="child-bread-crum">Edit Phiếu Ăn</span></h1>
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/phieu-bao-an">Phiếu Ăn</button> > <span class="child-bread-crum">Edit Phiếu Ăn</span></h1>
             </div>
             <hr>
             <div class="wrapper-form">
@@ -171,7 +171,7 @@
                     <button class="button-create" mat-raised-button (click)="editPhieuAn()" [disabled]="editForm.invalid" [ngClass]="{disableButton:editForm.invalid}">Lưu</button>
                 </div>
                 <div class="button-form">
-                    <button class="button-cancel" color="none" routerLink="/phieu/bao-an" mat-raised-button>Hủy</button>
+                    <button class="button-cancel" color="none" routerLink="/phieu-bao-an" mat-raised-button>Hủy</button>
                 </div>
             </div>
         </div>

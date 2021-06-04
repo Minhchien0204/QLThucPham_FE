@@ -122,7 +122,7 @@ export class EditPhieuBanGiaoComponent implements OnInit {
     if (this.editForm.valid) {
       const putPhieuBanGiao = this.phieuBanGiaoService.updatePhieuBanGiao(this.phieuBanGiao.soPhieuBanGiao, this.phieuBanGiao).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/ban-giao',
+          '/phieu-ban-giao',
           {state: {typeMsg: 'success', contentMsg: "Edit success !"}})
       },
       (error) => {

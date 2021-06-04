@@ -75,7 +75,7 @@ export class ChiTietKiemKeComponent implements OnInit {
     if (this.createForm.valid) {
       const postChiTietKiemKe = this.chiTietKiemKeService.addChiTietKiemKe(this.chiTietKiemKe).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/kiem-ke',
+          '/phieu-kiem-ke',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

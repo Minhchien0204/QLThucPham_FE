@@ -104,7 +104,7 @@ export class EditPhieuYeuCauComponent implements OnInit {
     if (this.editForm.valid) {
       const putPhieuYeuCau = this.phieuYeuCauService.updatePhieuYeuCau(this.phieuYeuCau.soPhieuYeuCau, this.phieuYeuCau).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/yeu-cau-thuc-pham',
+          '/phieu-yeu-cau-thuc-pham',
           {state: {typeMsg: 'success', contentMsg: "Edit success !"}})
       },
       (error) => {

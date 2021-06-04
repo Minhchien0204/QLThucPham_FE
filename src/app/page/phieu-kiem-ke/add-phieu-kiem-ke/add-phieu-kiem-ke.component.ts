@@ -65,7 +65,7 @@ export class AddPhieuKiemKeComponent implements OnInit {
     if (this.createForm.valid) {
       const postPhieuKiemKe = this.phieuKiemKeService.addPhieuKiemKe(phieuKiemKe).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/kiem-ke',
+          '/phieu-kiem-ke',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

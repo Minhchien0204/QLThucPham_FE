@@ -63,6 +63,7 @@ h2, h1 {
 }
 .main-text-footer {
     margin-top: 15px;
+    word-break: break-word;
 }
 
 .main-text-footer-left span, .main-text-footer-left .thong-tin{

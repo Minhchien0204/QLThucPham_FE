@@ -97,6 +97,7 @@ import { AddPhieuGiaoComponent } from './page/phieu-giao/add-phieu-giao/add-phie
 import { EditPhieuGiaoComponent } from './page/phieu-giao/edit-phieu-giao/edit-phieu-giao.component';
 import { AddChiTietGiaoComponent } from './page/phieu-giao/chi-tiet-giao/add-chi-tiet-giao/add-chi-tiet-giao.component';
 import { ListChiTietGiaoOfComponent } from './page/phieu-giao/list-chi-tiet-giao-of/list-chi-tiet-giao-of.component';
+import { NotFoundUrlPageComponent } from './page/not-found-url-page/not-found-url-page.component';
 
 // Service
 import { ErrorInterceptor } from './_helpers/error.interceptor';
@@ -186,7 +187,8 @@ import { ListNhanVienFromBpComponent } from './page/bophan/list-nhan-vien-from-b
     EditMonAn1Component,
     AddDinhLuong1Component,
     ListDinhLuong1Component,
-    ListNhanVienFromBpComponent
+    ListNhanVienFromBpComponent,
+    NotFoundUrlPageComponent
   ],
   imports: [
     BrowserModule,

@@ -108,7 +108,7 @@ export class EditPhieuAnComponent implements OnInit {
     if (this.editForm.valid) {
       const putPhieuAn = this.phieuAnService.updatePhieuAn(this.phieuAn.sophieuAn, this.phieuAn).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/bao-an',
+          '/phieu-bao-an',
           {state: {typeMsg: 'success', contentMsg: "Edit success !"}})
       },
       (error) => {

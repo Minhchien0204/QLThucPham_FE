@@ -65,7 +65,7 @@ export class AddPhieuYeuCauComponent implements OnInit {
     if (this.createForm.valid) {
       const postPhieuYeuCau = this.phieuYeuCauService.addPhieuYeuCau(phieuYeuCau).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/yeu-cau-thuc-pham',
+          '/phieu-yeu-cau-thuc-pham',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

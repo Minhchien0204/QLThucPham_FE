@@ -7,7 +7,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu/yeu-cau-thuc-pham">Phiếu Yêu Cầu Thực Phẩm</span></h1>
+                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu-yeu-cau-thuc-pham">Phiếu Yêu Cầu Thực Phẩm</span></h1>
             </div>
             <hr>
             <div class="search-container">
@@ -35,7 +35,7 @@
                                     <div *ngIf="column!=='soPhieuYeuCau'"><span class="content-table">{{element[column]}}</span></div>
                                     <div *ngIf="column==='soPhieuYeuCau'">
                                         <div class="content-table eexample-flex-container">
-                                            <a routerLink="/phieu/yeu-cau-thuc-pham/edit/{{element.soPhieuYeuCau}}">{{element[column]}}</a>
+                                            <a routerLink="/phieu-yeu-cau-thuc-pham/edit/{{element.soPhieuYeuCau}}">{{element[column]}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -45,10 +45,10 @@
                             </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <button class="icon-add" title="Them Chi Tiet Yeu Cau " routerLink="/phieu/yeu-cau-thuc-pham/{{element.soPhieuYeuCau}}/chi-tiet-yeu-cau/create" mat-icon-button aria-label="Add CTYC">
+                                    <button class="icon-add" title="Them Chi Tiet Yeu Cau " routerLink="/phieu-yeu-cau-thuc-pham/{{element.soPhieuYeuCau}}/chi-tiet-yeu-cau/create" mat-icon-button aria-label="Add CTYC">
                                         <mat-icon>playlist_add</mat-icon>
                                     </button>
-                                    <button class="icon-list" title="Danh sách Chi Tiet Yeu Cau " routerLink="/phieu/yeu-cau-thuc-pham/{{element.soPhieuYeuCau}}/chi-tiet-yeu-cau" mat-icon-button aria-label="List CTYC">
+                                    <button class="icon-list" title="Danh sách Chi Tiet Yeu Cau " routerLink="/phieu-yeu-cau-thuc-pham/{{element.soPhieuYeuCau}}/chi-tiet-yeu-cau" mat-icon-button aria-label="List CTYC">
                                         <mat-icon>list_alt</mat-icon>
                                     </button>
                                     <button class="icon-delete" title="Xóa Phieu An" mat-icon-button aria-label="Delete" (click)="deletePhieuYeuCau(element.soPhieuYeuCau)">
@@ -70,7 +70,7 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/phieu/yeu-cau-thuc-pham/create" mat-raised-button>Thêm Phiếu Yêu Cầu Thực Phẩm</button>
+                    <button class="button-create" routerLink="/phieu-yeu-cau-thuc-pham/create" mat-raised-button>Thêm Phiếu Yêu Cầu Thực Phẩm</button>
                 </div>
             </div>
         </div>

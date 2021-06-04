@@ -87,7 +87,7 @@ export class AddPhieuBanGiaoComponent implements OnInit {
     if (this.createForm.valid) {
       const postPhieuBanGiao = this.phieuBanGiaoService.addPhieuBanGiao(phieuBanGiao).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/ban-giao',
+          '/phieu-ban-giao',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

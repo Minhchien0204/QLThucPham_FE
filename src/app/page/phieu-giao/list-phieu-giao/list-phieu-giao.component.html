@@ -7,7 +7,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu/giao">Phiếu Giao</span></h1>
+                <h1><span mat-button class="parent-bread-crum" routerLink="/phieu-giao">Phiếu Giao</span></h1>
             </div>
             <hr>
             <div class="search-container">
@@ -34,16 +34,16 @@
                                 <div *ngIf="column!=='soPhieuGiao'"><span class="content-table">{{element[column]}}</span></div>
                                 <div *ngIf="column==='soPhieuGiao'">
                                     <div class="content-table eexample-flex-container">
-                                        <a routerLink="/phieu/giao/edit/{{element.soPhieuGiao}}">{{element[column]}}</a>
+                                        <a routerLink="/phieu-giao/edit/{{element.soPhieuGiao}}">{{element[column]}}</a>
                                     </div>
                                 </div>
                             </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <button class="icon-add" title="Them Chi Tiet Giao " routerLink="/phieu/giao/{{element.soPhieuGiao}}/chi-tiet-giao/create" mat-icon-button aria-label="Add CTG">
+                                    <button class="icon-add" title="Them Chi Tiet Giao " routerLink="/phieu-giao/{{element.soPhieuGiao}}/chi-tiet-giao/create" mat-icon-button aria-label="Add CTG">
                                         <mat-icon>playlist_add</mat-icon>
                                     </button>
-                                    <button class="icon-list" title="Danh sách Chi Tiet Giao " routerLink="/phieu/giao/{{element.soPhieuGiao}}/chi-tiet-giao" mat-icon-button aria-label="List CTG">
+                                    <button class="icon-list" title="Danh sách Chi Tiet Giao " routerLink="/phieu-giao/{{element.soPhieuGiao}}/chi-tiet-giao" mat-icon-button aria-label="List CTG">
                                         <mat-icon>list_alt</mat-icon>
                                     </button>
                                     <button class="icon-delete" title="Xóa Phieu Giao" mat-icon-button aria-label="Delete" (click)="deletePhieuGiao(element.soPhieuGiao)">
@@ -65,7 +65,7 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/phieu/giao/create" mat-raised-button>Thêm Phiếu Giao</button>
+                    <button class="button-create" routerLink="/phieu-giao/create" mat-raised-button>Thêm Phiếu Giao</button>
                 </div>
             </div>
         </div>

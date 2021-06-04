@@ -72,7 +72,7 @@ export class AddChiTietBanGiaoComponent implements OnInit {
     if (this.createForm.valid) {
       const postChiTietBanGiao = this.chiTietBanGiaoService.addChiTietBanGiao(this.chiTietBanGiao).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/ban-giao',
+          '/phieu-ban-giao',
           {state: {typeMsg: 'success', contentMsg: "Success"}})
       },
       (error) => {

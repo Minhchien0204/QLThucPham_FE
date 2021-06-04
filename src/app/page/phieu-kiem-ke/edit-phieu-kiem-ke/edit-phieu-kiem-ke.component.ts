@@ -101,7 +101,7 @@ export class EditPhieuKiemKeComponent implements OnInit {
     if (this.editForm.valid) {
       const putPhieuKiemKe = this.phieuKiemKeService.updatePhieuKiemKe(this.phieuKiemKe.soPhieuKiemKe, this.phieuKiemKe).toPromise().then((data) => {
         this.router.navigateByUrl(
-          '/phieu/kiem-ke',
+          '/phieu-kiem-ke',
           {state: {typeMsg: 'success', contentMsg: "Edit success !"}})
       },
       (error) => {
