@@ -106,6 +106,8 @@ import { AddMonAn1Component } from './page/mon-an1/add-mon-an1/add-mon-an1.compo
 import { EditMonAn1Component } from './page/mon-an1/edit-mon-an1/edit-mon-an1.component';
 import { AddDinhLuong1Component } from './page/mon-an1/add-dinh-luong1/add-dinh-luong1.component';
 import { ListDinhLuong1Component } from './page/mon-an1/list-dinh-luong1/list-dinh-luong1.component';
+import { MatSortModule } from '@angular/material/sort';
+import { ListNhanVienFromBpComponent } from './page/bophan/list-nhan-vien-from-bp/list-nhan-vien-from-bp.component';
 
 
 @NgModule({
@@ -183,7 +185,8 @@ import { ListDinhLuong1Component } from './page/mon-an1/list-dinh-luong1/list-di
     AddMonAn1Component,
     EditMonAn1Component,
     AddDinhLuong1Component,
-    ListDinhLuong1Component
+    ListDinhLuong1Component,
+    ListNhanVienFromBpComponent
   ],
   imports: [
     BrowserModule,
@@ -210,6 +213,7 @@ import { ListDinhLuong1Component } from './page/mon-an1/list-dinh-luong1/list-di
     MatNativeDateModule,
     MatCardModule,
     MatRadioModule,
+    MatSortModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

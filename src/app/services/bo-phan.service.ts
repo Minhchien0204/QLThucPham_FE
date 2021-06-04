@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { BoPhan } from '../models/bo-phan';
-import { NhanVien } from '../models/nhan-vien';
+import { NhanVien, NhanVienBoPhan } from '../models/nhan-vien';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,7 @@ export class BoPhanService {
     return this.http.post(this.api , body);
   }
 
-  public getNhanVienFromBoPhan(id: string):Observable<NhanVien[]>{
-    return this.http.get<NhanVien[]>(this.api + '/' + id + '/nhanvien');
+  public getNhanVienFromBoPhan(id: string):Observable<NhanVienBoPhan[]>{
+    return this.http.get<NhanVienBoPhan[]>(this.api + '/' + id + '/nhanvien');
   }
 }

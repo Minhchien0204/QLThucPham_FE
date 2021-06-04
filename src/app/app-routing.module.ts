@@ -72,6 +72,8 @@ import { AddMonAn1Component } from './page/mon-an1/add-mon-an1/add-mon-an1.compo
 import { EditMonAn1Component } from './page/mon-an1/edit-mon-an1/edit-mon-an1.component';
 import { AddDinhLuong1Component } from './page/mon-an1/add-dinh-luong1/add-dinh-luong1.component';
 import { ListDinhLuong1Component } from './page/mon-an1/list-dinh-luong1/list-dinh-luong1.component';
+import { ListNhanVienFromBpComponent } from './page/bophan/list-nhan-vien-from-bp/list-nhan-vien-from-bp.component';
+
 
 
 
@@ -141,7 +143,8 @@ const routes: Routes = [
   {path: 'mon-an/create',  component: AddMonAn1Component},
   {path: 'mon-an/edit/:id',  component: EditMonAn1Component},
   {path: 'mon-an/:id/dinh-luong/create', component: AddDinhLuong1Component},
-  {path: 'mon-an/:id/dinh-luong', component: ListDinhLuong1Component}
+  {path: 'mon-an/:id/dinh-luong', component: ListDinhLuong1Component},
+  {path: 'bo-phan/:id/nhan-vien', component: ListNhanVienFromBpComponent},
 
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }

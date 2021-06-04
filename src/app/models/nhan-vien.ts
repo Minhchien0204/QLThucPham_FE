@@ -12,3 +12,12 @@ export const bodyNhanVien: {[index: string]:any} = {
     "id": "",
     "tenBoPhan": ""
 }
+
+export class NhanVienBoPhan{
+    userId!: number;
+    hoTen!: string;
+    ngaySinh!: string;
+    gioiTinh!: string;
+    diaChi!: string;
+    dienThoai!: string;
+}
