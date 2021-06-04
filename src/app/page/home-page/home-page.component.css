@@ -1,64 +1,101 @@
-.image-home {
-    width: 100%;
-    height: auto;
-}
-
-.container-fluid {
-    width: 96%;
-    max-width: 1680px;
-}
-.container-fluid {
-    width: 100%;
+.container-home {
+    width: 70%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 35px;
+    padding-bottom: 50px;
 }
-.row {
-    display: flex;
-    flex-wrap: wrap;
+.container-quan-ly {
+    width: 100%;
+    margin-bottom: 50px;
 }
-.col-md-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
-}
-.area-heading.style-two {
-    text-transform: capitalize;
-}
-.area-heading {
-    font-size: 30px;
-    font-family: 'Fredoka One', cursive;
-    text-align: center;
-}
-.heading-para {
-    color: #656f73;
-    text-align: center;
-    width: 70%;
-    margin: 0 auto;
-    padding: 0 50px;
-    font-size: 10px;
-    line-height: 28px;
-}
-
-.wrapper-init {
+.nav-bar {
+    position: relative;
     display: inline-block;
+    width: 100%;
 }
-.item-service{
-    display: inline-block;
-    width: 30%;
+.welcom-bar {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    margin-top: -35px;
 }
-.image-service {
-    width: 30%;
+.label-welcom {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #32a852;
+    border: 5px solid #fff;
+    border-radius: 20px;
 }
-
-.ser-det h2 {
-    font-size: 14px;
+.label-welcom  h1 {
+    color: #fff;
+}
+h1 {
     margin-bottom: 0px;
 }
-.ser-det p {
-    font-size: 10px;
+.title-quan-ly h1 {
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 600;
+    width: fit-content;
+    color: #35240d;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-left: 5px solid #32a852;
+    padding-left: 5px;
+}
+.nav-bar img {
+    width: 100%;
 }
 
-.sin-ser {
+.chuc-nang {
+    display: inline-block;
+    padding: 50px 100px 50px 100px;
     text-align: center;
+}
+.chuc-nang button{
+    width: 100px;
+    height: 100px;  
+    background-color: #676769;
+}
+
+.chuc-nang button mat-icon {
+    /* font-size: 50px; */
+    transform: scale(3);
+}
+.wrapper-content-chuc-nang {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ten-chuc-nang {
+    margin-top: 25px;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #3e3e3e;
+    width: 139px;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.chuc-nang:hover > .ten-chuc-nang {
+    color: #32a852;
+}
+    
+.chuc-nang:hover > button{
+    background-color: #32a852;
+}
+
+.chuc-nang:hover {
+    cursor: pointer;
 }
