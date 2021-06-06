@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { bodyBoPhan } from 'src/app/models/bo-phan';
 import { BoPhanService } from 'src/app/services/bo-phan.service';
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-edit-bo-phan',
   templateUrl: './edit-bo-phan.component.html',
@@ -18,11 +18,13 @@ export class EditBoPhanComponent implements OnInit {
   }
   bophanOject = Object.assign({}, bodyBoPhan);
   constructor(
+    private titleService: Title,
     private fb: FormBuilder,
     private router: Router,
     private bophanService: BoPhanService,
     private activeRoute: ActivatedRoute
   ) { 
+    this.titleService.setTitle('Sửa bộ phận');
     this.editForm = this.fb.group(
       {
         maBoPhan: [{value: '', disabled: true}, [Validators.required]],

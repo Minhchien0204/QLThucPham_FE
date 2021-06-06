@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { BoPhanService } from 'src/app/services/bo-phan.service';
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-list-bophan',
   templateUrl: './list-bophan.component.html',
@@ -25,15 +25,18 @@ export class ListBophanComponent implements OnInit {
     "contentMsg": ''
   }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor( private boPhanService: BoPhanService,
-                private router: Router
+  constructor(
+    private titleService: Title,
+    private boPhanService: BoPhanService,
+    private router: Router
     ) {
-      if (this.router.getCurrentNavigation()?.extras.state) {
-        this.alerMsg['showMsg'] = true;
-        this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;
-        this.alerMsg['contentMsg'] = this.router.getCurrentNavigation()?.extras.state?.contentMsg;
-      }
-     }
+    this.titleService.setTitle('Danh sách bộ phận');
+    if (this.router.getCurrentNavigation()?.extras.state) {
+      this.alerMsg['showMsg'] = true;
+      this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;
+      this.alerMsg['contentMsg'] = this.router.getCurrentNavigation()?.extras.state?.contentMsg;
+    }
+  }
 
   ngOnInit(): void {
     this.getListBoPhan();

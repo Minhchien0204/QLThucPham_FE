@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {HocSinhService} from '../../../services/hoc-sinh.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-hoc-sinh-main',
@@ -29,7 +30,9 @@ export class ListHocSinhMainComponent implements OnInit {
   }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private hocSinhService: HocSinhService,
-    private router: Router) { 
+    private router: Router,
+    private titleService: Title,) { 
+      this.titleService.setTitle('Danh sách học sinh');
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.alerMsg['showMsg'] = true;
         this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

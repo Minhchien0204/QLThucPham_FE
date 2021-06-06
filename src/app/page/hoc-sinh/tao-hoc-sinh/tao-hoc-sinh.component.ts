@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {bodyHocSinh} from '../../../models/hoc-sinh';
 import {HocSinhService} from '../../../services/hoc-sinh.service';
 import {LopService} from '../../../services/lop.service';
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-tao-hoc-sinh',
   templateUrl: './tao-hoc-sinh.component.html',
@@ -18,11 +18,12 @@ export class TaoHocSinhComponent implements OnInit {
     "contentMsg": ''
   }
   listLop: {[index: string]:any}[] = []
-  constructor(private fb: FormBuilder,
+  constructor(private titleService: Title,private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router,
     private hocSinhService: HocSinhService,
     private lopService: LopService) {
+      this.titleService.setTitle('Thêm học sinh');
       this.createForm = this.fb.group(
         {
           hoTen: [{ value: '', disabled: false }, [Validators.required]],

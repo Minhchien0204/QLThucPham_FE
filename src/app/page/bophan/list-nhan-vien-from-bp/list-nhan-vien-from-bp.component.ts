@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BoPhanService } from 'src/app/services/bo-phan.service';
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-list-nhan-vien-from-bp',
   templateUrl: './list-nhan-vien-from-bp.component.html',
@@ -27,11 +27,12 @@ export class ListNhanVienFromBpComponent implements OnInit {
   }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   maBoPhan: string = "";
-  constructor(
+  constructor(private titleService: Title,
     private router: Router,
     private activeRoute: ActivatedRoute,
     private boPhanService: BoPhanService
   ) {
+    this.titleService.setTitle('Danh sách nhân viên thuộc bộ phận');
     this.activeRoute.params.subscribe((param)=> {
       this.maBoPhan = param['id'];
     });

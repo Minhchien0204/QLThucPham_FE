@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from 'src/app/models/user';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-page',
@@ -110,7 +111,9 @@ export class HomePageComponent implements OnInit {
   menuMain: string[];
   currentUser!: User
 
-  constructor(private authenticationService: AuthenticationService) { 
+  constructor(private authenticationService: AuthenticationService,
+    private titleService: Title) { 
+    this.titleService.setTitle('Trang chủ');
     this.currentUser = this.authenticationService.userValue;
     
     // Complete menu with role

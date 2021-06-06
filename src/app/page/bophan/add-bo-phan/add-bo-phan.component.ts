@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { bodyBoPhan } from 'src/app/models/bo-phan';
 import { BoPhanService } from 'src/app/services/bo-phan.service';
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-add-bo-phan',
   templateUrl: './add-bo-phan.component.html',
@@ -16,11 +16,13 @@ export class AddBoPhanComponent implements OnInit {
     "typeMsg": 'info',
     "contentMsg": ''
   }
-  constructor(
+  constructor(private titleService: Title,
     private fb: FormBuilder,
     private router: Router,
     private bophanService: BoPhanService
   ) { 
+    
+    this.titleService.setTitle('Thêm bộ phận');
     this.createForm = this.fb.group(
       {
         maBoPhan: [{value: '', disabled: false}, [Validators.required]],

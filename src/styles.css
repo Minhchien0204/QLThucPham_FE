@@ -66,9 +66,9 @@ app-left-toolbar {
 
 .right-content {
     background-color: #fff;
-    height: 68vh;
+    height: 100vh;
     padding: 10px 15px 10px 15px;
-    overflow: auto;
+    /* overflow: auto; */
     border-left: 1px solid #eeeeee;
     float: left;
     width: 72%;

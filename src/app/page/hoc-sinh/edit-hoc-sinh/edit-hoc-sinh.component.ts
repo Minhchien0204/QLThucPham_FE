@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {bodyHocSinh} from '../../../models/hoc-sinh';
 import {HocSinhService} from '../../../services/hoc-sinh.service';
 import {LopService} from '../../../services/lop.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-hoc-sinh',
@@ -20,10 +21,12 @@ export class EditHocSinhComponent implements OnInit {
   hocSinh = Object.assign({}, bodyHocSinh);
   listLop: {[index: string]:any}[] = [];
   constructor(private fb: FormBuilder,
+              private titleService: Title,
               private activeRoute: ActivatedRoute,
               private router: Router,
               private hocSinhService: HocSinhService,
               private lopService: LopService) {
+    this.titleService.setTitle('Sửa học sinh');
     this.editForm=this.fb.group(
       {
         hoTen: [{ value: '', disabled: false }, [Validators.required]],

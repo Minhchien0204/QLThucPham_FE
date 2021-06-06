@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { GiaoVienService } from 'src/app/services/giao-vien.service';
 import { LopService } from 'src/app/services/lop.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-giao-vien',
@@ -28,10 +29,11 @@ export class ListGiaoVienComponent implements OnInit {
     "contentMsg": ''
   }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor(
+  constructor(private titleService: Title,
     private giaoVienService: GiaoVienService,
     private router: Router
   ) {  
+    this.titleService.setTitle('Danh sách giáo viên');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

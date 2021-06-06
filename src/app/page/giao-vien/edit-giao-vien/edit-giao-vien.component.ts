@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { bodyGiaoVien } from 'src/app/models/giao-vien';
 import { GiaoVienService } from 'src/app/services/giao-vien.service';
 import { LopService } from 'src/app/services/lop.service';
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-edit-giao-vien',
   templateUrl: './edit-giao-vien.component.html',
@@ -19,13 +19,14 @@ export class EditGiaoVienComponent implements OnInit {
   }
   giaoVien = Object.assign({}, bodyGiaoVien);
   listLop: {[index: string]:any}[] = [];
-  constructor(
+  constructor(private titleService: Title,
     private giaoVienService: GiaoVienService,
     private lopService:LopService,
     private router: Router,
     private activeRoute: ActivatedRoute,
     private fb:FormBuilder
   ) { 
+    this.titleService.setTitle('Sửa giáo viên');
     this.editForm = this.fb.group(
       {
         maGV: [{value: '', disabled: true}, [Validators.required]],
