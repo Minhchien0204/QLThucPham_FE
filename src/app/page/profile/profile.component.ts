@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
         ngaySinh:[{value: '', disabled: false}, [Validators.required]],
         dienThoai:[{value: '', disabled: false}, [Validators.required]],
         diaChi:[{value: '', disabled: false}, [Validators.required]],
-        role:[{value: '', disabled: false}, [Validators.required]],
+        role:[{value: '', disabled: true}, [Validators.required]],
       }
     );
     this.user.id = this.authService.userValue.id;
