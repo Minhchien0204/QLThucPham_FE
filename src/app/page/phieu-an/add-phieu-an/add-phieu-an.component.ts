@@ -30,7 +30,7 @@ export class AddPhieuAnComponent implements OnInit {
         maGV: [{ value: '', disabled: false }],
         ngayLap: [{ value: '', disabled: false }, [Validators.required]],
         soLuong: [{ value: '', disabled: false }, [Validators.required]],
-        trangThai: [{ value: '', disabled: false }, [Validators.required]],
+        // trangThai: [{ value: '', disabled: false }, [Validators.required]],
         ghiChu: [{ value: '', disabled: false }],
       }
     );
@@ -63,7 +63,7 @@ export class AddPhieuAnComponent implements OnInit {
     phieuAn.maGV = this.createForm.get("maGV")!.value;
     phieuAn.ngayLap = this.createForm.get("ngayLap")!.value;
     phieuAn.soLuong = this.createForm.get("soLuong")!.value;
-    phieuAn.trangThai = JSON.parse(this.createForm.get("trangThai")!.value);
+    // phieuAn.trangThai = JSON.parse(this.createForm.get("trangThai")!.value);
     phieuAn.ghiChu = this.createForm.get("ghiChu")!.value;
     console.log(phieuAn)
     if (this.createForm.valid) {
