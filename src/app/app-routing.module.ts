@@ -80,7 +80,7 @@ import { NotFoundUrlPageComponent } from './page/not-found-url-page/not-found-ur
 const routes: Routes = [
   {path: '', component: LoginPageComponent},
   {path: 'home', component: HomePageComponent, canActivate: [AuthGuard]},
-  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}},
+  // {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: {roles: Role.Admin}},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginPageComponent},
   {path: 'nhan-vien', component: ListNhanVienComponent},

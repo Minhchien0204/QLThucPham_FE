@@ -31,7 +31,7 @@ export class LoginPageComponent implements OnInit {
     var role = this.authenticationService.userValue.role;
     if( this.authenticationService.userValue && role == 'Admin')
     {
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/']);
     }
     if(this.authenticationService.userValue)
     {
@@ -65,7 +65,7 @@ export class LoginPageComponent implements OnInit {
           this.role = data.role;
           if(data.role == 'Admin')
           {
-            this.router.navigate(['/admin']);
+            this.router.navigate(['/home']);
           }
           if(data.role == 'GiaoVien' || data.role == 'NhaBep' || data.role == 'ThucPham')
           {
