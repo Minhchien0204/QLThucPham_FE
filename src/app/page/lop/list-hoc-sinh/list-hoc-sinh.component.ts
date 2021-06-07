@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {LopService} from '../../../services/lop.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-hoc-sinh',
@@ -29,8 +30,10 @@ export class ListHocSinhComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   idLop: string = "";
   constructor(private lopService: LopService,
+    private titleService: Title,
     private router: Router,
     private activeRoute: ActivatedRoute) {
+      this.titleService.setTitle('Danh sách học sinh thuộc lớp');
       this.activeRoute.params.subscribe((param)=> {
         this.idLop = param['id'];
       });

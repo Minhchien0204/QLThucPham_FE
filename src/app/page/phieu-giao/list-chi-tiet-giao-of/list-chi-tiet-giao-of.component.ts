@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ChiTietGiaoService } from 'src/app/services/chi-tiet-giao.service';
 import { NhaCungCapService } from 'src/app/services/nha-cung-cap.service';
 import { PhieuGiaoService } from 'src/app/services/phieu-giao.service';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-list-chi-tiet-giao-of',
@@ -34,11 +36,13 @@ export class ListChiTietGiaoOfComponent implements OnInit {
   soPhieuGiao: string = ""
   constructor(
     private phieuGiaoService: PhieuGiaoService,
+    private titleService: Title,
     private router: Router,
     private activeRoute: ActivatedRoute ,
     private chiTietGiaoService: ChiTietGiaoService,
     private nhaCungCapService: NhaCungCapService
   ) {
+    this.titleService.setTitle('Danh sách chi tiết giao');
     this.activeRoute.params.subscribe((param) => {
       this.soPhieuGiao = param['id'];
     })

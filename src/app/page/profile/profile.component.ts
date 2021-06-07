@@ -8,6 +8,7 @@ import { bodyUser } from 'src/app/models/user-detail';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserDetailService } from 'src/app/services/user-detail.service';
 import { UserService } from 'src/app/services/user.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -26,10 +27,12 @@ export class ProfileComponent implements OnInit {
     constructor(
       private fb: FormBuilder,
       private activeRoute: ActivatedRoute,
+      private titleService: Title,
       private router: Router,
       private userService: UserService,
       private authService: AuthenticationService
   ) { 
+    this.titleService.setTitle('Thông tin cá nhân');
     this.editForm = this.fb.group(
       {
         userName:[{value: '', disabled: false}, [Validators.required]],

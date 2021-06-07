@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyPhieuYeuCau } from 'src/app/models/phieu-yeu-cau';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
 import { PhieuYeuCauService } from 'src/app/services/phieu-yeu-cau.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-phieu-yeu-cau',
@@ -24,8 +25,10 @@ export class EditPhieuYeuCauComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private phieuYeuCauService: PhieuYeuCauService,
+    private titleService: Title,
     private nhanVienService: NhanvienService
   ) { 
+    this.titleService.setTitle('Sửa phiếu yêu cầu');
     this.editForm = this.fb.group(
       {
         soPhieuYeuCau:  [{ value: '', disabled: true }, [Validators.required]],

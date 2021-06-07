@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PhieuYeuCauUpdate } from 'src/app/models/phieu-yeu-cau';
 import { PhieuYeuCauService } from 'src/app/services/phieu-yeu-cau.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-phieu-yeu-cau',
@@ -32,8 +33,10 @@ export class ListPhieuYeuCauComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private router: Router,
+    private titleService: Title,
     private phieuYeuCauService: PhieuYeuCauService
   ) { 
+    this.titleService.setTitle('Danh sách phiếu yêu cầu');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyDinhLuong } from 'src/app/models/dinh-luong';
 import { MonAnService } from 'src/app/services/mon-an-service.service';
 import { ThucPhamService } from 'src/app/services/thuc-pham.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-dinh-luong1',
@@ -21,11 +22,13 @@ export class AddDinhLuong1Component implements OnInit {
   dinhLuong = Object.assign({}, bodyDinhLuong);
   constructor(
     private fb: FormBuilder,
+    private titleService: Title,
     private router: Router,
     private thucPhamService: ThucPhamService,
     private monAnService: MonAnService,
     private activeRoute: ActivatedRoute
   ) {
+    this.titleService.setTitle('Thêm định lượng món ăn');
     this.createForm = this.fb.group(
       {
         maMonAn: [{value: '', disabled: true}, [Validators.required]],

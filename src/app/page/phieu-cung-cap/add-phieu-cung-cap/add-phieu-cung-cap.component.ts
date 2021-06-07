@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyPhieuCungCap } from 'src/app/models/phieu-cung-cap';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
 import { PhieuCungCapService } from 'src/app/services/phieu-cung-cap.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-phieu-cung-cap',
@@ -21,10 +22,12 @@ export class AddPhieuCungCapComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private router: Router,
     private phieuCungCapService: PhieuCungCapService,
     private nhanVienService: NhanvienService
   ) {
+    this.titleService.setTitle('Thêm phiếu cung cấp');
     this.createForm = this.fb.group(
       {
         maNhanVien: [{ value: '', disabled: false }],

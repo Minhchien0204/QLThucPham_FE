@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyChiTietKiemKe, ChiTietKiemKe } from 'src/app/models/chi-tiet-kiem-ke';
 import { ChiTietKiemKeService } from 'src/app/services/chi-tiet-kiem-ke.service';
 import { ThucPhamService } from 'src/app/services/thuc-pham.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-chi-tiet-kiem-ke',
@@ -22,10 +23,12 @@ export class ChiTietKiemKeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private titleService: Title,
     private thucPhamService: ThucPhamService,
     private chiTietKiemKeService: ChiTietKiemKeService,
     private activeRoute: ActivatedRoute
   ) {
+    this.titleService.setTitle('Thêm chi tiết kiểm kê');
     this.createForm = this.fb.group(
       {
         soPhieuKiemKe: [{value: '', disabled: true}, [Validators.required]],

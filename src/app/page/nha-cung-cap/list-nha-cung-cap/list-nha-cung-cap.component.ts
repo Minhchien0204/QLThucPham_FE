@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { NhaCungCapService } from 'src/app/services/nha-cung-cap.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-nha-cung-cap',
@@ -30,8 +31,10 @@ export class ListNhaCungCapComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!:MatPaginator;
   constructor(
     private nhaCungCapService: NhaCungCapService,
+    private titleService: Title,
     private router: Router
   ) { 
+    this.titleService.setTitle('Danh sách nhà cung cấp');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

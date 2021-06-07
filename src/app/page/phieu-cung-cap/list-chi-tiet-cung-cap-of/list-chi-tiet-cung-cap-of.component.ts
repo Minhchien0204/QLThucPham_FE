@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChiTietCungCapService } from 'src/app/services/chi-tiet-cung-cap.service';
 import { PhieuCungCapService } from 'src/app/services/phieu-cung-cap.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-chi-tiet-cung-cap-of',
@@ -33,9 +34,11 @@ export class ListChiTietCungCapOfComponent implements OnInit {
   constructor(
     private phieuCungCapService: PhieuCungCapService,
     private router: Router,
+    private titleService: Title,
     private activeRoute: ActivatedRoute ,
     private chiTietCungCapService: ChiTietCungCapService
   ) { 
+    this.titleService.setTitle('Danh sách chi tiết cung cấp');
     this.activeRoute.params.subscribe((param) => {
       this.soPhieuCugCap = param['id'];
     })

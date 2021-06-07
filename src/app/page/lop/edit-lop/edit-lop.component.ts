@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import {bodyLop} from '../../../models/lop';
 import {LopService} from '../../../services/lop.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-lop',
@@ -17,10 +18,13 @@ export class EditLopComponent implements OnInit {
     "contentMsg": ''
   }
   lopObject = Object.assign({}, bodyLop);
-  constructor(private fb: FormBuilder,
+  constructor(
+    private titleService: Title,
+    private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router,
     private lopService: LopService) {
+      this.titleService.setTitle('Sửa lớp');
       this.editForm=this.fb.group(
         {
           maLop: [{ value: '', disabled: true }, [Validators.required]],

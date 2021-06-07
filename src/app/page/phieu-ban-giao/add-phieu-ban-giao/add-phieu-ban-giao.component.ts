@@ -5,6 +5,7 @@ import { bodyPhieuBanGiao } from 'src/app/models/phieu-ban-giao';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
 import { PhieuBanGiaoService } from 'src/app/services/phieu-ban-giao.service';
 import { PhieuYeuCauService } from 'src/app/services/phieu-yeu-cau.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-phieu-ban-giao',
@@ -23,11 +24,13 @@ export class AddPhieuBanGiaoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private router: Router,
     private phieuBanGiaoService: PhieuBanGiaoService,
     private nhanVienService: NhanvienService,
     private phieuYeuCauService: PhieuYeuCauService
   ) { 
+    this.titleService.setTitle('Thêm phiếu bàn giao');
     this.createForm = this.fb.group(
       {
         maNhanVien: [{ value: '', disabled: false }],

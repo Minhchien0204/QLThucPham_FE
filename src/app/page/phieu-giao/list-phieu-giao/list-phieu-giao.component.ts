@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PhieuGiaoService } from 'src/app/services/phieu-giao.service';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-list-phieu-giao',
@@ -30,8 +32,10 @@ export class ListPhieuGiaoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private router: Router,
+    private titleService: Title,
     private phieuGiaoService: PhieuGiaoService
   ) { 
+    this.titleService.setTitle('Danh sách phiếu giao');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

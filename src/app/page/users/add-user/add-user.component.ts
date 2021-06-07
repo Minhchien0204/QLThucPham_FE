@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { bodyUser } from 'src/app/models/user-detail';
 import { UserService } from 'src/app/services/user.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-user',
@@ -19,9 +20,11 @@ export class AddUserComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private userService: UserService,
     private router: Router
   ) { 
+    this.titleService.setTitle('Thêm người dùng');
     this.addForm = this.fb.group(
       {
         userName: [{value: '',disabled: false}, [Validators.required]],

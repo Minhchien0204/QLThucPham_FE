@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MonAnService } from 'src/app/services/mon-an-service.service';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-list-mon-an1',
@@ -27,8 +29,10 @@ export class ListMonAn1Component implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private router: Router,
-    private monAnService: MonAnService
+    private monAnService: MonAnService,
+    private titleService: Title
   ) { 
+    this.titleService.setTitle('Danh sách món ăn');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

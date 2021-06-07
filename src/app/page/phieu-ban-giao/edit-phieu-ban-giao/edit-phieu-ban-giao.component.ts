@@ -5,6 +5,8 @@ import { bodyPhieuBanGiao } from 'src/app/models/phieu-ban-giao';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
 import { PhieuBanGiaoService } from 'src/app/services/phieu-ban-giao.service';
 import { PhieuYeuCauService } from 'src/app/services/phieu-yeu-cau.service';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-edit-phieu-ban-giao',
@@ -24,11 +26,13 @@ export class EditPhieuBanGiaoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private router: Router,
     private phieuYeuCauService: PhieuYeuCauService,
     private nhanVienService: NhanvienService,
     private phieuBanGiaoService: PhieuBanGiaoService
   ) { 
+    this.titleService.setTitle('Sửa phiếu bàn giao');
     this.editForm = this.fb.group(
       {
         soPhieuBanGiao:  [{ value: '', disabled: true }, [Validators.required]],

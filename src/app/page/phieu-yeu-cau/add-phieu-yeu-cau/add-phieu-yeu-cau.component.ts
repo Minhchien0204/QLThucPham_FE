@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyPhieuYeuCau } from 'src/app/models/phieu-yeu-cau';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
 import { PhieuYeuCauService } from 'src/app/services/phieu-yeu-cau.service';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-add-phieu-yeu-cau',
@@ -21,10 +23,12 @@ export class AddPhieuYeuCauComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private router: Router,
     private phieuYeuCauService: PhieuYeuCauService,
     private nhanVienService: NhanvienService
   ) {
+    this.titleService.setTitle('Thêm phiếu yêu cầu');
     this.createForm = this.fb.group(
       {
         maNhanVien: [{ value: '', disabled: false }],

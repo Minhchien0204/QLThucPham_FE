@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChiTietYeuCauService } from 'src/app/services/chi-tiet-yeu-cau.service';
 import { PhieuYeuCauService } from 'src/app/services/phieu-yeu-cau.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-chi-tiet-yeu-cau-of',
@@ -30,10 +31,12 @@ export class ListChiTietYeuCauOfComponent implements OnInit {
   soPhieuYeuCau: string = ""
   constructor(
     private phieuYeuCauService: PhieuYeuCauService,
+    private titleService: Title,
     private router: Router,
     private activeRoute: ActivatedRoute ,
     private chiTietYeuCauService: ChiTietYeuCauService
   ) {
+    this.titleService.setTitle('Danh sách chi tiết yêu cầu');
     this.activeRoute.params.subscribe((param) => {
       this.soPhieuYeuCau = param['id'];
     })

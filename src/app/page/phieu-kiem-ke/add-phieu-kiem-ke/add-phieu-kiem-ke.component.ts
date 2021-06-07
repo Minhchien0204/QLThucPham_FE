@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyPhieuKiemKe } from 'src/app/models/phieu-kiem-ke';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
 import { PhieuKiemKeService } from 'src/app/services/phieu-kiem-ke.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-phieu-kiem-ke',
@@ -23,8 +24,10 @@ export class AddPhieuKiemKeComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private phieuKiemKeService: PhieuKiemKeService,
+    private titleService: Title,
     private nhanVienService: NhanvienService
   ) { 
+    this.titleService.setTitle('Thêm phiếu kiểm kê');
     this.createForm = this.fb.group(
       {
         maNhanVien: [{ value: '', disabled: false }],

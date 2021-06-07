@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyMonAn } from 'src/app/models/mon-an';
 import { MonAnService } from 'src/app/services/mon-an-service.service';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-mon-an1',
@@ -23,8 +24,10 @@ export class AddMonAn1Component implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private nhanVienService: NhanvienService,
+    private titleService: Title,
     private monAnService: MonAnService
   ) { 
+    this.titleService.setTitle('Thêm món ăn');
     this.createForm = this.fb.group(
       {
         tenMonAn: [{ value: '', disabled: false }, [Validators.required]],

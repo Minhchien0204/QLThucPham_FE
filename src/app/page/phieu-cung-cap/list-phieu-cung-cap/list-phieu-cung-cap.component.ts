@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PhieuCungCapUpdate } from 'src/app/models/phieu-cung-cap';
 import { PhieuCungCapService } from 'src/app/services/phieu-cung-cap.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-phieu-cung-cap',
@@ -32,8 +33,10 @@ export class ListPhieuCungCapComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private router: Router,
+    private titleService: Title,
     private phieuCungCapService: PhieuCungCapService
   ) {
+    this.titleService.setTitle('Danh sách phiếu cung cấp');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

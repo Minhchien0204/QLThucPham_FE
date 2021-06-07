@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ChiTietKiemKeService } from 'src/app/services/chi-tiet-kiem-ke.service';
 import { PhieuKiemKeService } from 'src/app/services/phieu-kiem-ke.service';
 import { ChiTietKiemKeComponent } from '../chi-tiet-kiem-ke/chi-tiet-kiem-ke/chi-tiet-kiem-ke.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-chi-tiet-kiem-ke-of',
@@ -32,10 +33,12 @@ export class ListChiTietKiemKeOfComponent implements OnInit {
   soPhieuKiemKe: string = ""
   constructor(
     private phieuKiemKeService: PhieuKiemKeService,
+    private titleService: Title,
     private router: Router,
     private activeRoute: ActivatedRoute ,
     private chiTietKiemKeService: ChiTietKiemKeService
   ) {
+    this.titleService.setTitle('Danh sách chi tiết kiểm kê');
     this.activeRoute.params.subscribe((param) => {
       this.soPhieuKiemKe = param['id'];
     })

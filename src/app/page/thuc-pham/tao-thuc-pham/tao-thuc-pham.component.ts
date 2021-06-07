@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import {bodyThucPham} from '../../../models/thuc-pham';
 import {ThucPhamService} from '../../../services/thuc-pham.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tao-thuc-pham',
@@ -19,7 +20,9 @@ export class TaoThucPhamComponent implements OnInit {
   
   constructor(private fb: FormBuilder,
     private router: Router,
+    private titleService: Title,
     private thucPhamService: ThucPhamService) {
+      this.titleService.setTitle('Thêm thực phẩm');
       this.createForm = this.fb.group(
         {
           tenThucPham: [{ value: '', disabled: false }, [Validators.required]],

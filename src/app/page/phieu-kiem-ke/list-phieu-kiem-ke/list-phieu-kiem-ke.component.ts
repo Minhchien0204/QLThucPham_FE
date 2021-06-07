@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PhieuKiemKeService } from 'src/app/services/phieu-kiem-ke.service';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-list-phieu-kiem-ke',
@@ -29,8 +31,11 @@ export class ListPhieuKiemKeComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private router: Router,
+    private titleService: Title,
+
     private phieuKiemKeService: PhieuKiemKeService
   ) { 
+    this.titleService.setTitle('Danh sách phiếu kiểm kê');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

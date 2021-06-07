@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {LopService} from '../../../services/lop.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-lop',
@@ -28,8 +29,10 @@ export class ListLopComponent implements OnInit {
   }
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private lopService: LopService,
+    private titleService: Title,
     private router: Router) {
     if (this.router.getCurrentNavigation()?.extras.state) {
+      this.titleService.setTitle('Danh sách lớp');
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;
       this.alerMsg['contentMsg'] = this.router.getCurrentNavigation()?.extras.state?.contentMsg;

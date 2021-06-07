@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -19,11 +20,13 @@ export class LoginPageComponent implements OnInit {
   role! : string;
 
   constructor(
+    private titleService: Title,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService
   ) { 
+    this.titleService.setTitle('Login');
     // chuyem den trang neu da dang nhap
     var role = this.authenticationService.userValue.role;
     if( this.authenticationService.userValue && role == 'Admin')

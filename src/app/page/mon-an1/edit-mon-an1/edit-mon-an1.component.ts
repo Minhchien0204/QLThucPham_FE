@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyMonAn } from 'src/app/models/mon-an';
 import { MonAnService } from 'src/app/services/mon-an-service.service';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-mon-an1',
@@ -24,9 +25,12 @@ export class EditMonAn1Component implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private nhanVienService: NhanvienService,
+    private titleService: Title,
     private monAnService: MonAnService
   ) { 
-    this.editForm = this.fb.group(
+    this.titleService.setTitle('Sửa thông tin món ăn');
+    this.editForm = this
+    .fb.group(
       {
         maMonAn:  [{ value: '', disabled: true }, [Validators.required]],
         tenMonAn: [{ value: '', disabled: false }, [Validators.required]],

@@ -5,6 +5,7 @@ import { bodyChiTietGiao } from 'src/app/models/chi-tiet-giao';
 import { ChiTietGiaoService } from 'src/app/services/chi-tiet-giao.service';
 import { NhaCungCapService } from 'src/app/services/nha-cung-cap.service';
 import { ThucPhamService } from 'src/app/services/thuc-pham.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-chi-tiet-giao',
@@ -25,10 +26,12 @@ export class AddChiTietGiaoComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private thucPhamService: ThucPhamService,
+    private titleService: Title,
     private chiTietGiaoService: ChiTietGiaoService,
     private activeRoute: ActivatedRoute,
     private nhaCungCapService: NhaCungCapService
   ) {
+    this.titleService.setTitle('Thêm chi tiết giao');
     this.createForm = this.fb.group(
       {
         soPhieuGiao: [{value: '', disabled: true}, [Validators.required]],

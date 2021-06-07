@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { bodyNhaCungCap } from 'src/app/models/nha-cung-cap';
 import { NhaCungCapService } from 'src/app/services/nha-cung-cap.service';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-add-nha-cung-cap',
@@ -18,9 +20,11 @@ export class AddNhaCungCapComponent implements OnInit {
   }
   constructor(
     private fb: FormBuilder,
+    private titleService: Title,
     private router: Router,
     private nhaCungCapService: NhaCungCapService
   ) { 
+    this.titleService.setTitle('Thêm nhà cung cấp');
     this.createForm = this.fb.group(
       {
         maNhaCungCap: [{value: '',disabled: false}],

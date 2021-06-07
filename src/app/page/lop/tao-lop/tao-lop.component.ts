@@ -5,6 +5,7 @@ import {bodyLop} from '../../../models/lop';
 // import {bodyGiaoVien} from '../../../models/giao-vien';
 import {LopService} from '../../../services/lop.service';
 import {GiaoVienService} from '../../../services/giao-vien.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tao-lop',
@@ -24,7 +25,9 @@ export class TaoLopComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private lopService: LopService,
+    private titleService: Title,
     private giaoVienService: GiaoVienService) {
+      this.titleService.setTitle('Thêm lớp');
       this.createForm = this.fb.group(
         {
           maLop: [{ value: '', disabled: false }, [Validators.required]],

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { bodyUser } from 'src/app/models/user-detail';
+import { Title } from '@angular/platform-browser';
 
 
 
@@ -22,9 +23,11 @@ export class EditUserComponent implements OnInit {
   constructor(
           private fb: FormBuilder,
           private activeRoute: ActivatedRoute,
+          private titleService: Title,
           private router: Router,
           private userService: UserService
     ) { 
+      this.titleService.setTitle('Sửa người dùng');
         this.editForm = this.fb.group(
           {
             userName:[{value: '', disabled: false}, [Validators.required]],

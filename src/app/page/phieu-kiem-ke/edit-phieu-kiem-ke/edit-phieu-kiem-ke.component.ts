@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyPhieuKiemKe } from 'src/app/models/phieu-kiem-ke';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
 import { PhieuKiemKeService } from 'src/app/services/phieu-kiem-ke.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-phieu-kiem-ke',
@@ -22,10 +23,12 @@ export class EditPhieuKiemKeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private router: Router,
     private nhanVienService: NhanvienService,
     private phieuKiemKeService: PhieuKiemKeService
   ) { 
+    this.titleService.setTitle('Sửa phiếu kiểm kê');
     this.editForm = this.fb.group(
       {
         soPhieuKiemKe:  [{ value: '', disabled: true }, [Validators.required]],

@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {NhanvienService} from '../../../services/nhanvien.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-nhan-vien',
@@ -27,7 +28,9 @@ export class ListNhanVienComponent implements OnInit  {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor( private nhanVienService: NhanvienService,
+    private titleService: Title,
     private router: Router ) { 
+      this.titleService.setTitle('Danh sách nhân viên');
       if (this.router.getCurrentNavigation()?.extras.state) {
         this.alerMsg['showMsg'] = true;
         this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

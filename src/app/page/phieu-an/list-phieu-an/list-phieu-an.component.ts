@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PhieuAn, PhieuAnUpdate } from 'src/app/models/phieu-an';
 import { PhieuAnService } from 'src/app/services/phieu-an.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-phieu-an',
@@ -33,8 +34,10 @@ export class ListPhieuAnComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private router: Router,
+    private titleService: Title,
     private phieuAnService: PhieuAnService
   ) { 
+    this.titleService.setTitle('Danh sách phiếu ăn');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;

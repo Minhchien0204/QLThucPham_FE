@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { bodyNhaCungCap } from 'src/app/models/nha-cung-cap';
 import { NhaCungCapService } from 'src/app/services/nha-cung-cap.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-nha-cung-cap',
@@ -20,9 +21,11 @@ export class EditNhaCungCapComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private titleService: Title,
     private nhaCungCapService: NhaCungCapService,
     private activeRote:ActivatedRoute
   ) { 
+    this.titleService.setTitle('Sửa nhà cung cấp');
     this.editForm = this.fb.group({
       maNhaCungCap: [{value: '', disabled: true}, [Validators.required]],
       tenNhaCungCap: [{value: '', disabled: false}, [Validators.required]],

@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import {bodyThucPham} from '../../../models/thuc-pham';
 import {ThucPhamService} from '../../../services/thuc-pham.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-thuc-pham',
@@ -19,8 +20,10 @@ export class EditThucPhamComponent implements OnInit {
   thucPhamObject = Object.assign({}, bodyThucPham);
   constructor(private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private router: Router,
     private thucPhamService: ThucPhamService) {
+      this.titleService.setTitle('Sửa thực phẩm');
       this.editForm=this.fb.group(
         {
           tenThucPham: [{ value: '', disabled: false }, [Validators.required]],

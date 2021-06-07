@@ -5,6 +5,7 @@ import { bodyChiTietCungCap } from 'src/app/models/chi-tiet-cung-cap';
 import { ChiTietCungCapService } from 'src/app/services/chi-tiet-cung-cap.service';
 import { NhaCungCapService } from 'src/app/services/nha-cung-cap.service';
 import { ThucPhamService } from 'src/app/services/thuc-pham.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-chi-tiet-cung-cap',
@@ -24,11 +25,13 @@ export class AddChiTietCungCapComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private titleService: Title,
     private thucPhamService: ThucPhamService,
     private chiTietCungCapService: ChiTietCungCapService,
     private activeRoute: ActivatedRoute,
     private nhaCungCapService: NhaCungCapService
   ) {
+    this.titleService.setTitle('Thêm chi tiết cung cấp');
     this.createForm = this.fb.group(
       {
         soPhieuCugCap: [{value: '', disabled: true}, [Validators.required]],

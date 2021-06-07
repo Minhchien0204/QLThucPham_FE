@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChiTietBanGiaoService } from 'src/app/services/chi-tiet-ban-giao.service';
 import { PhieuBanGiaoService } from 'src/app/services/phieu-ban-giao.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-chi-tiet-ban-giao-of',
@@ -30,10 +31,12 @@ export class ListChiTietBanGiaoOfComponent implements OnInit {
   soPhieuBanGiao: string = ""
   constructor(
     private phieuBanGiaoService: PhieuBanGiaoService,
+    private titleService: Title,
     private router: Router,
     private activeRoute: ActivatedRoute ,
     private chiTietBanGiaoService: ChiTietBanGiaoService
   ) { 
+    this.titleService.setTitle('Chi tiết bàn giao');
     this.activeRoute.params.subscribe((param) => {
       this.soPhieuBanGiao = param['id'];
     })

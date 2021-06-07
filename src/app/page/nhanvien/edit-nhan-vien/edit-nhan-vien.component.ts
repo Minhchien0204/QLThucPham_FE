@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import {bodyNhanVien} from '../../../models/nhan-vien';
 import {NhanvienService} from '../../../services/nhanvien.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-nhan-vien',
@@ -20,8 +21,10 @@ export class EditNhanVienComponent implements OnInit {
   nhanVien = Object.assign({}, bodyNhanVien);
   constructor(private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private router: Router,
     private nhanVienService: NhanvienService) { 
+      this.titleService.setTitle('Sửa nhân viên');
     this.createForm=this.fb.group(
       {
         maNhanVien: [{ value: '', disabled: true }, [Validators.required]],

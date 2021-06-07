@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyPhieuAn } from 'src/app/models/phieu-an';
 import { GiaoVienService } from 'src/app/services/giao-vien.service';
 import { PhieuAnService } from 'src/app/services/phieu-an.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-phieu-an',
@@ -23,8 +24,11 @@ export class AddPhieuAnComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private phieuAnService: PhieuAnService,
+    private titleService: Title,
+
     private giaoVienService: GiaoVienService
   ) { 
+    this.titleService.setTitle('Thêm phiếu ăn');
     this.createForm = this.fb.group(
       {
         maGV: [{ value: '', disabled: false }],

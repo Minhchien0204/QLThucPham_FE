@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { bodyPhieuCungCap } from 'src/app/models/phieu-cung-cap';
 import { NhanvienService } from 'src/app/services/nhanvien.service';
 import { PhieuCungCapService } from 'src/app/services/phieu-cung-cap.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-phieu-cung-cap',
@@ -24,8 +25,10 @@ export class EditPhieuCungCapComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private router: Router,
     private phieuCungCapService: PhieuCungCapService,
+    private titleService: Title,
     private nhanVienService: NhanvienService
   ) { 
+    this.titleService.setTitle('Sửa phiếu cung cấp');
     this.editForm = this.fb.group(
       {
         soPhieuCugCap:  [{ value: '', disabled: true }, [Validators.required]],

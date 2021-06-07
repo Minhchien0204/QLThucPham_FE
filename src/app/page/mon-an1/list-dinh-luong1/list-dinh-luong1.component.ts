@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MonAnService } from 'src/app/services/mon-an-service.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-list-dinh-luong1',
@@ -29,9 +30,11 @@ export class ListDinhLuong1Component implements OnInit {
   maMonAn: string = ""
   constructor(
     private monAnService: MonAnService,
+    private titleService: Title,
     private router: Router,
     private activeRoute: ActivatedRoute
   ) { 
+    this.titleService.setTitle('Danh sách định lượng món ăn');
     this.activeRoute.params.subscribe((param) => {
       this.maMonAn = param['id'];
     })
