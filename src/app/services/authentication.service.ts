@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
-const auth_API = 'https://localhost:44356/api/login/';
+const auth_API = environment.apiUrl + '/login';
 
 @Injectable({
   providedIn: 'root'
