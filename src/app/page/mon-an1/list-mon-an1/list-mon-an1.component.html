@@ -11,6 +11,13 @@
                 <h1><span mat-button class="parent-bread-crum" routerLink="/phieu-ban-giao">Món Ăn</span></h1>
             </div>
             <hr>
+            <div class="search-container">
+                <label>Tìm kiếm</label>
+                <mat-form-field class="input-tim-kiem">
+                    <input matInput (keyup)="applyFilter($event)" #input >
+                </mat-form-field>
+            </div>
+            <div class="clear"></div>
             <div class="data-table">
                 <table mat-table [dataSource]="dataSource">
                     <!--- Note that these columns can be defined in any order.
@@ -63,5 +70,6 @@
                 </div>
             </div>
         </div>
-        <app-footer></app-footer>
     </div>
+    <app-footer></app-footer>
+ </div>

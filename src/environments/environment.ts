@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.tranminhchien.me/api'
+  //apiUrl: 'https://api.tranminhchien.me/api'
+  apiUrl: 'https://localhost:44356/api'
 };
 
 /*
