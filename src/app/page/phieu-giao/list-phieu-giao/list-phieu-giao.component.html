@@ -40,9 +40,11 @@
                             </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <button class="icon-add" title="Them Chi Tiet Giao " routerLink="/phieu-giao/{{element.soPhieuGiao}}/chi-tiet-giao/create" mat-icon-button aria-label="Add CTG">
-                                        <mat-icon>playlist_add</mat-icon>
-                                    </button>
+                                    <div *ngIf="currentUser.role ==='Admin' || currentUser.role === 'ThucPham'">
+                                        <button class="icon-add" title="Them Chi Tiet Giao " routerLink="/phieu-giao/{{element.soPhieuGiao}}/chi-tiet-giao/create" mat-icon-button aria-label="Add CTG">
+                                            <mat-icon>playlist_add</mat-icon>
+                                        </button>
+                                    </div>
                                     <button class="icon-list" title="Danh sách Chi Tiet Giao " routerLink="/phieu-giao/{{element.soPhieuGiao}}/chi-tiet-giao" mat-icon-button aria-label="List CTG">
                                         <mat-icon>list_alt</mat-icon>
                                     </button>
@@ -65,7 +67,9 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/phieu-giao/create" mat-raised-button>Thêm Phiếu Giao</button>
+                    <div *ngIf="currentUser.role ==='Admin' || currentUser.role === 'ThucPham'">
+                        <button class="button-create" routerLink="/phieu-giao/create" mat-raised-button>Thêm Phiếu Giao</button>
+                    </div>
                 </div>
             </div>
         </div>

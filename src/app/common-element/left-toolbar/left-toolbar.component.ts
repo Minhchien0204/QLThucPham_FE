@@ -133,6 +133,7 @@ const TREE_DATA: MenuNode[] = [
 export class LeftToolbarComponent implements OnInit {
   menuGiaoVien: string[] = ['lop', 'phieu-bao-an'];
   menuNhaBep: string[] =  ['thuc-pham', 'mon-an', 'phieu-yeu-cau-thuc-pham', 'phieu-bao-an', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao', 'nha-cung-cap'];
+  menuThucPham: string[] =  ['thuc-pham', 'mon-an', 'phieu-yeu-cau-thuc-pham', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao', 'nha-cung-cap'];
   menuAdmin: string[] = ['user', 'nhan-vien','giao-vien','lop', 'hoc-sinh', 'mon-an', 'thuc-pham', 'phieu-yeu-cau-thuc-pham', 'phieu-bao-an', 'phieu-cung-cap', 'phieu-ban-giao', 'phieu-kiem-ke', 'phieu-giao','bo-phan', 'nha-cung-cap'];
   menuMain: string[];
   currentUser!: User
@@ -158,8 +159,10 @@ export class LeftToolbarComponent implements OnInit {
   getMenuFromRole(role: string) {
     if (role === 'GiaoVien') {
       return this.menuGiaoVien;
-    } else if (role === 'NhaBep' || role == 'ThucPham') {
+    } else if (role === 'NhaBep') {
       return this.menuNhaBep;
+    } else if(role === 'ThucPham') {
+      return this.menuThucPham;
     } else {
       return this.menuAdmin;
     }

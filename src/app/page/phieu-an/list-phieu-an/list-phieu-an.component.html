@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div *ngIf="column==='trangThai'">
-                                    <button mat-button color="primary" (click)="xacNhanPhieu(element.sophieuAn)" [disabled]="element.trangThai">{{ element[column]?'Đã Xác Nhận': 'Xác Nhận' }}</button>
+                                    <button mat-button color="primary" (click)="xacNhanPhieu(element.sophieuAn)" [disabled]="element.trangThai">{{ element[column]?'Đã Xác Nhận': ' Chưa Xác Nhận' }}</button>
                                 </div>
                             </div>
                             <div *ngIf="column==='chucNang'">
@@ -63,7 +63,9 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/phieu-bao-an/create" mat-raised-button>Thêm Phiếu Ăn</button>
+                    <div *ngIf="currentUser.role ==='Admin' || currentUser.role ==='GiaoVien'">
+                        <button class="button-create" routerLink="/phieu-bao-an/create" mat-raised-button>Thêm Phiếu Ăn</button>
+                    </div>
                 </div>
             </div>
         </div>

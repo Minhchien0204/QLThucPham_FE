@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { PhieuAn, PhieuAnUpdate } from 'src/app/models/phieu-an';
 import { PhieuAnService } from 'src/app/services/phieu-an.service';
 import { Title } from '@angular/platform-browser';
+import { User } from 'src/app/models/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-list-phieu-an',
@@ -31,18 +33,21 @@ export class ListPhieuAnComponent implements OnInit {
     "contentMsg": ''
   }
   phieuan1!: PhieuAnUpdate;
+  currentUser!: User;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private router: Router,
     private titleService: Title,
-    private phieuAnService: PhieuAnService
+    private phieuAnService: PhieuAnService,
+    private authenService: AuthenticationService
   ) { 
     this.titleService.setTitle('Danh sách phiếu ăn');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;
       this.alerMsg['contentMsg'] = this.router.getCurrentNavigation()?.extras.state?.contentMsg;
-    }
+    };
+    this.currentUser = this.authenService.userValue;
    }
 
   ngOnInit(): void {
@@ -88,22 +93,32 @@ export class ListPhieuAnComponent implements OnInit {
   }
 
   async deletePhieuAn(id: string) {
-    if(confirm("Bạn có chắc muốn delete ?")) {
-      const deletePhieuAn = this.phieuAnService.deletePhieuAn(id).toPromise().then(
-        () => {
-          this.alerMsg['showMsg'] = true;
-          this.alerMsg['typeMsg'] = 'success';
-          this.alerMsg['contentMsg'] = 'Delete success';
-        },
-        () => {
-          this.alerMsg['showMsg'] = true;
-          this.alerMsg['typeMsg'] = 'danger';
-          this.alerMsg['contentMsg'] = 'Delete failed!';
-        }
-      );
-  
-      await Promise.all([deletePhieuAn]);
-      this.ngOnInit();
+    if(this.currentUser.role != "Admin" && this.currentUser.role != "GiaoVien")
+    {
+      this.alerMsg['showMsg'] = true;
+      this.alerMsg['typeMsg'] = 'danger';
+      this.alerMsg['contentMsg'] = 'Không được phép xóa';
+    }
+    else{
+
+      if(confirm("Bạn có chắc muốn delete ?")) {
+        const deletePhieuAn = this.phieuAnService.deletePhieuAn(id).toPromise().then(
+          () => {
+            this.alerMsg['showMsg'] = true;
+            this.alerMsg['typeMsg'] = 'success';
+            this.alerMsg['contentMsg'] = 'Delete success';
+          },
+          () => {
+            this.alerMsg['showMsg'] = true;
+            this.alerMsg['typeMsg'] = 'danger';
+            this.alerMsg['contentMsg'] = 'Delete failed!';
+          }
+        );
+    
+        await Promise.all([deletePhieuAn]);
+        this.ngOnInit();
+      }
+      
     }
     
   }

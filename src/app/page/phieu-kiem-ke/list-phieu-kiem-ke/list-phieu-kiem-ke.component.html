@@ -40,9 +40,11 @@
                             </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <button class="icon-add" title="Them Chi Tiet Kiểm Kê " routerLink="/phieu-kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke/create" mat-icon-button aria-label="Add CTBG">
-                                        <mat-icon>playlist_add</mat-icon>
-                                    </button>
+                                    <div *ngIf="currentUser.role ==='Admin' || currentUser.role === 'NhaBep'">
+                                        <button class="icon-add" title="Them Chi Tiet Kiểm Kê " routerLink="/phieu-kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke/create" mat-icon-button aria-label="Add CTBG">
+                                            <mat-icon>playlist_add</mat-icon>
+                                        </button>
+                                    </div>
                                     <button class="icon-list" title="Danh sách Chi Tiet Kiem Ke " routerLink="/phieu-kiem-ke/{{element.soPhieuKiemKe}}/chi-tiet-kiem-ke" mat-icon-button aria-label="List CTBG">
                                         <mat-icon>list_alt</mat-icon>
                                     </button>
@@ -65,7 +67,9 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/phieu-kiem-ke/create" mat-raised-button>Thêm Phiếu Kiểm Kê</button>
+                    <div *ngIf="currentUser.role ==='Admin' || currentUser.role === 'NhaBep'">
+                        <button class="button-create" routerLink="/phieu-kiem-ke/create" mat-raised-button>Thêm Phiếu Kiểm Kê</button>
+                    </div>
                 </div>
             </div>
         </div>

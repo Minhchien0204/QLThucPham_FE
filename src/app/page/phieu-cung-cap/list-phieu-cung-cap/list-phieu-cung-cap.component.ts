@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { PhieuCungCapUpdate } from 'src/app/models/phieu-cung-cap';
 import { PhieuCungCapService } from 'src/app/services/phieu-cung-cap.service';
 import { Title } from '@angular/platform-browser';
+import { User } from 'src/app/models/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-list-phieu-cung-cap',
@@ -30,18 +32,21 @@ export class ListPhieuCungCapComponent implements OnInit {
     "contentMsg": ''
   };
   phieucungcap1!: PhieuCungCapUpdate;
+  currentUser!: User;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private router: Router,
     private titleService: Title,
-    private phieuCungCapService: PhieuCungCapService
+    private phieuCungCapService: PhieuCungCapService,
+    private authenService: AuthenticationService
   ) {
     this.titleService.setTitle('Danh sách phiếu cung cấp');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;
       this.alerMsg['contentMsg'] = this.router.getCurrentNavigation()?.extras.state?.contentMsg;
-    }
+    };
+    this.currentUser = this.authenService.userValue;
    }
 
   ngOnInit(): void {
@@ -49,23 +54,31 @@ export class ListPhieuCungCapComponent implements OnInit {
   }
 
   async xacNhanPhieu(id: string){
-    const get1 = this.phieuCungCapService.getByIdPhieuCungCap(id).toPromise().then(
-      (dataphieucungcap) => {
-        this.phieucungcap1 = dataphieucungcap;
-        this.phieucungcap1.trangThai = true;
-      }
-    );
-    await Promise.all([get1]);
-    console.log(this.phieucungcap1)
-    const get2 = this.phieuCungCapService.updateTrangThai(id,this.phieucungcap1).toPromise().then(
-      ()=>{
-        this.alerMsg['showMsg'] = true;
-        this.alerMsg['typeMsg'] = 'success';
-        this.alerMsg['contentMsg'] = 'success';
-      
-    });
-    await Promise.all([get2]);
-    this.ngOnInit();
+    if(this.currentUser.role != "Admin" && this.currentUser.role != "ThucPham")
+    {
+      this.alerMsg['showMsg'] = true;
+      this.alerMsg['typeMsg'] = 'danger';
+      this.alerMsg['contentMsg'] = 'Không được phép';
+    }
+    else{
+      const get1 = this.phieuCungCapService.getByIdPhieuCungCap(id).toPromise().then(
+        (dataphieucungcap) => {
+          this.phieucungcap1 = dataphieucungcap;
+          this.phieucungcap1.trangThai = true;
+        }
+      );
+      await Promise.all([get1]);
+      console.log(this.phieucungcap1)
+      const get2 = this.phieuCungCapService.updateTrangThai(id,this.phieucungcap1).toPromise().then(
+        ()=>{
+          this.alerMsg['showMsg'] = true;
+          this.alerMsg['typeMsg'] = 'success';
+          this.alerMsg['contentMsg'] = 'success';
+        
+      });
+      await Promise.all([get2]);
+      this.ngOnInit();
+    }
   }
 
   applyFilter(event: Event) {
@@ -93,23 +106,32 @@ export class ListPhieuCungCapComponent implements OnInit {
 
 
   async deletePhieuCungCap(id: string) {
-    if(confirm("Bạn có chắc muốn delete ?")) {
-      const deletePhieuCungCap = this.phieuCungCapService.deletePhieuCungCap(id).toPromise().then(
-        () => {
-          this.alerMsg['showMsg'] = true;
-          this.alerMsg['typeMsg'] = 'success';
-          this.alerMsg['contentMsg'] = 'Delete success';
-        },
-        () => {
-          this.alerMsg['showMsg'] = true;
-          this.alerMsg['typeMsg'] = 'danger';
-          this.alerMsg['contentMsg'] = 'Delete failed!';
-        }
-      );
-  
-      await Promise.all([deletePhieuCungCap]);
-      this.ngOnInit();
+    if(this.currentUser.role != "Admin" && this.currentUser.role != "ThucPham")
+    {
+      this.alerMsg['showMsg'] = true;
+      this.alerMsg['typeMsg'] = 'danger';
+      this.alerMsg['contentMsg'] = 'Không được phép xóa';
     }
+    else{
+      if(confirm("Bạn có chắc muốn delete ?")) {
+        const deletePhieuCungCap = this.phieuCungCapService.deletePhieuCungCap(id).toPromise().then(
+          () => {
+            this.alerMsg['showMsg'] = true;
+            this.alerMsg['typeMsg'] = 'success';
+            this.alerMsg['contentMsg'] = 'Delete success';
+          },
+          () => {
+            this.alerMsg['showMsg'] = true;
+            this.alerMsg['typeMsg'] = 'danger';
+            this.alerMsg['contentMsg'] = 'Delete failed!';
+          }
+        );
+    
+        await Promise.all([deletePhieuCungCap]);
+        this.ngOnInit();
+      }
+    }
+   
     
   }
 

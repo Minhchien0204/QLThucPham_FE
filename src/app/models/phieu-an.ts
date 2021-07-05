@@ -8,14 +8,6 @@ export class PhieuAn{
     ghiChu!: string;
 }
 
-export const bodyPhieuAn: {[index: string]:any} = {
-    "sophieuAn": "",
-    "maGV": "",
-    "ngayLap": "",
-    "soLuong": "",
-    "trangThai": "",
-    "ghiChu": "",
-}
 
 export class PhieuAnUpdate{
     sophieuAn!: string;
@@ -25,3 +17,12 @@ export class PhieuAnUpdate{
     trangThai!: boolean;
     ghiChu!: string;
 }
+
+
+export const bodyPhieuAn: {[index: string]: any} = {
+    "sophieuan": "",
+    "maGV": "",
+    "ngayLap": "",
+    "soLuong": "",
+    "ghiChu": "",
+} 

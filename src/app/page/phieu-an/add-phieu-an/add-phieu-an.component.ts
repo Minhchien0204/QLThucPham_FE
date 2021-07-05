@@ -22,23 +22,21 @@ export class AddPhieuAnComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private titleService: Title,
     private router: Router,
     private phieuAnService: PhieuAnService,
-    private titleService: Title,
-
     private giaoVienService: GiaoVienService
-  ) { 
-    this.titleService.setTitle('Thêm phiếu ăn');
+  ) {
+    this.titleService.setTitle('Thêm phiếu báo ăn');
     this.createForm = this.fb.group(
       {
         maGV: [{ value: '', disabled: false }],
         ngayLap: [{ value: '', disabled: false }, [Validators.required]],
         soLuong: [{ value: '', disabled: false }, [Validators.required]],
-        // trangThai: [{ value: '', disabled: false }, [Validators.required]],
         ghiChu: [{ value: '', disabled: false }],
       }
     );
-  }
+   }
 
   ngOnInit(): void {
     this.getListGiaoVien();
@@ -46,7 +44,7 @@ export class AddPhieuAnComponent implements OnInit {
 
   async getListGiaoVien() {
     const dataGet: any[] = [];
-    const getLop = this.giaoVienService.getListGiaoVien().toPromise().then(
+    const getGiaoVien = this.giaoVienService.getListGiaoVien().toPromise().then(
       async (dataResponse) => {
         dataResponse.map((giaovien) => {
           dataGet.push(giaovien)
@@ -56,9 +54,10 @@ export class AddPhieuAnComponent implements OnInit {
         // do notthing
       }
     );
-    await Promise.all([getLop]);
+    await Promise.all([getGiaoVien]);
     this.listGiaoVien = dataGet;
   }
+
 
   async addPhieuAn() {
     const phieuAn = Object.assign({}, bodyPhieuAn);
@@ -67,7 +66,6 @@ export class AddPhieuAnComponent implements OnInit {
     phieuAn.maGV = this.createForm.get("maGV")!.value;
     phieuAn.ngayLap = this.createForm.get("ngayLap")!.value;
     phieuAn.soLuong = this.createForm.get("soLuong")!.value;
-    // phieuAn.trangThai = JSON.parse(this.createForm.get("trangThai")!.value);
     phieuAn.ghiChu = this.createForm.get("ghiChu")!.value;
     console.log(phieuAn)
     if (this.createForm.valid) {
@@ -79,7 +77,7 @@ export class AddPhieuAnComponent implements OnInit {
       (error) => {
         this.alerMsg['showMsg'] = true;
         this.alerMsg['typeMsg'] = 'danger';
-        this.alerMsg['contentMsg'] = 'Failed update!';
+        this.alerMsg['contentMsg'] = 'Failed create!';
       });
       await Promise.all([postPhieuAn]);
     }

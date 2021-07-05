@@ -7,7 +7,7 @@
         <div class="right-content">
             <app-message-alert [alerMsg]="alerMsg"></app-message-alert>
             <div class="title">
-                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/phieu-bao-an">Phiếu Ăn</button> > <span class="child-bread-crum">Thêm Phiếu Báo Ăn</span></h1>
+                <h1><button mat-button class="parent-bread-crum parent-bread-crum-link" routerLink="/phieu-bao-an">Phiếu Báo Ăn</button> > <span class="child-bread-crum">Thêm Phiếu Báo Ăn</span></h1>
             </div>
             <hr>
             <div class="wrapper-form">
@@ -22,7 +22,7 @@
                         <div class="row-right">
                             <mat-form-field appearance="outline">
                                 <mat-select formControlName="maGV">
-                                    <mat-option value="null">--- Chọn giáo viên ---</mat-option>
+                                    <mat-option value="null">--- Chọn Giáo Viên ---</mat-option>
                                     <mat-option *ngFor="let giaovien of listGiaoVien" [value]="giaovien['maGV']">{{giaovien['name']}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
@@ -59,7 +59,8 @@
                         </div>
                     </div>
 
-                    <!-- Số Lượng -->
+
+                      <!-- Số Lượng -->
                     <div class="row-field">
                         <div class="row-left">
                             <mat-label class="form-label">Số Lượng</mat-label>
@@ -70,10 +71,9 @@
                             </mat-form-field>
                         </div>
                     </div>
-
                     <!-- validate Số Lượng -->
                     <div class="row-field" *ngIf="createForm.controls['soLuong'].invalid && (createForm.controls['soLuong'].dirty || 
-                                                    createForm.controls['soLuong'].touched)">
+                            createForm.controls['soLuong'].touched)">
                         <div class="row-left">
                         </div>
                         <div class="row-right">
@@ -85,34 +85,7 @@
                         </div>
                     </div>
 
-                    <!-- Trạng Thái -->
-                    <!-- <div class="row-field">
-                        <div class="row-left">
-                            <mat-label class="form-label">Trạng Thái</mat-label>
-                        </div>
-                        <div class="row-right">
-                            <mat-form-field appearance="outline">
-                                <mat-select formControlName="trangThai">
-                                    <mat-option value="true">Đã Xác Nhận</mat-option>
-                                    <mat-option value="false">Xác Nhận</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-                    </div> -->
-                    <!-- validate Trạng Thái -->
-                    <!-- <div class="row-field" *ngIf="createForm.controls['trangThai'].invalid && (createForm.controls['trangThai'].dirty || 
-                    createForm.controls['trangThai'].touched)">
-                        <div class="row-left">
-                        </div>
-                        <div class="row-right">
-                            <ng-container>
-                                <div class="errorValidator" *ngIf="createForm.hasError('required', 'trangThai')">
-                                    Data is required!
-                                </div>
-                            </ng-container>
-                        </div>
-                    </div> -->
-
+                    
                     <!-- Ghi Chú-->
                     <div class="row-field">
                         <div class="row-left">
@@ -124,7 +97,7 @@
                             </mat-form-field>
                         </div>
                     </div>
-                    <!-- validate ten nhan vien -->
+                    <!-- validate ghi chu -->
                     <div class="row-field" *ngIf="createForm.controls['ghiChu'].invalid && (createForm.controls['ghiChu'].dirty || 
                     createForm.controls['ghiChu'].touched)">
                         <div class="row-left">

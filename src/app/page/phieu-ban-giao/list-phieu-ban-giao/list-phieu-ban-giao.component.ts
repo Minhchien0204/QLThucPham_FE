@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PhieuBanGiaoService } from 'src/app/services/phieu-ban-giao.service';
 import { Title } from '@angular/platform-browser';
+import { User } from 'src/app/models/user';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-list-phieu-ban-giao',
@@ -29,17 +31,20 @@ export class ListPhieuBanGiaoComponent implements OnInit {
     "contentMsg": ''
   };
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  currentUser!: User;
   constructor(
     private router: Router,
     private titleService: Title,
-    private phieuBanGiaoService: PhieuBanGiaoService
+    private phieuBanGiaoService: PhieuBanGiaoService,
+    private authenService: AuthenticationService
   ) {
     this.titleService.setTitle('Danh sách phiếu bàn giao');
     if (this.router.getCurrentNavigation()?.extras.state) {
       this.alerMsg['showMsg'] = true;
       this.alerMsg['typeMsg'] = this.router.getCurrentNavigation()?.extras.state?.typeMsg;
       this.alerMsg['contentMsg'] = this.router.getCurrentNavigation()?.extras.state?.contentMsg;
-    }
+    };
+    this.currentUser = this.authenService.userValue;
    }
 
   ngOnInit(): void {
@@ -66,24 +71,33 @@ export class ListPhieuBanGiaoComponent implements OnInit {
   }
 
   async deletePhieuBanGiao(id: string) {
-    if(confirm("Bạn có chắc muốn delete ?")) {
-      const deletePhieuBanGiao = this.phieuBanGiaoService.deletePhieuBanGiao(id).toPromise().then(
-        () => {
-          this.alerMsg['showMsg'] = true;
-          this.alerMsg['typeMsg'] = 'success';
-          this.alerMsg['contentMsg'] = 'Delete success';
-        },
-        () => {
-          this.alerMsg['showMsg'] = true;
-          this.alerMsg['typeMsg'] = 'danger';
-          this.alerMsg['contentMsg'] = 'Delete failed!';
-        }
-      );
-  
-      await Promise.all([deletePhieuBanGiao]);
-      this.ngOnInit();
+    if(this.currentUser.role != "Admin" && this.currentUser.role != "ThucPham")
+    {
+      this.alerMsg['showMsg'] = true;
+      this.alerMsg['typeMsg'] = 'danger';
+      this.alerMsg['contentMsg'] = 'Không được phép xóa';
     }
+    else{
+      if(confirm("Bạn có chắc muốn delete ?")) {
+        const deletePhieuBanGiao = this.phieuBanGiaoService.deletePhieuBanGiao(id).toPromise().then(
+          () => {
+            this.alerMsg['showMsg'] = true;
+            this.alerMsg['typeMsg'] = 'success';
+            this.alerMsg['contentMsg'] = 'Delete success';
+          },
+          () => {
+            this.alerMsg['showMsg'] = true;
+            this.alerMsg['typeMsg'] = 'danger';
+            this.alerMsg['contentMsg'] = 'Delete failed!';
+          }
+        );
     
+        await Promise.all([deletePhieuBanGiao]);
+        this.ngOnInit();
+      }
+      
+    }
+   
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

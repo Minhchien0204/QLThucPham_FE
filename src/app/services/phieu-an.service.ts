@@ -12,7 +12,7 @@ export class PhieuAnService {
 
   constructor(private http: HttpClient) { }
 
-  public addPhieuAn(body: {[index: string]: any}) {
+  public addPhieuAn(body: {[index: string]: any}){
     return this.http.post(this.api, body);
   }
 

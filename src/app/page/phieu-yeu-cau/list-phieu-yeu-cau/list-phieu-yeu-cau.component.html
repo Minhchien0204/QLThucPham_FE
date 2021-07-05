@@ -40,14 +40,16 @@
                                     </div>
                                 </div>
                                 <div *ngIf="column==='trangThai'">
-                                    <button mat-button color="primary" (click)="xacNhanPhieu(element.soPhieuYeuCau)" [disabled]="element.trangThai">{{ element[column]?'Đã Xác Nhận': 'Xác Nhận' }}</button>
+                                    <button mat-button color="primary" (click)="xacNhanPhieu(element.soPhieuYeuCau)" [disabled]="element.trangThai">{{ element[column]?'Đã Xác Nhận': 'Chưa Xác Nhận' }}</button>
                                 </div>
                             </div>
                             <div *ngIf="column==='chucNang'">
                                 <div class="content-table eexample-flex-container">
-                                    <button class="icon-add" title="Them Chi Tiet Yeu Cau " routerLink="/phieu-yeu-cau-thuc-pham/{{element.soPhieuYeuCau}}/chi-tiet-yeu-cau/create" mat-icon-button aria-label="Add CTYC">
-                                        <mat-icon>playlist_add</mat-icon>
-                                    </button>
+                                    <div *ngIf="currentUser.role ==='Admin' || currentUser.role === 'NhaBep'">
+                                        <button class="icon-add" title="Them Chi Tiet Yeu Cau " routerLink="/phieu-yeu-cau-thuc-pham/{{element.soPhieuYeuCau}}/chi-tiet-yeu-cau/create" mat-icon-button aria-label="Add CTYC">
+                                            <mat-icon>playlist_add</mat-icon>
+                                        </button>
+                                    </div>
                                     <button class="icon-list" title="Danh sách Chi Tiet Yeu Cau " routerLink="/phieu-yeu-cau-thuc-pham/{{element.soPhieuYeuCau}}/chi-tiet-yeu-cau" mat-icon-button aria-label="List CTYC">
                                         <mat-icon>list_alt</mat-icon>
                                     </button>
@@ -70,7 +72,9 @@
             </div>
             <div class="element-action">
                 <div class="example-button-row">
-                    <button class="button-create" routerLink="/phieu-yeu-cau-thuc-pham/create" mat-raised-button>Thêm Phiếu Yêu Cầu Thực Phẩm</button>
+                    <div *ngIf="currentUser.role ==='Admin' || currentUser.role === 'NhaBep'">
+                        <button class="button-create" routerLink="/phieu-yeu-cau-thuc-pham/create" mat-raised-button>Thêm Phiếu Yêu Cầu Thực Phẩm</button>
+                    </div>
                 </div>
             </div>
         </div>
